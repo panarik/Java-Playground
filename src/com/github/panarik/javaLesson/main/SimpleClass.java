@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson;
+package com.github.panarik.javaLesson.main;
 
 public class SimpleClass {
 
