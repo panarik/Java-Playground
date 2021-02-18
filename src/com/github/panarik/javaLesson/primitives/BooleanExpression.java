@@ -54,7 +54,7 @@ public class BooleanExpression {
     private static boolean boolianExpression(boolean a, boolean b, boolean c, boolean d) {
 
         /*Шаг 4. Для всех MUST BE TRUE вариантов пишем формулу возвращающую TRUE:
-        Пример 1:
+        Пример:
           - Набор: TTFF
           - формула: (a & b & (!c) & (!d))
           - описание: переменные, которые на входе FALSE мы переводим в TRUE c помощью (!)
@@ -62,11 +62,24 @@ public class BooleanExpression {
 
 
         /* Шаг 5. Все MUST BE TRUE варианты проверяем на методе boolianExpression()
+          - Проверенные result записываем в общую формулу, разделяем их (||)
         */
 
-        /* Проверенные result записываем в общую формулу, разделяем их (^)
+        /* Должны получится такие формулы:
+        1. TTFF: ((a) & (b) & (!c) & (!d))
+        2. TFTF: ((a) & (!b) & (c) & (!d))
+        3. TFFT: ((a) & (!b) & (!c) & (d))
+        4. FTTF: ((!a) & (b) & (c) & (!d))
+        5. FTFT: ((!a) & (b) & (!c) & (d))
+        6. FFTT: ((!a) & (!b) & (c) & (d))
         */
-        boolean result = (a & b & (!c) & (!d));
+
+        /*
+        ИТОГО: TTFF: ((a) & (b) & (!c) & (!d)) || ((a) & (!b) & (c) & (!d)) || ((a) & (!b) & (!c) & (d)) || ((!a) & (b) & (c) & (!d)) || ((!a) & (b) & (!c) & (d)) || ((!a) & (!b) & (c) & (d))
+         */
+
+
+        boolean result = ((a) & (b) & (!c) & (!d)) || ((a) & (!b) & (c) & (!d)) || ((a) & (!b) & (!c) & (d)) || ((!a) & (b) & (c) & (!d)) || ((!a) & (b) & (!c) & (d)) || ((!a) & (!b) & (c) & (d));
 
         /*
             != - отрицание
