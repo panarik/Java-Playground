@@ -37,9 +37,9 @@ public class IntExpression {
 
         System.out.println("Шаг 2.2. Пример (64год) формулы вычитания годов кратных 100");
         quantity100 = endYear64/100;
-        System.out.println("Шаг 2.2. Если сейчас 1-ый год, то количество лет кратных 100 = "+quantity100);
+        System.out.println("Шаг 2.2. Если сейчас 64-ый год, то количество лет кратных 100 = "+quantity100);
         int quantity64_minus_quantity100 = quantity1 - quantity100;
-        System.out.println("Шаг 2.2. Если до 1-го года, то количество високосных лет минус количетсво лет кратных 100 = "+quantity1_minus_quantity100);
+        System.out.println("Шаг 2.2. Если до 64-го года, то количество високосных лет минус количетсво лет кратных 100 = "+quantity64_minus_quantity100);
 
 
 
