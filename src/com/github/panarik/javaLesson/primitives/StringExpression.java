@@ -4,17 +4,22 @@ public class StringExpression {
 
     public static void main(String[] args) {
 
-        String s = "String one with " + "String two";
-        System.out.println(s);
+
+        //String + String
+        System.out.println("String one with " + "String two");
 
         String s1 = "s1";
         String s2 = "s2";
-        String s3 = s1 + " " + s2;
-        System.out.println(s3);
+        System.out.println(s1 + " " + s2);
 
-        int a = 333;
-        String stringCompare2 = "String with int " + a;
-        System.out.println(stringCompare2);
+
+        //String + Int
+        int a = 1;
+        System.out.println("String with int " + a);
+
+        System.out.println("1" + (1+3) );
+
+
     }
 
 }
