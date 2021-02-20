@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.main;
+package com.github.panarik.javaLesson.method;
 
 public class WithMethodClass {
 
@@ -11,6 +11,12 @@ public class WithMethodClass {
         //ставим в параметр метода данные и получаем результат
         System.out.println(scr(5));
 
+
+        //Вызываем метод передавая ему в качестве параметра строку
+        string("Java is easy to learn!");
+        string("Java is object-oriented!");
+        string("Java is platform-independent!");
+
     }
 
 
@@ -18,9 +24,16 @@ public class WithMethodClass {
         return 3.14;
     }
 
-
     public static int scr(int a) { // в параметре создаём переменную
         return a*a; //выводим результат вычислений
+    }
+
+    public static void string (String text) {
+
+        System.out.println(text);
+        System.out.println(text);
+        System.out.println(text);
+        System.out.println(text);
     }
 
 
