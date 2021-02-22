@@ -17,6 +17,9 @@ public class WithMethodClass {
         string("Java is object-oriented!");
         string("Java is platform-independent!");
 
+        //вызываем метод c внутренней логикой и выводом результата на экран
+        printLength(5);
+
     }
 
 
@@ -35,6 +38,15 @@ public class WithMethodClass {
         System.out.println(text);
         System.out.println(text);
     }
+
+    public static void printLength(int radius){
+
+        double pi = 3.14;
+        double l = 2 * pi * radius;
+        System.out.println("При радиусе = "+radius+", длина окружности = "+l);
+
+
+    };
 
 
 
