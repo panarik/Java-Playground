@@ -1,6 +1,6 @@
 package com.github.panarik.javaLesson.method;
 
-public class WithMethodClass {
+public class CallMethod {
 
 
     public static void main(String[] args) {
