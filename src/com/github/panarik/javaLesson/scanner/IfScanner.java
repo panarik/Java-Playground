@@ -12,6 +12,7 @@ public class IfScanner {
         System.out.println("1. Сложение");
         System.out.println("2. Вычитание");
         System.out.println("3. Умножение");
+        System.out.println("4. Деление");
         int operator = scanner.nextInt();
 
         System.out.println("\nВведите первое число...");
@@ -27,11 +28,12 @@ public class IfScanner {
             result = a - b;
         else if (operator == 3)
             result = a * b;
+        else if (operator == 4)
+            result = a / b;
         else
             System.out.println("Данный вариант не обрабатывается.");
 
-        System.out.println("result = "+result);
-
+        System.out.println("result = " + result);
 
 
     }
