@@ -91,7 +91,7 @@ public class BooleanExpression {
             != - отрицание
             && - И
             || - ИЛИ
-            ^ - исключающее или
+            ^ - исключающее или. Пример:
         */
 
         return (result);
