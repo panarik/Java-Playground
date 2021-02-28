@@ -3,6 +3,7 @@ package com.github.panarik.javaLesson.window.swing;
 import javax.swing.*;
 import java.awt.*;
 
+//
 public class WindowGame extends JFrame {
 
     private static WindowGame window_game;
