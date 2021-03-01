@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.primitives;
+package com.github.panarik.javaLesson.values.links;
 
 public class StringExpression {
 

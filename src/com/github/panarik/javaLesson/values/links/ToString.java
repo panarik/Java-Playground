@@ -1,6 +1,4 @@
-package com.github.panarik.javaLesson.primitives;
-
-import com.github.panarik.javaLesson.objects.PetsClass;
+package com.github.panarik.javaLesson.values.links;
 
 public class ToString {
 

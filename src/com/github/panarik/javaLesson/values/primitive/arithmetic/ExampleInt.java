@@ -1,6 +1,6 @@
-package com.github.panarik.javaLesson.primitives;
+package com.github.panarik.javaLesson.values.primitive.arithmetic;
 
-public class IntExpression {
+public class ExampleInt {
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.primitives.access;
+package com.github.panarik.javaLesson.values.links.access;
 
 public class LinkOnPrimitive {
 

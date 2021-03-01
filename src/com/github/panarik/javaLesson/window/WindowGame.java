@@ -54,12 +54,13 @@ public class WindowGame extends JFrame {
         last_frame_time = current_time; //обновляем время предыдущего кадра, чтобы корректно считалась разница
 
         //в цикл добавляем изменения координат капли исходя из:
-        drop_top = drop_top + drop_v * delta_time;
+        drop_top = drop_top + drop_v * delta_time / 2;
+        drop_left = drop_top + drop_v * delta_time / 2;
 
         //добавляем к объекту растровые картинки
         g.drawImage(background, 0, 0, null);
 //        g.drawImage(game_over, 0, 0, null);
-        g.drawImage(drop, (int)drop_left, (int)drop_top, null);
+        g.drawImage(drop, (int) drop_left, (int) drop_top, null);
         //добавляем к объекту векторную графику
 //        g.fillOval(10, 10, 200, 100);
         //бобавляем лог для дебага
