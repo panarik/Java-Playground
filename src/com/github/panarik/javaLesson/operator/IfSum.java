@@ -11,10 +11,7 @@ public class IfSum {
     }
 
     private static boolean if10to20(int a, int b) {
-        if ((a + b >= 10) & (a + b <= 20))
-            result = true;
-        else
-            result = false;
+        result = (a + b >= 10) & (a + b <= 20);
         return result;
     }
 
