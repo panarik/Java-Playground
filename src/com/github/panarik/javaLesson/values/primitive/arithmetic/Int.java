@@ -19,12 +19,23 @@ public class Int {
         int b = 3;
         System.out.println("Остаток от деления " + a + " и " + b + " = " + (a % b));
 
-
+        //условие деления с остатком и без остатка
+        ifLeapYear(1600);
     }
 
     private static float arithmeticCalc(float a, float b, float c, float d){
         result = a * (b + (c / d));
         return result;
+    }
+
+    public static void ifLeapYear(int year) {
+        if ((year % 4 != 0) //не кратно 4
+                & (year % 400 != 0) //не кратно 400
+                || (year % 100 == 0) //кратно 100
+        )
+            System.out.println("год "+year+" - НЕ високосный");
+        else
+            System.out.println("год "+year+" - високосный");
     }
 
 }
