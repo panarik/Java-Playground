@@ -20,6 +20,8 @@ public class CallMethod {
         //вызываем метод c внутренней логикой и выводом результата на экран
         printLength(5);
 
+        //Выводим в методе имя
+        printName("Афанасий");
     }
 
 
@@ -44,6 +46,10 @@ public class CallMethod {
         double pi = 3.14;
         double l = 2 * pi * radius;
         System.out.println("При радиусе = "+radius+", длина окружности = "+l);
+    }
+
+    public static void printName(String name) {
+        System.out.println("Привет, "+name+"!");
     }
 
 
