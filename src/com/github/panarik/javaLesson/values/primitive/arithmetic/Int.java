@@ -11,6 +11,9 @@ public class Int {
         arithmeticCalc(10, 20, 30, 40);
         System.out.println("result = "+result);
 
+        //умножение
+        System.out.println(3 + 4 * (5 + 6 * 7));
+
         //деление с остатком
         int a = 10;
         int b = 3;

@@ -44,9 +44,9 @@ public class CallMethod {
         double pi = 3.14;
         double l = 2 * pi * radius;
         System.out.println("При радиусе = "+radius+", длина окружности = "+l);
-
-
     }
+
+
 
 
 
