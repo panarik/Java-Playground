@@ -32,7 +32,6 @@ public class CallMethod {
     }
 
     public static void string (String text) {
-
         System.out.println(text);
         System.out.println(text);
         System.out.println(text);
@@ -40,13 +39,12 @@ public class CallMethod {
     }
 
     public static void printLength(int radius){
-
         double pi = 3.14;
         double l = 2 * pi * radius;
         System.out.println("При радиусе = "+radius+", длина окружности = "+l);
-
-
     }
+
+
 
 
 

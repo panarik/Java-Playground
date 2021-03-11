@@ -4,6 +4,7 @@ public class ToString {
 
     public static void main(String[] args) {
 
+
         //1 вариант
         MyClass one = new MyClass("Vaska");
         System.out.println("MyClass object field is - "+one);
@@ -16,6 +17,8 @@ public class ToString {
         MyClass one3 = new MyClass("Vaska");
         String one3Text = one3.toString();
         System.out.println("MyClass object field is - " + one3Text);
+
+
 
     }
 
