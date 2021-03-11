@@ -8,16 +8,21 @@ public class LinkOnPrimitive {
         int n = 6;
 
         //Выводим значения переменных
-        System.out.println("m = "+m);
-        System.out.println("n = "+n);
+        System.out.println("m = " + m);
+        System.out.println("n = " + n);
 
         //пытаемся поменять значения пемеменных местами
         swap(m, n);
 
         //выводим повторно значения переменных
-        System.out.println("m = "+m);
-        System.out.println("n = "+n);
+        System.out.println("m = " + m);
+        System.out.println("n = " + n);
 
+        //конкотенация. Если одной строкой то все int преобразуются в строку
+        System.out.println("2 + 1 = " + 1 + 2);
+
+        //Конкотенация. Если в скобках, то сначала выполняем сложение
+        System.out.println("2 + 1 = " + (1 + 2));
 
 
     }
