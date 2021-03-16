@@ -1,8 +1,8 @@
-package com.github.panarik.javaLesson.operator;
+package com.github.panarik.javaLesson.operator.operatorWhile;
 
 import java.util.Scanner;
 
-public class While {
+public class WhileInfinite {
 
     private static Scanner scanner = new Scanner(System.in);
 
