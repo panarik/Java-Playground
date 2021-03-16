@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.operator;
+package com.github.panarik.javaLesson.operator.operatorSwitch;
 
 public class SwitchSimple {
 

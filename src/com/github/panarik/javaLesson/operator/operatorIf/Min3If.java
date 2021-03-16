@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.operator;
+package com.github.panarik.javaLesson.operator.operatorIf;
 
 public class Min3If {
 
