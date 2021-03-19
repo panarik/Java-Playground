@@ -1,9 +1,8 @@
-package com.github.panarik.javaLesson.task2;
+package com.github.panarik.javaLesson.work2.task1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class SolutionOne {
+public class Solution {
 
     /*
      * 1. Задать целочисленный массив, состоящий из элементов 0 и 1.

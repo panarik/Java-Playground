@@ -1,8 +1,8 @@
-package com.github.panarik.javaLesson.task2;
+package com.github.panarik.javaLesson.work2.task2;
 
 import java.util.Arrays;
 
-public class SolutionTwo {
+public class Solution {
 
     /*
      * 2. Задать пустой целочисленный массив размером 8.

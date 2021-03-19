@@ -1,8 +1,8 @@
-package com.github.panarik.javaLesson.task2;
+package com.github.panarik.javaLesson.work2.task3;
 
 import java.util.Arrays;
 
-public class SolutionThree {
+public class Solution {
 
     /*
      * 3. Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ],

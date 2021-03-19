@@ -1,8 +1,6 @@
-package com.github.panarik.javaLesson.task2;
+package com.github.panarik.javaLesson.work2.task4;
 
-import java.util.Arrays;
-
-public class SolutionFour {
+public class Solution {
 
     /*
      *  4. Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое)
