@@ -29,6 +29,11 @@ public class Solution {
 
         System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
         int input_number_again = scanner.nextInt();
+        if (input_number_again == 1) {
+            gameStart = true;
+            gamePlay();
+        } else System.out.println("ок, тогда затыкаюсь.");
+
         scanner.close(); //в конце игры освобождаем ресурсы взятые сканнером
     }
 
