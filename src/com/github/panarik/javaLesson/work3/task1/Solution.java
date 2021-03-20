@@ -11,15 +11,29 @@ public class Solution {
      */
 
     private static Scanner scanner = new Scanner(System.in);
+    //конфиг игры
+    private static boolean gameStart = true; //играем или нет
+    private static int range = 9; // загадываем число от 0 до 9
+    private static boolean gameWin = false; //игра выиграна или нет
+
 
     public static void main(String[] args) {
 
+        gamePlay();
 
-        //конфиг игры
-        boolean gameStart = true; //играем или нет
-        int range = 9; // загадываем число от 0 до 9
-        boolean gameWin = false; //игра выиграна или нет
 
+        //после окончания игры
+        if (gameWin == true) {
+            System.out.println("Вы выиграли :)");
+        } else System.out.println("Вы проиграли :(");
+
+        System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+        int input_number_again = scanner.nextInt();
+        scanner.close(); //в конце игры освобождаем ресурсы взятые сканнером
+    }
+
+
+    private static void gamePlay() {
         //управление игрой
         while (gameStart) {
             if (gameStart = true) {
@@ -39,35 +53,21 @@ public class Solution {
                         break; //только после правильного ответа цикл завершается
                     } else if (input_number < number & input_number * 2 >= number) {
                         System.out.println("Неправильно. Загаданное число немного больше.");
+                        gameWin = false;
                     } else if (input_number * 2 < number) {
                         System.out.println("Неправильно. Загаданное число гораздо больше.");
+                        gameWin = false;
                     } else if (input_number > number & input_number / 2 <= number) {
                         System.out.println("Неправильно. Загаданное немного меньше.");
+                        gameWin = false;
                     } else if (input_number / 2 > number) {
                         System.out.println("Неправильно. Загаданное гораздо меньше.");
+                        gameWin = false;
                     }
                 }
                 gameStart = false;
-                gameWin = false;
 
             }
-        }
-
-        //после окончания игры
-        if (gameWin == true) {
-            System.out.println("Вы выиграли :)");
-        } else System.out.println("Вы проиграли :(");
-
-
-        scanner.close(); //в конце игры освобождаем ресурсы взятые сканнером
-    }
-
-    private static void playLevel(int range) {
-
-
-        while (true) { //запускаем цикл while (бесконечный т.к. в параметре всегда TRUE)
-
-
         }
 
     }
