@@ -32,11 +32,18 @@ public class Solution {
             if (checkWin(DOT_HUMAN)) { //проверка выигрыша игроком
                 System.out.println("Игрок выиграл!");
                 break;
+            } else if (checkNobodyWin()) {
+                System.out.println("Ничья.");
+                break;
             }
+
             turnAI(); //ход AI
             printField();
             if (checkWin(DOT_AI)) { //проверка выигрыша AI
                 System.out.println("AI выиграл!");
+                break;
+            } else if (checkNobodyWin()) {
+                System.out.println("Ничья.");
                 break;
             }
         }
@@ -117,5 +124,16 @@ public class Solution {
         if (field[0][2] == dotHuman && field[1][1] == dotHuman && field[2][0] == dotHuman) return true;
 
         return false;
+    }
+
+
+    //проверка, что никто не выиграл (все поля заполнены)
+    private static boolean checkNobodyWin() {
+        for (int y = 0; y < field.length; y++) {
+            for (int x = 0; x < field.length; x++) {
+                if (field[y][x] == DOT_EMPTY) return false;
+            }
+        }
+        return true;
     }
 }
