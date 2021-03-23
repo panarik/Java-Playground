@@ -39,13 +39,9 @@ public class Solution {
 
             while (true) { // цикл игры
                 turnHuman(); //ход игрока
-                printField();
-                if (checkGame()) break;
+                if (checkGame()) break; //проверяем кто выиграл или ничья
                 turnAI(); //ход AI
-                printField();
                 if (checkGame()) break;
-
-
             }
 
             System.out.print("Хотите повторить? Нажмите Y или N >>>>>>");
@@ -92,6 +88,9 @@ public class Solution {
 
         } while (!isCellInField(x, y) || !isCellEmpty(x, y));
         field[y][x] = DOT_HUMAN; //валидируем ввод
+        checkWinSmart(DOT_HUMAN, y,x); //вгружаем координаты хода и проверяем есть ли победа
+        printField(); //обновляем поле
+
     }
 
 
@@ -103,6 +102,7 @@ public class Solution {
             y = RANDOM.nextInt(fieldSizeY);
         } while (!isCellEmpty(x, y));
         field[y][x] = DOT_AI; //валидируем ввод
+        printField();
     }
 
 
@@ -147,6 +147,19 @@ public class Solution {
         if (field[0][0] == dot && field[1][1] == dot && field[2][2] == dot) return true;
         if (field[0][2] == dot && field[1][1] == dot && field[2][0] == dot) return true;
 
+        return false;
+    }
+
+
+    private static boolean checkWinSmart(char dot, int y, int x) {
+        //2. Переделать проверку победы, чтобы она не была реализована просто набором условий,
+        // например, с использованием циклов
+
+        //горизонталь
+        int result = 0;
+        for (y=0; y < field.length; y++) {
+            if (field[y][0] == dot) result++;
+        }
         return false;
     }
 
