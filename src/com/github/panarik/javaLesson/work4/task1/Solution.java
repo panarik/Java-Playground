@@ -1,5 +1,6 @@
 package com.github.panarik.javaLesson.work4.task1;
 
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,6 +16,10 @@ public class Solution {
     private static final char DOT_HUMAN = 'X';
     private static final char DOT_AI = '0';
     private static final char DOT_EMPTY = '.';
+    private static boolean gameRepead = true;
+    private static String human;
+    private static int scoreHuman = 0;
+    private static int scoreAI = 0;
 
     private static char[][] field; //игровое поле
     private static final int fieldSizeX = 3; //длина поля
@@ -23,29 +28,30 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        initField(fieldSizeY, fieldSizeX); //создаём игровое поле
-        printField(); //выводим игровое поле на экран
+        System.out.print("Введите своё имя >>>>>");
+        human = SCANNER.nextLine();
+        System.out.println("Ок," + human + " готовься проигрывать.");
 
-        while (true) {
-            turnHuman(); //ход игрока
-            printField();
-            if (checkWin(DOT_HUMAN)) { //проверка выигрыша игроком
-                System.out.println("Игрок выиграл!");
-                break;
-            } else if (checkNobodyWin()) {
-                System.out.println("Ничья.");
-                break;
+
+        while (gameRepead) { //цикл создания поля и игры
+            initField(fieldSizeY, fieldSizeX); //создаём игровое поле
+            printField(); //выводим игровое поле на экран
+
+            while (true) { // цикл игры
+                turnHuman(); //ход игрока
+                printField();
+                if (checkGame()) break;
+                turnAI(); //ход AI
+                printField();
+                if (checkGame()) break;
+
+
             }
 
-            turnAI(); //ход AI
-            printField();
-            if (checkWin(DOT_AI)) { //проверка выигрыша AI
-                System.out.println("AI выиграл!");
-                break;
-            } else if (checkNobodyWin()) {
-                System.out.println("Ничья.");
-                break;
-            }
+            System.out.print("Хотите повторить? Нажмите Y или N >>>>>>");
+            String s = SCANNER.next().toLowerCase(Locale.ROOT);
+            gameRepead = false; //сбрасываем счетчик игры
+            if (s.equals("y")) gameRepead = true;
         }
     }
 
@@ -110,18 +116,36 @@ public class Solution {
     }
 
 
-    private static boolean checkWin(char dotHuman) {
+    private static boolean checkGame() {
+        if (checkWin(DOT_HUMAN)) {
+            System.out.println("Странно, " + human + " выиграл!");
+            scoreHuman++;
+            System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
+            return true;
+        }
+        if (checkWin(DOT_AI))
+            if (checkNobodyWin()) {
+                System.out.println("AI выиграл!");
+                scoreAI++;
+                System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
+                return true;
+            }
+        return false;
+    }
+
+
+    private static boolean checkWin(char dot) {
         //по горизонтали
-        if (field[0][0] == dotHuman && field[0][1] == dotHuman && field[0][2] == dotHuman) return true;
-        if (field[1][0] == dotHuman && field[1][1] == dotHuman && field[1][2] == dotHuman) return true;
-        if (field[2][0] == dotHuman && field[2][1] == dotHuman && field[2][2] == dotHuman) return true;
+        if (field[0][0] == dot && field[0][1] == dot && field[0][2] == dot) return true;
+        if (field[1][0] == dot && field[1][1] == dot && field[1][2] == dot) return true;
+        if (field[2][0] == dot && field[2][1] == dot && field[2][2] == dot) return true;
         //по вертикали
-        if (field[0][0] == dotHuman && field[1][0] == dotHuman && field[2][0] == dotHuman) return true;
-        if (field[0][1] == dotHuman && field[1][1] == dotHuman && field[2][1] == dotHuman) return true;
-        if (field[0][2] == dotHuman && field[1][2] == dotHuman && field[2][2] == dotHuman) return true;
+        if (field[0][0] == dot && field[1][0] == dot && field[2][0] == dot) return true;
+        if (field[0][1] == dot && field[1][1] == dot && field[2][1] == dot) return true;
+        if (field[0][2] == dot && field[1][2] == dot && field[2][2] == dot) return true;
         //по диагонали
-        if (field[0][0] == dotHuman && field[1][1] == dotHuman && field[2][2] == dotHuman) return true;
-        if (field[0][2] == dotHuman && field[1][1] == dotHuman && field[2][0] == dotHuman) return true;
+        if (field[0][0] == dot && field[1][1] == dot && field[2][2] == dot) return true;
+        if (field[0][2] == dot && field[1][1] == dot && field[2][0] == dot) return true;
 
         return false;
     }
