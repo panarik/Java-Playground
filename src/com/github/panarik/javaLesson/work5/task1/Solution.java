@@ -18,14 +18,9 @@ public class Solution {
         //4. Создать массив из 5 сотрудников.
         Employee[] employeesArray = new Employee[5];
         employeesArray[0] = new Employee("One", "Engineer", "one@mail.com", "+1-000-000-00-01", 8000, (Year.now().getValue() - 1996));
-        employeesArray[0] = new Employee("One", "Engineer", "one@mail.com", "+1-000-000-00-01", 8000, (Year.now().getValue() - 1996));
-        employeesArray[1] = new Employee("Two", "Engineer", "two@mail.com", "+1-000-000-00-02", 7000, (Year.now().getValue() - 1986));
         employeesArray[1] = new Employee("Two", "Engineer", "two@mail.com", "+1-000-000-00-02", 7000, (Year.now().getValue() - 1986));
         employeesArray[2] = new Employee("Three", "Engineer", "three@mail.com", "+1-000-000-00-03", 6000, (Year.now().getValue() - 1976));
-        employeesArray[2] = new Employee("Three", "Engineer", "three@mail.com", "+1-000-000-00-03", 6000, (Year.now().getValue() - 1976));
         employeesArray[3] = new Employee("Four", "Engineer", "four@mail.com", "+1-000-000-00-04", 5000, (Year.now().getValue() - 1966));
-        employeesArray[3] = new Employee("Four", "Engineer", "four@mail.com", "+1-000-000-00-04", 5000, (Year.now().getValue() - 1966));
-        employeesArray[4] = new Employee("Five", "Engineer", "five@mail.com", "+1-000-000-00-05", 4000, (Year.now().getValue() - 1956));
         employeesArray[4] = new Employee("Five", "Engineer", "five@mail.com", "+1-000-000-00-05", 4000, (Year.now().getValue() - 1956));
 
         //5. С помощью цикла вывести информацию только о сотрудниках старше 40 лет.
