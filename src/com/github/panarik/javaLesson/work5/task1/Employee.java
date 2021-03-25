@@ -19,8 +19,8 @@ public class Employee {
         return this.name;
     }
 
-
-    public void setEmployee(String name, String position, String email, String phone, int salary, int age) {
+    //создаём конструктор
+    public Employee(String name, String position, String email, String phone, int salary, int age) {
         this.name = name;
         this.position = position;
         this.email = email;
@@ -28,6 +28,7 @@ public class Employee {
         this.salary = salary;
         this.age = age;
     }
+
 
     public void printEmployee() {
 
