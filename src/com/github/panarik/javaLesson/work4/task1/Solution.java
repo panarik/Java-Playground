@@ -21,9 +21,11 @@ public class Solution {
     private static int scoreHuman = 0;
     private static int scoreAI = 0;
 
+    //config
     private static char[][] field; //игровое поле
     private static final int fieldSizeX = 3; //длина поля
     private static final int fieldSizeY = 3; //ширина поля
+    private static final int lengthWin = 3; //длина выигрышной линии
 
 
     public static void main(String[] args) {
@@ -88,7 +90,7 @@ public class Solution {
 
         } while (!isCellInField(x, y) || !isCellEmpty(x, y));
         field[y][x] = DOT_HUMAN; //валидируем ввод
-        checkWinSmart(DOT_HUMAN, y,x); //вгружаем координаты хода и проверяем есть ли победа
+
         printField(); //обновляем поле
 
     }
@@ -117,13 +119,13 @@ public class Solution {
 
 
     private static boolean checkGame() {
-        if (checkWin(DOT_HUMAN)) {
+        if (checkWin(DOT_HUMAN, lengthWin)) {
             System.out.println("Странно, " + human + " выиграл!");
             scoreHuman++;
             System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
             return true;
         }
-        if (checkWin(DOT_AI))
+        if (checkWin(DOT_AI, lengthWin))
             if (checkNobodyWin()) {
                 System.out.println("AI выиграл!");
                 scoreAI++;
@@ -134,33 +136,29 @@ public class Solution {
     }
 
 
-    private static boolean checkWin(char dot) {
-        //по горизонтали
-        if (field[0][0] == dot && field[0][1] == dot && field[0][2] == dot) return true;
-        if (field[1][0] == dot && field[1][1] == dot && field[1][2] == dot) return true;
-        if (field[2][0] == dot && field[2][1] == dot && field[2][2] == dot) return true;
-        //по вертикали
-        if (field[0][0] == dot && field[1][0] == dot && field[2][0] == dot) return true;
-        if (field[0][1] == dot && field[1][1] == dot && field[2][1] == dot) return true;
-        if (field[0][2] == dot && field[1][2] == dot && field[2][2] == dot) return true;
-        //по диагонали
-        if (field[0][0] == dot && field[1][1] == dot && field[2][2] == dot) return true;
-        if (field[0][2] == dot && field[1][1] == dot && field[2][0] == dot) return true;
-
+    private static boolean checkWin(char dot, int lengthWin) {
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
+                if (checkLine(dot, x, y, 1, 0, lengthWin)) return true; //проверка горизонтали +X
+                if (checkLine(dot, x, y, 0, 1, lengthWin)) return true; //проверка вертикали +Y
+                if (checkLine(dot, x, y, 1, 1, lengthWin)) return true; //проверка диагонали +X +Y
+                if (checkLine(dot, x, y, 1, -1, lengthWin)) return true; //проверка диагонали +X -Y
+            }
+        }
         return false;
     }
 
 
-    private static boolean checkWinSmart(char dot, int y, int x) {
+    private static boolean checkLine(char dot, int x, int y, int incrementX, int incrementY, int lengthWin) {
         //2. Переделать проверку победы, чтобы она не была реализована просто набором условий,
         // например, с использованием циклов
-
-        //горизонталь
-        int result = 0;
-        for (y=0; y < field.length; y++) {
-            if (field[y][0] == dot) result++;
+        int endLineX = x + (lengthWin -1) * incrementX; //конец проверяемой линии по оси Х
+        int endLineY = y + (lengthWin -1) * incrementY; //конец проверяемой линии по оси Y
+        if (!isCellInField(endLineX, endLineY)) return false;
+        for (int i = 0; i < lengthWin; i++) {
+            if (field[y+i*incrementY][x+i*incrementX] != dot) return false; //если хоть в одном месте проверяемой линии нет текущего знака, то выигрыша нет
         }
-        return false;
+        return true; //если проход был выполнен до конца, то выигрыш есть
     }
 
 
