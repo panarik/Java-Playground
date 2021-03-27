@@ -63,7 +63,6 @@ public class Solution {
         }
     }
 
-
     private static void printField() {
         System.out.println("     1    2    3  ");
         System.out.println("   ---------------");
@@ -79,7 +78,7 @@ public class Solution {
         System.out.println("   ---------------");
     }
 
-
+    //ход игрока
     private static void turnHuman() {
         int x;
         int y;
@@ -95,7 +94,7 @@ public class Solution {
 
     }
 
-
+    //ход AI
     private static void turnAI() {
         int x;
         int y;
@@ -107,17 +106,38 @@ public class Solution {
         printField();
     }
 
+    //проверка на возможный выигрыш
+    private static boolean scanField(char dot, int lengthWin) {
+
+        for (int x = 0; x < lengthWin; x++) {
+            for (int y = 0; y < lengthWin; y++) {
+                if (isCellEmpty(x, y)) { //проверяем только пустые ячейки
+                    field[y][x] = dot; //ставим в эту пустую ячейку фишку
+                    if (checkWin(dot, lengthWin)) { // и если при этом будет выйгрыш
+                        if (dot == DOT_AI) { //если выигрыш AI
+                            return true; //фишка остаётся, проверка окончена
+                        }
+                        if (dot == DOT_HUMAN) { //если выигрыш игрока
+                            field[y][x] = DOT_AI; //ставим на это место фишку AI, чтобы заблочить победу игрока
+                            return true; //фишка поставлена, проверка окончена
+                        }
+                    }
+                    field[y][x] = DOT_EMPTY; //если нвыигрыша нет, то убираем проверочную фишку с ячейки
+                }
+            }
+        }
+        return false;
+    }
 
     private static boolean isCellEmpty(int x, int y) {
         return field[y][x] == DOT_EMPTY; //ячейка пустая
     }
 
-
     private static boolean isCellInField(int x, int y) {
         return x >= 0 && x < field.length && y >= 0 && y < field.length; //ввод в границах поля
     }
 
-
+    //вывод сообщения при выигрыше и остановка игры
     private static boolean checkGame() {
         if (checkWin(DOT_HUMAN, lengthWin)) {
             System.out.println("Странно, " + human + " выиграл!");
@@ -135,7 +155,7 @@ public class Solution {
         return false;
     }
 
-
+    //проверка различных направлений выигрышных линий из каждой начальной точки на поле
     private static boolean checkWin(char dot, int lengthWin) {
         for (int y = 0; y < fieldSizeY; y++) {
             for (int x = 0; x < fieldSizeX; x++) {
@@ -148,19 +168,19 @@ public class Solution {
         return false;
     }
 
-
+    //проверка выигрышной линии из конкретной точки
     private static boolean checkLine(char dot, int x, int y, int incrementX, int incrementY, int lengthWin) {
         //2. Переделать проверку победы, чтобы она не была реализована просто набором условий,
         // например, с использованием циклов
-        int endLineX = x + (lengthWin -1) * incrementX; //конец проверяемой линии по оси Х
-        int endLineY = y + (lengthWin -1) * incrementY; //конец проверяемой линии по оси Y
+        int endLineX = x + (lengthWin - 1) * incrementX; //конец проверяемой линии по оси Х
+        int endLineY = y + (lengthWin - 1) * incrementY; //конец проверяемой линии по оси Y
         if (!isCellInField(endLineX, endLineY)) return false;
         for (int i = 0; i < lengthWin; i++) {
-            if (field[y+i*incrementY][x+i*incrementX] != dot) return false; //если хоть в одном месте проверяемой линии нет текущего знака, то выигрыша нет
+            if (field[y + i * incrementY][x + i * incrementX] != dot)
+                return false; //если хоть в одном месте проверяемой линии нет текущего знака, то выигрыша нет
         }
         return true; //если проход был выполнен до конца, то выигрыш есть
     }
-
 
     //проверка, что никто не выиграл (все поля заполнены)
     private static boolean checkNobodyWin() {
