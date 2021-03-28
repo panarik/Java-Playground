@@ -11,3 +11,4 @@
 Урок №1 | 7. Написать метод, которому в качестве параметра передается строка, обозначающая имя. Метод должен вывести в консоль сообщение «Привет, указанное_имя!». | Метод [printName()](https://github.com/panarik/JavaLesson/blob/master/src/com/github/panarik/javaLesson/method/CallMethod.java#L51)
 Урок №1 | 8. Написать метод, который определяет, является ли год високосным, и выводит сообщение в консоль. Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный. | Метод [ifLeapYear()](https://github.com/panarik/JavaLesson/blob/master/src/com/github/panarik/javaLesson/values/primitive/arithmetic/Int.java#L31)
 
+
