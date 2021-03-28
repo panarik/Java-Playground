@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work4.task1;
+package com.github.panarik.javaLesson.work4;
 
 import java.util.Locale;
 import java.util.Random;

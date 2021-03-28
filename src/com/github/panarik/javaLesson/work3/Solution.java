@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work3.task1;
+package com.github.panarik.javaLesson.work3;
 
 import java.util.Scanner;
 

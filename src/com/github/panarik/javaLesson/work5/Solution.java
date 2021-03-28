@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work5.task1;
+package com.github.panarik.javaLesson.work5;
 
 import java.time.Year;
 

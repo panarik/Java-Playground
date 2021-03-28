@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.task1;
+package com.github.panarik.javaLesson.work1;
 
 public class SolutionTwo {
 

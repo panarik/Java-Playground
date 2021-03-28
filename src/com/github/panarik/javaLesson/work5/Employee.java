@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work5.task1;
+package com.github.panarik.javaLesson.work5;
 
 //1. Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст.
 public class Employee {
