@@ -96,6 +96,22 @@ public class Solution {
 
     //ход AI
     private static void turnAI() {
+        if (scanField(DOT_AI, lengthWin)) {
+            printField();
+            return;
+        }
+        if (scanField(DOT_HUMAN, lengthWin)) {
+            printField();
+            return;
+        }
+        if (scanField(DOT_AI, lengthWin - 1)) {
+            printField();
+            return;
+        }
+        if (scanField(DOT_HUMAN, lengthWin - 1)) {
+            printField();
+            return;
+        }
         int x;
         int y;
         do {
@@ -139,19 +155,23 @@ public class Solution {
 
     //вывод сообщения при выигрыше и остановка игры
     private static boolean checkGame() {
-        if (checkWin(DOT_HUMAN, lengthWin)) {
+        if (checkWin(DOT_HUMAN, lengthWin)) { //проверка выигрыша Игрока
             System.out.println("Странно, " + human + " выиграл!");
             scoreHuman++;
             System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
             return true;
         }
-        if (checkWin(DOT_AI, lengthWin))
-            if (checkNobodyWin()) {
-                System.out.println("AI выиграл!");
-                scoreAI++;
-                System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
-                return true;
-            }
+        if (checkWin(DOT_AI, lengthWin)) { //проверка выигрыша AI
+            System.out.println("AI выиграл!");
+            scoreAI++;
+            System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
+            return true;
+        }
+
+        if (checkNobodyWin()) {
+            System.out.println("Ничья!");
+            System.out.println("Счет:\n" + human + " - " + scoreHuman + "\nAI - " + scoreAI);
+        }
         return false;
     }
 
