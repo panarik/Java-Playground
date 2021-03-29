@@ -7,47 +7,31 @@ public class Main {
 
     public static void main(String[] agrs) {
 
-//        Cat cat0 = new Cat("Loocky");
-//        Cat cat1 = new Cat("Vaska");
-//        Cat cat2 = new Cat("Barsik");
-//        Dog dog1 = new Dog("Sharik");
-//        Dog dog2 = new Dog("Artemon");
-//
-//        cat0.run(210,50);
-//        cat1.run(210,0);
-//        cat2.run(190, 0);
-//        dog1.run(500, 10);
-//        dog2.run(490,5);
-
-
         Cat[] arrCat = new Cat[3];
         Dog[] arrDog = new Dog[2];
 
-        arrCat[0] = new Cat("Loocky");
+        arrCat[0] = new Cat("Lucky");
         arrCat[1] = new Cat("Vaska");
         arrCat[2] = new Cat("Barsik");
+
         arrDog[0] = new Dog("Sharik");
         arrDog[1] = new Dog("Artemon");
 
 
-        arrCat[0].run(200,50);
-        arrCat[1].run(210,0);
-        arrCat[2].run(190,0);
+        System.out.println("Результаты тестирования животных:\n");
+        arrCat[0].run(200, 50);
+        arrCat[1].run(210, 0);
+        arrCat[2].run(190, 0);
 
-        arrDog[0].run(190, 10);
-        arrDog[1].run(190, 20);
+        arrDog[0].run(490, 10);
+        arrDog[1].run(500, 20);
+        arrDog[1].run(1500, 10);
 
-
-
-
-
+        System.out.println("\nВсего животных участвовало в тестировании: " + (arrCat.length + arrDog.length));
+        System.out.println("Ни одно животное не пострадало.");
 
 
     }
-
-
-
-
 
 
 }
