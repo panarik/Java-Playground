@@ -11,12 +11,27 @@ public class Main {
 
         testAnimals();
         feedAnimals();
+        heatAnimals();
 
+    }
 
+    private static void heatAnimals() {
         System.out.println("\nАКТ №3: Животные деруться.");
-        Cat cat3 = new Cat("Борец", 150, 10);
-        Cat cat4 = new Cat("Борец", 150, 10);
+        Cat cat3 = new Cat("Борец", 100, 10);
+        Cat cat4 = new Cat("Счастливчик", 150, 6);
+        while (true) {
+            cat3.heat(cat4);
+            if (cat4.getHealth() <= 0) {
+                System.out.println(cat3.getName() + " Победил.");
+                break;
+            }
+            cat4.heat(cat3);
+            if (cat3.getHealth() <= 0) {
+                System.out.println(cat4.getName() + " Победил.");
+                break;
+            }
 
+        }
     }
 
     private static void feedAnimals() {
