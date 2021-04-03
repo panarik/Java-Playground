@@ -1,19 +1,21 @@
 package com.github.panarik.javaLesson.work6.animals;
 
-public abstract class Animal { //сделал абстрактным чтобы не создавать сущностей типа Animal
+import com.github.panarik.javaLesson.work6.items.Bowl;
 
-    protected String name;
-    protected final int distanceRun = 0;
-    protected final int distanceSwim = 0;
+public abstract class Animal {
 
-   /*
-    * 2. Все животные могут бежать и плыть.
-    * В качестве параметра каждому методу передается длина препятствия.
-    * Результатом выполнения действия будет печать в консоль.
-    * (Например, dogBobik.run(150); -> 'Бобик пробежал 150 м.');
-    */
+    protected String name; //имя животного
+    protected int appetite; //аппетит животного
+
+    //животное может бежать
     public void run(int distanceRun, int distanceSwim) {
         System.out.println(name+" пробежал "+distanceRun+" метров и проплыл "+distanceSwim+" метров.");
+    }
+
+    //животное может есть из миски
+    public void eatFromBowl(Bowl bowl) {
+        bowl.decreaseFood(appetite);
+        System.out.printf("%s съел из миски %d еды. В миске осталось %d еды",this.name, appetite, bowl.getFoodAmount());
     }
 
 

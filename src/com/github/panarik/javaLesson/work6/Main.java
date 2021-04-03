@@ -2,10 +2,13 @@ package com.github.panarik.javaLesson.work6;
 
 import com.github.panarik.javaLesson.work6.animals.Cat;
 import com.github.panarik.javaLesson.work6.animals.Dog;
+import com.github.panarik.javaLesson.work6.items.Bowl;
 
 public class Main {
 
     public static void main(String[] agrs) {
+
+
 
         Cat[] arrCat = new Cat[3];
         Dog[] arrDog = new Dog[2];
@@ -18,7 +21,7 @@ public class Main {
         arrDog[1] = new Dog("Artemon");
 
 
-        System.out.println("Результаты тестирования животных:\n");
+        System.out.println("Акт №1. Результаты тестирования животных:\n");
         arrCat[0].run(200, 50);
         arrCat[1].run(210, 0);
         arrCat[2].run(190, 0);
@@ -29,6 +32,14 @@ public class Main {
 
         System.out.println("\nВсего животных участвовало в тестировании: " + (arrCat.length + arrDog.length));
         System.out.println("Ни одно животное не пострадало.");
+
+
+        System.out.println("\nАКТ №2: Животные едят.");
+
+        Bowl bowl = new Bowl();
+        bowl.putFoodInto(100);
+        Cat cat1 = new Cat("Барсик", 10);
+        cat1.eatFromBowl(bowl);
 
 
     }
