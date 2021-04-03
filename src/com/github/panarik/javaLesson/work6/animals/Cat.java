@@ -1,8 +1,6 @@
 package com.github.panarik.javaLesson.work6.animals;
 
 
-import com.github.panarik.javaLesson.work6.items.Bowl;
-
 //1. Создать классы Собака и Кот с наследованием от класса Животное.
 public class Cat extends Animal {
 
@@ -15,6 +13,12 @@ public class Cat extends Animal {
         this.appetite = appetite;
     }
 
+    public Cat(String name, int health, int damage) {
+        this.name = name;
+        this.health = health;
+        this.damage = damage;
+    }
+
     //ограничения для бега и плавания у котов
     @Override
     public void run(int distanceRun, int distanceSwim) {
@@ -22,6 +26,7 @@ public class Cat extends Animal {
         else if (distanceRun > 200) System.out.println("Кот " + name + " не пробежит " + distanceRun + " метров");
         else System.out.println("Кот " + name + " пробежал " + distanceRun + " метров.");
     }
+
 
 
 

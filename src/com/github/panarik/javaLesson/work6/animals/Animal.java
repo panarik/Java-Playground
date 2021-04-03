@@ -1,11 +1,15 @@
 package com.github.panarik.javaLesson.work6.animals;
 
-import com.github.panarik.javaLesson.work6.items.Bowl;
+import com.github.panarik.javaLesson.work6.items.AbstractBowl;
+import com.github.panarik.javaLesson.work6.items.Box;
+import com.github.panarik.javaLesson.work6.items.Cup;
 
 public abstract class Animal {
 
     protected String name; //имя животного
     protected int appetite; //аппетит животного
+    protected int health; //здоровье животного
+    protected int damage; //урон, который может наносить животное
 
     //животное может бежать
     public void run(int distanceRun, int distanceSwim) {
@@ -13,9 +17,14 @@ public abstract class Animal {
     }
 
     //животное может есть из миски
-    public void eatFromBowl(Bowl bowl) {
-        bowl.decreaseFood(appetite);
-        System.out.printf("%s съел из миски %d еды. В миске осталось %d еды",this.name, appetite, bowl.getFoodAmount());
+    public void eat(AbstractBowl abstractBowl) {
+        if (abstractBowl instanceof Cup) {
+            abstractBowl.decrease(appetite);
+            System.out.printf("%s съел %d еды. ",this.name, appetite);
+            System.out.printf("Осталось %d еды.\n", abstractBowl.getAmount());
+        }
+        else if (abstractBowl instanceof Box) System.out.printf("%s не будет есть гвозди из коробки.\n", this.name);
+
     }
 
 
