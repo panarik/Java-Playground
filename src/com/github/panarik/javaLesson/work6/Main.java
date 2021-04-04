@@ -9,9 +9,9 @@ public class Main {
 
     public static void main(String[] agrs) {
 
-        testAnimals();
+        //testAnimals();
         feedAnimals();
-        heatAnimals();
+        //heatAnimals();
 
     }
 
@@ -38,14 +38,21 @@ public class Main {
         System.out.println("\nАКТ №2: Животные едят.");
         Cup cup = new Cup();
         Box box = new Box();
-        System.out.println("Приходит первый кот");
-        Cat cat1 = new Cat("Барсик", 10);
+
+        System.out.println("Приходит первый кот.");
+        Cat cat1 = new Cat("Барсик", 10, false);
         cup.putInto(15);
         cat1.eat(cup);
-        System.out.println("\nПриходит второй кот");
-        Cat cat2 = new Cat("Тузик", 10);
+
+        System.out.println("\nПриходит второй кот.");
+        Cat cat2 = new Cat("Тузик", 10, false);
         box.putInto(30);
         cat2.eat(box);
+
+        System.out.println("\nПриходит третий кот.");
+        Cat cat3 = new Cat("Эрик", 10,false);
+        cup.putInto(5);
+        cat3.eat(cup);
     }
 
     private static void testAnimals() {
