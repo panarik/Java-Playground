@@ -39,20 +39,22 @@ public class Main {
         Cup cup = new Cup();
         Box box = new Box();
 
-        System.out.println("Приходит первый кот.");
-        Cat cat1 = new Cat("Барсик", 10, false);
+        Cat[] cats = new Cat[3];
+        cats[0] = new Cat("Барсик", 10, false);
+        cats[1] = new Cat("Тузик", 10, false);
+        cats[2] = new Cat("Эрик", 10,false);
+
         cup.putInto(15);
-        cat1.eat(cup);
-
-        System.out.println("\nПриходит второй кот.");
-        Cat cat2 = new Cat("Тузик", 10, false);
         box.putInto(30);
-        cat2.eat(box);
 
-        System.out.println("\nПриходит третий кот.");
-        Cat cat3 = new Cat("Эрик", 10,false);
-        cup.putInto(5);
-        cat3.eat(cup);
+        for (int i = 0; i < cats.length; i++) {
+            System.out.printf("\nПриходит %d-й кот %s\n", (i+1), cats[i].getName());
+            if(i%2==0) cats[i].eat(cup);
+            else cats[i].eat(box);
+        }
+
+        cup.putInto(50);
+        System.out.printf("\nПо просьбе котов в чашку добавили еще %d еды. Теперь в чашке %d еды.\n", 50, cup.getAmount());
     }
 
     private static void testAnimals() {
