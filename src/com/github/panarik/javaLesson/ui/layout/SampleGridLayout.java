@@ -9,12 +9,11 @@ public class SampleGridLayout {
         new SampleWindow();
 
 
-
     }
 
     public static class SampleWindow extends JFrame {
-        SampleWindow(){
-            setSize(500,500);
+        SampleWindow() {
+            setSize(500, 500);
             setLocation(400, 100);
             setVisible(true);
             setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,7 +25,7 @@ public class SampleGridLayout {
             JButton button4 = new JButton("GridLayout_Button4");
 
             //задаём layout
-            setLayout(new GridLayout(2,2));
+            setLayout(new GridLayout(2, 2));
 
             //добавляем кнопки
             add(button1);
