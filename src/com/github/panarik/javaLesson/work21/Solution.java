@@ -20,20 +20,30 @@ public class Solution {
         Robot robot1 = new Robot();
         Human human1 = new Human();
 
-        //Все просто бегут
-        cat1.run();
-        robot1.run();
-        human1.run();
-        //Все просто прыгают
+        System.out.println("Задание 1.\nВсе просто бегут");
+        cat1.run(1);
+        robot1.run(150);
+        human1.run(150);
+        System.out.println("Все просто прыгают");
         cat1.jump();
         robot1.jump();
         human1.jump();
 
-        //Все прыгают через стену
-        System.out.println();
+        System.out.println("Задание 2.\nВсе прыгают через стену");
         cat1.jumpOverWall(10);
+        cat1.jumpOverWall(80);
         robot1.jumpOverWall(200);
-        human1.jumpOverWall(200);
+        robot1.jumpOverWall(1000);
+        human1.jumpOverWall(150);
+        human1.jumpOverWall(300);
+
+        System.out.println("Все бегут по беговой дорожке");
+        cat1.runOnTable(1);
+        cat1.runOnTable(5);
+        robot1.runOnTable(100);
+        robot1.runOnTable(1000);
+        human1.runOnTable(20);
+        human1.runOnTable(100);
 
     }
 
