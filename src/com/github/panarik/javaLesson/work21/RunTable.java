@@ -7,6 +7,10 @@ public class RunTable implements Running {
         this.distance = distance;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     @Override
     public void run(int distanceKiloMeters) {
         System.out.println("Бежит по беговой дорожке");

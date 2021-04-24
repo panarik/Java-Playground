@@ -21,7 +21,13 @@ public class Human implements Jumping,Running {
             Wall.jumpOverWall(heightSM);
         }
         else System.out.printf("Человек не смог перепрыгнуть через препятствие высотой %d см.\n", heightSM);
+    }
 
+    void jumpOverObjectWall (Wall wall){
+        if (wall.getHeightSM()<maxJumpSM) {
+            System.out.printf("Человек прыгает через объектную стену высотой %d см.\n", wall.getHeightSM());
+        }
+        else System.out.printf("Человек не смог прыгнуть на высоту %d см.\n", wall.getHeightSM());
     }
 
     void runOnTable(int distanceKiloMeters) {
@@ -30,7 +36,11 @@ public class Human implements Jumping,Running {
             RunTable.runOnTable(distanceKiloMeters);
         }
         else System.out.printf("Человек не смог пробежать на дистанцию %d километров.\n", distanceKiloMeters);
+    }
 
+    void runOnObjectTable(RunTable runTable) {
+        if (runTable.getDistance()<maxDistanceKilometers) System.out.printf("Человек пробегает %d километров.\n", runTable.getDistance());
+        else System.out.printf("Человек не смог пробежать на дистанцию %d километров.\n", runTable.getDistance());
     }
 
 

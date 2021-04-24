@@ -7,6 +7,10 @@ public class Wall implements Jumping {
         this.heightSM = heightSM;
     }
 
+    public int getHeightSM() {
+        return heightSM;
+    }
+
     @Override
     public void jump() {
         System.out.println("прыгает через стену");
