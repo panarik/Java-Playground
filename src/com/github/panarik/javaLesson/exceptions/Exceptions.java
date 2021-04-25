@@ -5,18 +5,16 @@ import java.util.Scanner;
 public class Exceptions {
 
     public static void main(String[] args) {
+        divRuntimeException();
         divByZero();
         divMyException();
     }
 
-    private static void divMyException() {
+    private static void divRuntimeException() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nВведите любое число (0 - ошибка) --->");
         int i = scanner.nextInt();
-        if (i==0) {
-            System.out.println("Выкидываем эксепшен");
-            throw new MyException("Some message");
-        }
+        if (i==0) throw new RuntimeException("My Message in RuntimeException");
         else System.out.println("Выполнение программы");
     }
 
@@ -48,5 +46,18 @@ public class Exceptions {
         }
         System.out.println("Выполнение программы после обработки эксепшена");
     }
+
+    private static void divMyException() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nВведите любое число (0 - ошибка) --->");
+        int i = scanner.nextInt();
+        if (i==0) {
+            System.out.println("Выкидываем эксепшен");
+            throw new MyException("Some message");
+        }
+        else System.out.println("Выполнение программы");
+    }
+
+
 
 }
