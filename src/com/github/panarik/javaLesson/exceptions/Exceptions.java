@@ -6,12 +6,25 @@ public class Exceptions {
 
     public static void main(String[] args) {
         divByZero();
-        System.out.println("Выполнение программы после обработки эксепшена");
+        divMyException();
+    }
+
+    private static void divMyException() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nВведите любое число (0 - ошибка) --->");
+        int i = scanner.nextInt();
+        if (i==0) {
+            System.out.println("Выкидываем эксепшен");
+            throw new MyException("Some message");
+        }
+        else System.out.println("Выполнение программы");
     }
 
     private static void divByZero() {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите первое число деления --->");
         int a = scanner.nextInt();
+        System.out.print("Введите второе число деления --->");
         int b = scanner.nextInt();
         //пробуем выполнить код
         try {
@@ -33,6 +46,7 @@ public class Exceptions {
         finally {
             System.out.println("В любом случае закрываем какие-то ресурсы.");
         }
+        System.out.println("Выполнение программы после обработки эксепшена");
     }
 
 }
