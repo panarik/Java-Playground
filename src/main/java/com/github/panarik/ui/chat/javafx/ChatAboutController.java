@@ -1,22 +1,10 @@
 package com.github.panarik.ui.chat.javafx;
 
-
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import javafx.scene.control.TextArea;
 
 public class ChatAboutController {
 
 
-    public void mockAction(ActionEvent actionEvent) {
-    }
+    public TextArea about_textArea;
 
-    public void exit(ActionEvent actionEvent) {
-        Platform.exit();
-    }
-
-    public void showAbout(ActionEvent actionEvent) {
-    }
-
-    public void showHelp(ActionEvent actionEvent) {
-    }
 }

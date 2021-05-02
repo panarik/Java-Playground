@@ -1,37 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<VBox prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.github.panarik.ui.chat.javafx.ChatAboutController">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.panarik.ui.chat.javafx.ChatAboutController">
     <children>
-        <MenuBar>
-            <Menu text="File">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
-                <MenuItem text="Exit" onAction="#exit"/>
-            </Menu>
-            <Menu text="Edit">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
-            </Menu>
-            <Menu text="View">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
-            </Menu>
-            <Menu text="Help">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="Help" onAction="#showHelp"/>
-                <MenuItem text="About" onAction="#showAbout"/>
-            </Menu>
-        </MenuBar>
+        <Label layoutX="101.0" layoutY="58.0" text="About">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+      <TextArea fx:id="about_textArea" layoutX="50.0" layoutY="136.0" prefHeight="200.0" prefWidth="200.0" />
     </children>
-</VBox>
+</AnchorPane>

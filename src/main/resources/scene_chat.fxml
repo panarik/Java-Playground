@@ -1,71 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.geometry.Insets?>
-<VBox prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.github.panarik.ui.chat.javafx.ChatMainController">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.github.panarik.ui.chat.javafx.ChatMainController">
     <children>
         <MenuBar>
             <Menu text="File">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
-                <MenuItem text="Exit" onAction="#exit"/>
+                <MenuItem onAction="#mockAction" text="MenuItem1" />
+                <MenuItem onAction="#mockAction" text="MenuItem2" />
+                <MenuItem onAction="#mockAction" text="MenuItem3" />
+                <MenuItem onAction="#exit" text="Exit" />
             </Menu>
             <Menu text="Edit">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
+                <MenuItem onAction="#mockAction" text="MenuItem1" />
+                <MenuItem onAction="#mockAction" text="MenuItem2" />
+                <MenuItem onAction="#mockAction" text="MenuItem3" />
             </Menu>
             <Menu text="View">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="MenuItem2" onAction="#mockAction"/>
-                <MenuItem text="MenuItem3" onAction="#mockAction"/>
+                <MenuItem onAction="#mockAction" text="MenuItem1" />
+                <MenuItem onAction="#mockAction" text="MenuItem2" />
+                <MenuItem onAction="#mockAction" text="MenuItem3" />
             </Menu>
             <Menu text="Help">
-                <MenuItem text="MenuItem1" onAction="#mockAction"/>
-                <MenuItem text="Help" onAction="#showHelp"/>
-                <MenuItem text="About" onAction="#showAbout"/>
+                <MenuItem onAction="#mockAction" text="MenuItem1" />
+                <MenuItem onAction="#showHelp" text="Help" />
+                <MenuItem onAction="#showAbout" text="About" />
             </Menu>
         </MenuBar>
         <HBox VBox.vgrow="ALWAYS">
             <TextArea fx:id="chatArea" editable="false" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                 <HBox.margin>
-                    <Insets right="5.0" left="5.0"/>
+                    <Insets left="5.0" right="5.0" />
                 </HBox.margin>
+            <font>
+               <Font size="15.0" />
+            </font>
             </TextArea>
             <ListView fx:id="onLineUsers" prefWidth="150.0">
                 <HBox.margin>
-                    <Insets right="5.0"/>
+                    <Insets right="5.0" />
                 </HBox.margin>
             </ListView>
             <padding>
-                <Insets bottom="5.0" top="5.0"/>
+                <Insets bottom="5.0" top="5.0" />
             </padding>
         </HBox>
         <HBox>
-            <TextField fx:id="inputField" prefHeight="70.0" HBox.hgrow="ALWAYS" onAction="#sendMessage">
+            <TextField fx:id="inputField" onAction="#sendMessage" prefHeight="70.0" HBox.hgrow="ALWAYS">
                 <HBox.margin>
-                    <Insets left="5.0" right="5.0"/>
+                    <Insets left="5.0" right="5.0" />
                 </HBox.margin>
+            <font>
+               <Font size="24.0" />
+            </font>
             </TextField>
-            <Button fx:id="btnSendMessage" onAction="#sendMessage" prefWidth="120.0" prefHeight="70.0" text="SEND">
+            <Button fx:id="btnSendMessage" onAction="#sendMessage" prefHeight="70.0" prefWidth="120.0" text="SEND">
                 <HBox.margin>
-                    <Insets left="5.0" right="5.0"/>
+                    <Insets left="5.0" right="5.0" />
                 </HBox.margin>
             </Button>
             <padding>
-                <Insets bottom="5.0" top="5.0"/>
+                <Insets bottom="5.0" top="5.0" />
             </padding>
         </HBox>
     </children>
