@@ -8,27 +8,30 @@ public class TelDir {
 
 
 
-    static Map<String, Integer> tels = new HashMap<>();
+    static Map<Integer, String> tels = new HashMap<>();
 
     public static void main(String[] args) {
 
-        add("Name1", 11111);
-        add("Name2", 22222);
-        add("Name3", 33333);
-        add("Name3", 44444);
+        add("One", 11111);
+        add("Two", 222222);
+        add("Three", 333333);
+        add("Four", 444444);
+        add("Five", 555555);
+        add("Five", 666666);
 
-        get("Name3");
+        get("Five");
+
 
     }
 
     private static void add(String name, int tel) {
-        tels.put(name, tel);
+        tels.put(tel, name);
     }
 
     private static void get(String name) {
 
-        for (Map.Entry<String, Integer> entry : tels.entrySet()) {
-            if (entry.getKey().equals(name)) System.out.println(entry.getValue());
+        for (Map.Entry<Integer, String> entry : tels.entrySet()) {
+            if (entry.getValue().equals(name)) System.out.println(entry.getKey());
         }
     }
 
