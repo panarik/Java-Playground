@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.ui.layout;
+package com.github.panarik.ui.layout;
 
 import javax.swing.*;
 import java.awt.*;
