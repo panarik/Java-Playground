@@ -1,4 +1,4 @@
-package ui.chat.javafx;
+package lang.ui.chat.javafx;
 
 
 import javafx.application.Application;

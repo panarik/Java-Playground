@@ -1,4 +1,5 @@
-package com.github.panarik.javaLesson.main;
+package main;
+
 import java.io.IOException;
 
 public class ClassesClass {

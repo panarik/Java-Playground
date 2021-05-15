@@ -1,4 +1,4 @@
-package ui.layout.jpanel;
+package lang.ui.layout.jpanel;
 
 import javax.swing.*;
 import java.awt.*;

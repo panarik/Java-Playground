@@ -1,4 +1,4 @@
-package oop.interfaces;
+package lang.oop.interfaces;
 
 public interface Flyable { //также можно наследоваться от других интерфейсов
 

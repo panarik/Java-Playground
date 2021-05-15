@@ -1,4 +1,4 @@
-package oop.interfaces;
+package lang.oop.interfaces;
 
 public class Plane implements Flyable {
 
