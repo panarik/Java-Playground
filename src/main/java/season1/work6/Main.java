@@ -1,9 +1,9 @@
-package com.github.panarik.javaLesson.season1.work6;
+package season1.work6;
 
-import com.github.panarik.javaLesson.season1.work6.animals.Cat;
-import com.github.panarik.javaLesson.season1.work6.animals.Dog;
-import com.github.panarik.javaLesson.season1.work6.items.Box;
-import com.github.panarik.javaLesson.season1.work6.items.Cup;
+import season1.work6.animals.Cat;
+import season1.work6.animals.Dog;
+import season1.work6.items.Box;
+import season1.work6.items.Cup;
 
 public class Main {
 
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("Приходит первый кот");
         Cat cat1 = new Cat("Барсик", 10);
         cup.putInto(15);
-        cat1.eat(cup);
+        //cat1.eat(cup);
         System.out.println("\nПриходит второй кот");
         Cat cat2 = new Cat("Тузик", 10);
         box.putInto(30);

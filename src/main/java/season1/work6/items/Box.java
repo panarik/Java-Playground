@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.season1.work6.items;
+package season1.work6.items;
 
 public class Box extends AbstractBowl {
 

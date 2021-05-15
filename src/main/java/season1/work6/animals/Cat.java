@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.season1.work6.animals;
+package season1.work6.animals;
 
 
 //1. Создать классы Собака и Кот с наследованием от класса Животное.

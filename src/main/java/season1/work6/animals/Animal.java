@@ -1,10 +1,10 @@
-package com.github.panarik.javaLesson.season1.work6.animals;
+package season1.work6.animals;
 
-import com.github.panarik.javaLesson.season1.work6.items.AbstractBowl;
-import com.github.panarik.javaLesson.season1.work6.items.Box;
-import com.github.panarik.javaLesson.season1.work6.items.Cup;
+import season1.work6.items.AbstractBowl;
+import season1.work6.items.Box;
+import season1.work6.items.Cup;
 
-public abstract class Animal {
+abstract class Animal {
 
     protected String name; //имя животного
     protected int appetite; //аппетит животного
