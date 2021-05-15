@@ -4,9 +4,9 @@ import season1.work6.Main;
 
 public class ThreadsSync {
 
-    static int a = 0;
-    static int b = 0;
-    static int c = 0;
+    private static int a = 0;
+    private static int b = 0;
+    private static int c = 0;
 
     public static void main(String[] args) throws InterruptedException {
 

@@ -6,9 +6,9 @@ public class ThreadsSyncMult {
     private static Object mon1 = new Object();
     private static Object mon2 = new Object();
 
-    static int a = 0;
-    static int b = 0;
-    static int c = 0;
+    private static int a = 0;
+    private static int b = 0;
+    private static int c = 0;
 
     public static void main(String[] args) throws InterruptedException {
 
