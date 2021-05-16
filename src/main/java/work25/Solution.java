@@ -49,10 +49,16 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
      */
     private static long timeSingle;
     private static long timeMultiple;
+    private static float[] arr1;
+    private static float[] arr2;
+    private final static int size = 10000000;
+    private final static int h = size / 2;
 
     public static void main(String[] args) {
 
         massive();
+        massiveMultiThreading();
+        System.out.println("Массивы идентичны :"+Arrays.equals(arr1, arr2));
 
     }
 
@@ -60,14 +66,12 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
         //засекаем время
         long startTime = System.currentTimeMillis();
         //создаем массив
-        final int size = 10000000;
-        final int h = size / 2;
-        float[] arr = new float[size];
+        arr1 = new float[size];
         //заполняем
-        Arrays.fill(arr, 1);
+        Arrays.fill(arr1, 1);
         //выполняем действия и считаем время
-        for (int i = 0; i< arr.length; i++) {
-            arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+        for (int i = 0; i< arr1.length; i++) {
+            arr1[i] = (float)(arr1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
         long endTime = System.currentTimeMillis();
         timeSingle = endTime - startTime;
@@ -79,20 +83,15 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
         //засекаем время
         long startTime = System.currentTimeMillis();
         //создаем массив
-        final int size = 10000000;
-
-        float[] arr = new float[size];
-
+        arr2 = new float[size];
         //заполняем
-        Arrays.fill(arr, 1);
-
+        Arrays.fill(arr2, 1);
         //создаём субмассивы
-        float[] a1 = new float[size];
-        float[] a2 = new float[size];
-        final int h = size / 2;
-        System.arraycopy(arr, 0, a1, 0, h);
-        System.arraycopy(arr, h, a2, 0, h);
+        float[] a1 = new float[h];
+        float[] a2 = new float[h];
 
+        System.arraycopy(arr2, 0, a1, 0, h);
+        System.arraycopy(arr2, h, a2, 0, h);
 
         //создаём поток #1
         Thread t1 = new Thread(() -> {
@@ -110,9 +109,19 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
             }
         });
 
-        //склеиваем субмассивы
+        //запускаем потоки и дожидаемся выполнения
+        t1.start();
+        t2.start();
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-
+        //склеиваем обработанные субмассивы
+        System.arraycopy(a1, 0, arr2, 0, h);
+        System.arraycopy(a2, 0, arr2, h, h);
 
         long endTime = System.currentTimeMillis();
         timeMultiple = endTime - startTime;
