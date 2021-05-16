@@ -56,19 +56,20 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
 
     public static void main(String[] args) {
 
+        arr1 = new float[size];
+        arr2 = new float[size];
+        Arrays.fill(arr1, 1);
+        Arrays.fill(arr2, 1);
+
         massive();
         massiveMultiThreading();
-        System.out.println("Массивы идентичны :"+Arrays.equals(arr1, arr2));
+        System.out.println("Массивы идентичны: "+Arrays.equals(arr1, arr2));
 
     }
 
     private static void massive() {
         //засекаем время
         long startTime = System.currentTimeMillis();
-        //создаем массив
-        arr1 = new float[size];
-        //заполняем
-        Arrays.fill(arr1, 1);
         //выполняем действия и считаем время
         for (int i = 0; i< arr1.length; i++) {
             arr1[i] = (float)(arr1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
@@ -82,10 +83,6 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
     private static void massiveMultiThreading() {
         //засекаем время
         long startTime = System.currentTimeMillis();
-        //создаем массив
-        arr2 = new float[size];
-        //заполняем
-        Arrays.fill(arr2, 1);
         //создаём субмассивы
         float[] a1 = new float[h];
         float[] a2 = new float[h];
@@ -95,15 +92,15 @@ arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math
 
         //создаём поток #1
         Thread t1 = new Thread(() -> {
-            //выполняем действия и считаем время
+            //выполняем действия
             for (int i = 0; i< a1.length; i++) {
                 a1[i] = (float)(a1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             }
         });
 
-        //создаём поток #1
+        //создаём поток #2
         Thread t2 = new Thread(() -> {
-            //выполняем действия и считаем время
+            //выполняем действия
             for (int i = 0; i< a2.length; i++) {
                 a2[i] = (float)(a2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             }
