@@ -23,7 +23,7 @@ public class EchoServer {
             DataOutputStream out = new DataOutputStream(socket.getOutputStream()); //создаём исходящий поток данных
 
             while (true) {
-                String message = in.readUTF();
+                String message = in.readLine();
                 System.out.println("Received: " + message);
                 out.writeUTF("Echo: " + message);
             }
