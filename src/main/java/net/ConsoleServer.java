@@ -10,7 +10,7 @@ public class ConsoleServer {
     private static Socket socket;
     private static DataInputStream in;
     private static DataOutputStream out;
-    private Thread ServerConsoleThread;
+    private Thread serverConsoleThread;
 
     public static void main(String[] args) {
 
@@ -19,25 +19,40 @@ public class ConsoleServer {
     private void runServer() {
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             System.out.println("Server started!");
-            //конектимся
-            connection(serverSocket);
-            //запускаем отдельный поток
-            ServerConsoleThread = new Thread(() -> {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-                System.out.println("You can enter message for client >>>>>");
-                while (!Thread.currentThread().isInterrupted()) {
-                    if (bufferedReader.ready()) {
 
+            //ждем соединения
+            waitingConnection(serverSocket);
+            //запускаем консоль
+            startConsoleThread();
 
-                    }
+            //читаем сообщения
+            String msg = in.readUTF();
 
-                }
-            });
 
         }
     }
 
-    private void connection(ServerSocket serverSocket) throws IOException {
+    private void startConsoleThread() {
+        //запускаем отдельный поток для косольки сервера
+        serverConsoleThread = new Thread(() -> {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("You can enter message for client >>>>>");
+            try {
+                while (!Thread.currentThread().isInterrupted()) {
+                    if (bufferedReader.ready()) {
+                        String messageToServer = bufferedReader.readLine();
+                        out.writeUTF(messageToServer);
+                        Thread.sleep(200);
+                    }
+                }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        serverConsoleThread.start();
+    }
+
+    private void waitingConnection(ServerSocket serverSocket) throws IOException {
         System.out.println("Waiting for connection........");
         socket = serverSocket.accept();
         System.out.println("Client has connected!");
