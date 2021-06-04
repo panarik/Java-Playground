@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.season1.work5;
+package com.github.panarik.season1.work5;
 
 import java.time.Year;
 
