@@ -18,4 +18,11 @@ public class People {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return "People{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

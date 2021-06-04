@@ -9,6 +9,8 @@ public class Main {
         Root root = parser.parse();
 
         System.out.println("Root: "+ root.toString());
+        System.out.println("People #1: "+root.getPeople().get(0));
+        System.out.println("People #1: "+root.getPeople().get(1));
 
     }
 
