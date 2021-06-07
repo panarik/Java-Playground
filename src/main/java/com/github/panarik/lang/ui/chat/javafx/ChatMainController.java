@@ -1,10 +1,10 @@
-package com.github.panarik.ui.chat.javafx;
+package com.github.panarik.lang.ui.chat.javafx;
 
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+//import javafx.fxml.FXML;
+//import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -34,16 +34,12 @@ public class ChatMainController {
     }
 
     public void showAbout(ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene_about.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("About");
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene_about.fxml"));
+//            Parent root1 = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("About");
+//            stage.setScene(new Scene(root1));
+        stage.show();
     }
 
     public void showHelp(ActionEvent actionEvent) throws URISyntaxException, IOException {
