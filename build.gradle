@@ -24,6 +24,9 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     //for parse json api
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.3'
+
+    //for Jira API
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
 }
 
 test {
