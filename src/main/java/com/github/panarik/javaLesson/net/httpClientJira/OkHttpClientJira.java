@@ -14,43 +14,23 @@ public class OkHttpClientJira implements OkHttpClientGet {
 
     public static void main(String[] args) throws IOException {
 
+        OkHttpClientGet client = new OkHttpClientGet() {
+            @Override
+            public void getIssue(String issueKey, String authToken) throws IOException {
+                OkHttpClientGet.super.getIssue(issueKey, authToken);
+            }
+        };
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Insert Your Token>>>>>>");
         authToken = scanner.next();
 
-//        getIssue(issueKey);
-        getIssueHistory(issueKey);
+//        client.getIssue(issueKey, authToken);
+
+        client.getIssueHistory(issueKey, authToken);
 
     }
 
-    private static void getIssueHistory(String issueKey) throws IOException {
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        Request request = new Request.Builder()
-                .url("https://panariks.atlassian.net/rest/api/2/issue/"+issueKey+"/changelog?startAt=0&maxResults=100")
-                .method("GET", null)
-                .addHeader("Authorization", "Basic "+authToken)
-                .build();
-        System.out.println(request);
-        Response response = client.newCall(request).execute();
 
-        System.out.println(response);
-        System.out.println(response.body().string());
-    }
-
-    private static void getIssue(String issueKey) throws IOException {
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        Request request = new Request.Builder()
-                .url("https://panariks.atlassian.net/rest/api/2/issue/"+issueKey)
-                .method("GET", null)
-                .addHeader("Authorization", "Basic "+authToken)
-                .build();
-        System.out.println(request);
-        Response response = client.newCall(request).execute();
-
-        System.out.println(response);
-        System.out.println(response.body().string());
-    }
 
 }
