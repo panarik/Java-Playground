@@ -1,0 +1,176 @@
+{
+  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+  "id": "10000",
+  "self": "https://panariks.atlassian.net/rest/api/2/issue/10000",
+  "key": "TEST-1",
+  "fields": {
+    "statuscategorychangedate": "2020-08-23T23:01:54.469+0300",
+    "issuetype": {
+      "self": "https://panariks.atlassian.net/rest/api/2/issuetype/10005",
+      "id": "10005",
+      "description": "A problem or error.",
+      "iconUrl": "https://panariks.atlassian.net/secure/viewavatar?size=medium&avatarId=10303&avatarType=issuetype",
+      "name": "Bug",
+      "subtask": false,
+      "avatarId": 10303,
+      "hierarchyLevel": 0
+    },
+    "timespent": null,
+    "customfield_10030": null,
+    "project": {
+      "self": "https://panariks.atlassian.net/rest/api/2/project/10000",
+      "id": "10000",
+      "key": "TEST",
+      "name": "ProjectTest",
+      "projectTypeKey": "software",
+      "simplified": false,
+      "avatarUrls": {
+        "48x48": "https://panariks.atlassian.net/secure/projectavatar?pid=10000&avatarId=10419",
+        "24x24": "https://panariks.atlassian.net/secure/projectavatar?size=small&s=small&pid=10000&avatarId=10419",
+        "16x16": "https://panariks.atlassian.net/secure/projectavatar?size=xsmall&s=xsmall&pid=10000&avatarId=10419",
+        "32x32": "https://panariks.atlassian.net/secure/projectavatar?size=medium&s=medium&pid=10000&avatarId=10419"
+      }
+    },
+    "fixVersions": [],
+    "aggregatetimespent": null,
+    "resolution": null,
+    "customfield_10029": null,
+    "resolutiondate": null,
+    "workratio": -1,
+    "watches": {
+      "self": "https://panariks.atlassian.net/rest/api/2/issue/TEST-1/watchers",
+      "watchCount": 1,
+      "isWatching": true
+    },
+    "lastViewed": "2021-06-06T15:57:01.841+0300",
+    "issuerestriction": {
+      "issuerestrictions": {},
+      "shouldDisplay": false
+    },
+    "created": "2020-08-23T23:01:54.250+0300",
+    "customfield_10020": null,
+    "customfield_10021": null,
+    "customfield_10022": null,
+    "priority": {
+      "self": "https://panariks.atlassian.net/rest/api/2/priority/3",
+      "iconUrl": "https://panariks.atlassian.net/images/icons/priorities/medium.svg",
+      "name": "Medium",
+      "id": "3"
+    },
+    "customfield_10023": null,
+    "customfield_10024": null,
+    "customfield_10025": null,
+    "labels": [],
+    "customfield_10016": null,
+    "customfield_10017": null,
+    "customfield_10018": {
+      "hasEpicLinkFieldDependency": false,
+      "showField": false,
+      "nonEditableReason": {
+        "reason": "PLUGIN_LICENSE_ERROR",
+        "message": "The Parent Link is only available to Jira Premium users."
+      }
+    },
+    "customfield_10019": "0|hzzzzz:",
+    "timeestimate": null,
+    "aggregatetimeoriginalestimate": null,
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2020-08-23T23:01:54.250+0300",
+    "status": {
+      "self": "https://panariks.atlassian.net/rest/api/2/status/10000",
+      "description": "",
+      "iconUrl": "https://panariks.atlassian.net/",
+      "name": "OnDev",
+      "id": "10000",
+      "statusCategory": {
+        "self": "https://panariks.atlassian.net/rest/api/2/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "components": [],
+    "timeoriginalestimate": null,
+    "description": "1",
+    "customfield_10010": null,
+    "customfield_10014": null,
+    "customfield_10015": null,
+    "timetracking": {},
+    "customfield_10005": null,
+    "customfield_10006": null,
+    "security": null,
+    "customfield_10007": null,
+    "customfield_10008": null,
+    "attachment": [],
+    "aggregatetimeestimate": null,
+    "customfield_10009": null,
+    "summary": "1",
+    "creator": {
+      "self": "https://panariks.atlassian.net/rest/api/2/user?accountId=5e3882e16061160ca042db43",
+      "accountId": "5e3882e16061160ca042db43",
+      "emailAddress": "panarik@yandex.ru",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "24x24": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "16x16": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "32x32": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png"
+      },
+      "displayName": "�������",
+      "active": true,
+      "timeZone": "Europe/Moscow",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "self": "https://panariks.atlassian.net/rest/api/2/user?accountId=5e3882e16061160ca042db43",
+      "accountId": "5e3882e16061160ca042db43",
+      "emailAddress": "panarik@yandex.ru",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "24x24": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "16x16": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png",
+        "32x32": "https://secure.gravatar.com/avatar/514553787c5139e401a100896b08914c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Fdefault-avatar-1.png"
+      },
+      "displayName": "�������",
+      "active": true,
+      "timeZone": "Europe/Moscow",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "customfield_10000": "{}",
+    "customfield_10001": null,
+    "customfield_10002": null,
+    "customfield_10003": null,
+    "customfield_10004": null,
+    "environment": null,
+    "duedate": null,
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "comment": {
+      "comments": [],
+      "self": "https://panariks.atlassian.net/rest/api/2/issue/10000/comment",
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "votes": {
+      "self": "https://panariks.atlassian.net/rest/api/2/issue/TEST-1/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    }
+  }
+}

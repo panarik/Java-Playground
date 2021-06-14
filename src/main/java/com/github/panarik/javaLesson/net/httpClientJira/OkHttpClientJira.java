@@ -26,8 +26,8 @@ public class OkHttpClientJira implements OkHttpClientGet {
         authToken = scanner.next();
 
 //        client.getIssue(issueKey, authToken);
-
-        client.getIssueHistory(issueKey, authToken);
+//        client.getIssueHistory(issueKey, authToken);
+        client.getIssues(authToken);
 
     }
 

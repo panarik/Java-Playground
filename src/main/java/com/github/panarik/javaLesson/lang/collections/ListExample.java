@@ -1,5 +1,7 @@
 package com.github.panarik.javaLesson.lang.collections;
 
+import com.github.panarik.javaLesson.lang.collections.model.Box;
+
 import java.util.*;
 import java.util.function.Consumer;
 
@@ -22,14 +24,24 @@ public class ListExample {
         list.set(2, "Заменили в index_2");
         //удалить элемент
         list.remove("March");
-
-
+        //выводим
         System.out.println("Выводим список: " + list);
         System.out.println("Выводим первый элемент списка: " + list.get(0));
         System.out.println("Выводим длину списка: " + list.size());
         System.out.println("Ищем January: " + list.contains("January"));
         System.out.println("Ищем индекс January: " + list.indexOf("January"));
         System.out.println("Ищем последний индекс January: " + list.lastIndexOf("January"));
+
+        //второй вариант
+        List<Box> boxes = List.of(
+                new Box(15),
+                new Box(35),
+                new Box(-5)
+        );
+        System.out.println("Get boxes: "+boxes);
+
+
+
 
         //сортируем по длине строки (по возрастанию)
         list.sort(new Comparator<String>() {
