@@ -13,14 +13,14 @@ public class Main {
 
         try {
             connect();
-//            createTable();
+            createTable();
 //            insert();
 //            dropTable();
 //            delete();
 //            update();
 //            read();
 //            insertExample("Kolya", 60);
-            prepareStatementInsert("Masha", 40);
+//            prepareStatementInsert("Masha", 40);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -62,6 +62,8 @@ public class Main {
 
     private static void createTable() throws SQLException {
         statement.execute("create table if not exists students (id integer primary key autoincrement, name text, score integer);");
+        //создаем подготовленный запрос с заранее прописанным значением
+        ps = connection.prepareStatement(insert);
     }
 
     private static void connect() throws SQLException {
@@ -69,8 +71,6 @@ public class Main {
         connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/lesson.db");
         //создаем запрос
         statement = connection.createStatement();
-        //создаем подготовленный запрос с заранее прописанным значением
-        ps = connection.prepareStatement(insert);
     }
 
     private static void disconnect() {
