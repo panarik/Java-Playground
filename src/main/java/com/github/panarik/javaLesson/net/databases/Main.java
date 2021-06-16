@@ -18,9 +18,12 @@ public class Main {
 //            dropTable();
 //            delete();
 //            update();
+//            insertExample("Kolya", 50); //простой запрос
+//            prepareStatementInsert("Masha", 40); //предкомпилированный запрос
+//            massCommitIntoDB();
+            massAutoCommitIntoDB();
+
 //            read();
-//            insertExample("Kolya", 60);
-//            prepareStatementInsert("Masha", 40);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -28,11 +31,35 @@ public class Main {
         }
     }
 
-    private static void prepareStatementInsert(String masha, int score) {
-
+    private static void massAutoCommitIntoDB() throws SQLException {
+        //создаем строки в цикле
+        long start = System.currentTimeMillis();
+        connection.setAutoCommit(false);
+        for (int i = 0; i<1000; i++) {
+            prepareStatementInsert("Student#"+i, i);
+        }
+        connection.setAutoCommit(true);
+        float result = (System.currentTimeMillis()) - start;
+        System.out.println("Time for adding into tables: "+result * 0.001+"sec");
     }
 
-    private static void insertExample(String name, int score) throws SQLException {
+    private static void massCommitIntoDB() throws SQLException {
+        //создаем строки в цикле
+        long start = System.currentTimeMillis();
+        for (int i = 0; i<1000; i++) {
+            prepareStatementInsert("Student#"+i, i);
+        }
+        float result = (System.currentTimeMillis()) - start;
+        System.out.println("Time for adding into tables: "+result * 0.001+"sec");
+    }
+
+    private static void prepareStatementInsert(String name, int score) throws SQLException {
+        ps.setString(1,name);
+        ps.setInt(2, score);
+        ps.executeUpdate();
+    }
+
+    private static void  insertExample(String name, int score) throws SQLException {
         statement.executeUpdate("insert into students (name, score) values('" + name + "', " + score + ");");
     }
 
