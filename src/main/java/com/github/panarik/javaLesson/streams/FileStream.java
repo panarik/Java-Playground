@@ -8,8 +8,4 @@ public class FileStream {
 
     public static void main(String[] args) throws IOException {
     }
-
-    private static void fileWrite() {
-
-    }
 }
