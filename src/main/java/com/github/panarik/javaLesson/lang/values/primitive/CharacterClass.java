@@ -24,6 +24,7 @@ public class CharacterClass {
         System.out.println("Bytes '+': "+ Arrays.toString(bytes));
 
 
+
     }
 
 }

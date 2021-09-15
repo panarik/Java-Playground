@@ -25,11 +25,24 @@ public class ExamplePrimitive {
         //символ
         char oneChar = 'C';
         char twoChar = 65535;
-        char threeChar = '\u03bc';
+        char threeChar = '\u03A6'; //Unicode
+        char returnChar = '\n';
+        char fourChar = '\\';
+        System.out.println(oneChar + " " + twoChar +" "+ threeChar+returnChar+fourChar);
 
         //логический тип
         boolean oneBoolean = true;
         boolean twoBoolean = false;
+
+        //Преобразование
+        byte b1 = 100;
+        int i1= b1;
+
+        int i2 = 10000;
+        byte b2 = (byte) i2;
+
+
+
 
 
 
