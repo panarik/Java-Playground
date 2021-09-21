@@ -22,13 +22,6 @@ public class ExamplePrimitive {
 
         System.out.println(floatOne + "\n" + doubleOne);
 
-        //символ
-        char oneChar = 'C';
-        char twoChar = 65535;
-        char threeChar = '\u03A6'; //Unicode
-        char returnChar = '\n';
-        char fourChar = '\\';
-        System.out.println(oneChar + " " + twoChar +" "+ threeChar+returnChar+fourChar);
 
         //логический тип
         boolean oneBoolean = true;

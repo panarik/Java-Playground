@@ -40,7 +40,12 @@ public class IntegerClass {
         //.min()
         System.out.println("min: " + Integer.min(i, i2));
 
+        //.decode
         System.out.println("parse 0x0000001a to int: "+ Integer.decode("0x0000001a"));
+
+        //MAX_VALUE MIN_VALUE
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
 
 
     }

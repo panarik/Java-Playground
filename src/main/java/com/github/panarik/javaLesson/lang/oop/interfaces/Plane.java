@@ -8,7 +8,6 @@ public class Plane implements Flyable {
         this.modelName = modelName;
     }
 
-
     @Override
     public void fly() {
         System.out.printf("%s самолет летит\n", modelName);

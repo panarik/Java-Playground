@@ -9,10 +9,9 @@ public class ByteClass {
 
         //String to bytes2
         String string = "abc";
-        System.out.println("String1: "+ string);
+        System.out.println("String1: " + string);
         byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
-        System.out.println("Bytes1: "+Arrays.toString(bytes));
-
+        System.out.println("Bytes1: " + Arrays.toString(bytes));
 
         //String to chars to bytes2
         //1 - String to chars
@@ -28,12 +27,14 @@ public class ByteClass {
         }
         System.out.println("Bytes2: " + Arrays.toString(bytes2));
 
-
         //Unicode to UTF-8
         String s1 = "\\u0000";
         String s2 = "\\uFFFF";
-
         byte[] b1 = s1.getBytes(StandardCharsets.UTF_8);
+
+        //Константы
+        System.out.println("MAX_VALUE: " + Byte.MAX_VALUE);
+        System.out.println("MIN_VALUE: "+Byte.MIN_VALUE);
     }
 
 
