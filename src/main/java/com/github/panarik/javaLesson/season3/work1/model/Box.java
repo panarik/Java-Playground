@@ -37,7 +37,7 @@ public class Box<F extends Fruit> {
     }
 
 
-    public void shiftTo(Box box){
+    public void shiftTo(Box<F> box){
         box.fruits.addAll(fruits);
         this.fruits.clear();
     }
