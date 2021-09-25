@@ -6,6 +6,7 @@ import com.github.panarik.javaLesson.season3.work1.model.Orange;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Solution {
 
@@ -69,6 +70,11 @@ public class Solution {
         Помним про сортировку фруктов: нельзя яблоки высыпать в коробку с апельсинами.
         Соответственно, в текущей коробке фруктов не остается, а в другую перекидываются объекты, которые были в первой;
         */
+        System.out.println("было в первой коробке: "+ boxOranges);
+        Box<Orange> boxOranges2 = new Box<>();
+        boxOranges.shiftTo(boxOranges2);
+        System.out.println("сейчас в первой коробке: "+ boxOranges);
+        System.out.println("сейчас во второй коробке: "+ boxOranges2);
 
     }
 

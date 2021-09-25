@@ -1,6 +1,7 @@
 package com.github.panarik.javaLesson.season3.work1.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Box<F extends Fruit> {
 
@@ -33,6 +34,12 @@ public class Box<F extends Fruit> {
 
     public boolean compare(Box box) {
         return this.getWeightFruits() == box.getWeightFruits();
+    }
+
+
+    public void shiftTo(Box box){
+        box.fruits.addAll(fruits);
+        this.fruits.clear();
     }
 
     @Override
