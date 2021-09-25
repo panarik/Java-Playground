@@ -2,7 +2,6 @@ package com.github.panarik.javaLesson.season3.work1;
 
 import com.github.panarik.javaLesson.season3.work1.model.Apple;
 import com.github.panarik.javaLesson.season3.work1.model.Box;
-import com.github.panarik.javaLesson.season3.work1.model.Fruit;
 import com.github.panarik.javaLesson.season3.work1.model.Orange;
 
 import java.util.ArrayList;
@@ -39,11 +38,38 @@ public class Solution {
         Коробки условно сортируются по типу фрукта, поэтому в одну коробку нельзя сложить и яблоки, и апельсины;
         Для хранения фруктов внутри коробки можно использовать ArrayList;
         */
-        Box<Fruit> boxFruit = new Box<>();
-        boxFruit.addFruit(new Apple()); //кладем в коробку яблоко
-        System.out.println(boxFruit.viewFruits()); //смотрим, что в коробке
-        boxFruit.addFruit(new Orange()); //кладем в коробку апельсин
-        System.out.println(boxFruit.viewFruits()); //смотрим, что в коробке
+        Box<Apple> boxApples = new Box<>(); //создаём ящик для яблок
+        boxApples.addFruit(new Apple(1.0f)); //кладем в коробку яблоко
+        boxApples.addFruit(new Apple(1.0f)); //кладем в коробку яблоко
+        boxApples.addFruit(new Apple(1.0f)); //кладем в коробку яблоко
+        System.out.println(boxApples.viewFruits()); //смотрим, что в коробке
+
+        //пробуем положить в коробку апельсины
+        //boxApples.addFruit(new Orange(1.5f));
+
+        /*
+        Сделать метод getWeight(), который высчитывает вес коробки, зная вес одного фрукта и их количество:
+        вес яблока – 1.0f,
+        апельсина – 1.5f (единицы измерения не важны);
+         */
+        System.out.println("Box weight is "+ boxApples.getWeightFruits()); //взвешиваем фрукты в коробке
+
+        /*
+        Внутри класса Box сделать метод compare(), который позволяет сравнить текущую коробку с той, которую подадут в compare()
+        в качестве параметра. true – если их массы равны, false в противоположном случае.
+        Можно сравнивать коробки с яблоками и апельсинами;
+        */
+        Box<Orange> boxOranges = new Box<>();
+        boxOranges.addFruit(new Orange(1.5f));
+        boxOranges.addFruit(new Orange(1.5f));
+        System.out.println(boxOranges.compare(boxApples));
+
+        /*
+        Написать метод, который позволяет пересыпать фрукты из текущей коробки в другую.
+        Помним про сортировку фруктов: нельзя яблоки высыпать в коробку с апельсинами.
+        Соответственно, в текущей коробке фруктов не остается, а в другую перекидываются объекты, которые были в первой;
+        */
+
     }
 
     private static <A> A[] swap(A[] array, int first, int second) {

@@ -16,28 +16,23 @@ public class Box<F extends Fruit> {
     }
 
     public void addFruit(F fruit) {
-        if (fruit instanceof Apple) {
-            for (F f : fruits) {
-                if (f instanceof Orange) {
-                    System.out.println("Apple нельзя положить, т.к. уже есть Orange");
-                    return;
-                }
-            }
             this.fruits.add(fruit);
-        }
-        if (fruit instanceof Orange) {
-            for (F f : fruits) {
-                if (f instanceof Apple) {
-                    System.out.println("Orange нельзя положить, т.к. уже есть Apple");
-                    return;
-                }
-            }
-            this.fruits.add(fruit);
-        }
     }
 
     public ArrayList<F> viewFruits() {
         return fruits;
+    }
+
+    public float getWeightFruits() {
+        float sum = 0;
+        for (F fruit : fruits) {
+            sum += fruit.getWeight();
+        }
+        return sum;
+    }
+
+    public boolean compare(Box box) {
+        return this.getWeightFruits() == box.getWeightFruits();
     }
 
     @Override

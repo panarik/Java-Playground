@@ -1,7 +1,11 @@
 package com.github.panarik.javaLesson.season3.work1.model;
 
 public class Apple extends Fruit {
-    private String name = "Яблоко";
+    private String name = "Apple";
+
+    public Apple(float weight) {
+        super(weight);
+    }
 
     public String getName() {
         return name;
@@ -10,7 +14,8 @@ public class Apple extends Fruit {
     @Override
     public String toString() {
         return "Apple{" +
-                "name='" + name + '\'' +
+                "fruit='" + name + '\'' +
+                ", weight=" + weight +
                 '}';
     }
 }
