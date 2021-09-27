@@ -12,11 +12,17 @@ public class FileStreamRead {
         long startByte = System.currentTimeMillis();
         try (FileInputStream file = new FileInputStream("src/main/resources/helloString.txt")) {
             int x;
-            while ((x = file.read() /* читаем по байтам из файла, складываем значение в виде int*/) > -1 /* пока не дочитаем до конца*/) {
+            //1-ый вариант:
+            while (file.available() > 0) {
+                x = file.read();
                 System.out.print((char) x);
             }
+            //2-ой вариант:
+//            while ((x = file.read() /* читаем по байтам из файла, складываем значение в виде int*/) > -1 /* пока не дочитаем до конца*/) {
+//                System.out.print((char) x);
+//            }
         }
-        System.out.println("Read on Byte: " + (System.currentTimeMillis() - startByte));
+        System.out.println("\nRead on Byte: " + (System.currentTimeMillis() - startByte));
         Thread.sleep(2000);
 
         //читаем чайл с буфером
