@@ -1,9 +1,10 @@
 package com.github.panarik.javaLesson.streams;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FileStreamWrite {
 
@@ -19,22 +20,33 @@ public class FileStreamWrite {
         File file = new File("src/main/resources/hello.txt");
         //удаляем файлик
         file.delete();
-        System.out.println("Cleanup: "+!file.exists());
+        System.out.println("Cleanup: " + !file.exists());
         Thread.sleep(3000);
 
-        //записываем байты в файл в цикле
+        //вариант Byte
         try (FileOutputStream file2 = new FileOutputStream("src/main/resources/helloByte.txt")) { //путь к файлику (с созданием файлика)
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 300; i++) {
                 file2.write(i);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //дописываем в существующий файл текст
-        byte[] hello3 = "Hello world!".getBytes(StandardCharsets.UTF_8); //преобразовываем в байты
+        //вариант String
+        byte[] hello3 = "1-2-3 Hello world!".getBytes(StandardCharsets.UTF_8); //преобразовываем в байты
         try (FileOutputStream file3 = new FileOutputStream("src/main/resources/helloByte.txt", true)) {
             file3.write(hello3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //вариант Character
+        List<Character> list = new ArrayList<>(Arrays.asList('1', '2', '3', '4'));
+        File fileList = new File("src/main/resources/fromList");
+        try (OutputStream out = new FileOutputStream(fileList)) {
+            for (Character ch : list) {
+                out.write(ch);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

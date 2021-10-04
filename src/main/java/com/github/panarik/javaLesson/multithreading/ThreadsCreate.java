@@ -26,6 +26,10 @@ public class ThreadsCreate {
             }
         }).start();
 
+        //пятый вариант - лямбда
+        Thread t5 = new Thread(() -> System.out.println("Hello lambda " + Thread.currentThread().getName()));
+        t5.start();
+
         //тред с именем
         new MyThread("myThread").start();
 
@@ -72,6 +76,7 @@ public class ThreadsCreate {
             System.out.printf("Hello from MyThread. Thread is [%s]\n", Thread.currentThread().getName());
         }
     }
+
 
     static class MyRunnable implements Runnable {
         @Override
