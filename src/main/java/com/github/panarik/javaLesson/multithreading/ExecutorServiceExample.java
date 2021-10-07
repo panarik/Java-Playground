@@ -31,6 +31,10 @@ public class ExecutorServiceExample {
         });
         runTasks(service2);
 
+        //Все сразу
+        ExecutorService service3 = Executors.newCachedThreadPool();
+        runTasks(service3);
+
     }
 
     private static void singleThreads() {

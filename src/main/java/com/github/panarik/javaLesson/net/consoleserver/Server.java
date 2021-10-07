@@ -55,7 +55,7 @@ public class Server {
     }
 
     private void startConsoleThread() {
-        //запускаем отдельный поток для косольки сервера
+        //запускаем отдельный поток для консольки сервера
         serverConsoleThread = new Thread(() -> {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("You can enter message for client >>>>>");
