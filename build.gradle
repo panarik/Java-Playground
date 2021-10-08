@@ -1,31 +1,32 @@
 plugins {
-    id 'java-library'
+    id 'java-library' //for set languageVersion
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'application' //обработка тасок
 }
 
+//-----------------------------------------------------------------
+//Java конфиги
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(15)
     }
 }
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls' ]
+}
+//---------------------------------------------------------------
 
 group 'com.github.panarik'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}
-
-javafx {
-    version = "16"
-    modules = [ 'javafx.controls' ]
 }
 
 dependencies {
@@ -40,6 +41,15 @@ dependencies {
     implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.34.0'
 }
 
+//----------------------------------------------------------------------------
+//запуск консольных команд
+//1. gradlew run
+application {
+    mainClassName = "com.github.panarik.javaLesson.season3.work5.MainClass"
+}
+//2. gradlew test
 test {
     useJUnitPlatform()
+    systemProperty "file.encoding", "utf-8" //опция
 }
+//-----------------------------------------------------------------------------
