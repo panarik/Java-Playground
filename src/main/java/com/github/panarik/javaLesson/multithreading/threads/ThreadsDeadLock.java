@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.multithreading;
+package com.github.panarik.javaLesson.multithreading.threads;
 
 public class ThreadsDeadLock {
 
