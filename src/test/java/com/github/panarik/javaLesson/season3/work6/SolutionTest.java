@@ -58,5 +58,60 @@ public class SolutionTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void isOneOrFour_fourOneLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {4}));
+    }
+
+    @Test
+    public void isOneOrFour_fourLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {4,900,-500000,1,0,0,-1,5,8,90}));
+    }
+
+    @Test
+    public void isOneOrFour_fourManyLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {4,900,-500000,4,0,0,0,1,-1,4,8,90}));
+    }
+
+    @Test
+    public void isOneOrFour_fourLeftsideLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {0,900,-500000,70,0,0,0,8,-1,5,8,4}));
+    }
+
+    @Test
+    public void isOneOrFour_fourRightsideLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {4,900,-500000,70,0,0,0,8,-1,5,8,1}));
+    }
+
+    @Test
+    public void isOneOrFour_oneOneLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {1}));
+    }
+
+    @Test
+    public void isOneOrFour_oneLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {1,900,-500000,0,0,0,-1,5,8,90}));
+    }
+
+    @Test
+    public void isOneOrFour_oneManyLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {1,900,-500000,1,0,0,0,1,-1,5,8,90}));
+    }
+
+    @Test
+    public void isOneOrFour_oneLeftsideLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {1,900,-500000,70,0,0,0,8,-1,5,8,90}));
+    }
+
+    @Test
+    public void isOneOrFour_oneRightsideLargeLength_test() {
+        Assertions.assertTrue(solution.isOneOrFour(new int[] {7,900,-500000,70,0,0,0,8,-1,5,8,1}));
+    }
+
+    @Test
+    public void isOneOrFour_NONE_test() {
+        Assertions.assertFalse(solution.isOneOrFour(new int[] {7,900,-500000,70,0,0,0,8,-1,5,8,0}));
+    }
+
 
 }

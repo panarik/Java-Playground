@@ -48,5 +48,12 @@ public class Solution {
      * Если в нем нет хоть одной четверки или единицы, то метод вернет false;
      * Написать набор тестов для этого метода (по 3-4 варианта входных данных).
      */
+    public boolean isOneOrFour(int[] array) {
+        for (int i : array) {
+            if(i==1) return true;
+            if (i==4) return true;
+        }
+        return false;
+    }
 
 }
