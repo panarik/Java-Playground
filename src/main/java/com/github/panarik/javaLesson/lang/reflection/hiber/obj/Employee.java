@@ -1,12 +1,29 @@
 package com.github.panarik.javaLesson.lang.reflection.hiber.obj;
 
+import com.github.panarik.javaLesson.lang.reflection.hiber.HField;
+import com.github.panarik.javaLesson.lang.reflection.hiber.Table;
+
+@Table(name = "employees")
 public class Employee {
+
+    @HField
     private int id;
+
+    @HField
     private String name;
+
+    @HField
     private int age;
+
     private int salary;
+
+    @HField
     private String email;
+
+    @HField
     private String phone;
+
+    @HField
     private String address;
 
     public Employee(int id, String name, int age, int salary, String email, String phone, String address) {

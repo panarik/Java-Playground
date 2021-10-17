@@ -1,12 +1,18 @@
 package com.github.panarik.javaLesson.lang.reflection.hiber.obj;
 
-import com.github.panarik.javaLesson.lang.reflection.hiber.Field;
+import com.github.panarik.javaLesson.lang.reflection.hiber.HField;
 import com.github.panarik.javaLesson.lang.reflection.hiber.Table;
 
 @Table (name = "cats")
 public class Cat {
+
+        @HField
         private int id;
+
+        @HField
         private String name;
+
+        @HField
         private String color;
 
 public Cat(int id, String name, String color) {
