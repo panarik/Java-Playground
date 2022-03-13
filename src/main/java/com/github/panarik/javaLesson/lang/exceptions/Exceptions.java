@@ -58,6 +58,4 @@ public class Exceptions {
         else System.out.println("Выполнение программы");
     }
 
-
-
 }

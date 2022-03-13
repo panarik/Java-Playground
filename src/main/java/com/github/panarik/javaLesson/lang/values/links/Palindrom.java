@@ -7,12 +7,14 @@ public class Palindrom {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        String s8 = scanner.next();
 
         //вычислить палиндром
-        String s8 = scanner.next();
-        StringBuilder sbuild = new StringBuilder(s8);
-        if (sbuild.toString().equals(sbuild.reverse().toString())) System.out.println("Это палиндом!");
+        System.out.println(isPalindrom(s8));
+        }
 
+    private static boolean isPalindrom(String s8) {
+        return new StringBuilder(s8).reverse().toString().equals(s8);
     }
 
 }

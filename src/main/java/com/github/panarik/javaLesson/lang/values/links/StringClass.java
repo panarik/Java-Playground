@@ -1,10 +1,7 @@
 package com.github.panarik.javaLesson.lang.values.links;
 
-import java.lang.reflect.Array;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Locale;
 
 public class StringClass {
 

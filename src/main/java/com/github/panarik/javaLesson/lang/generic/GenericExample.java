@@ -25,20 +25,19 @@ public class GenericExample {
         BoxGeneric<Integer> gBox2 = new BoxGeneric<>(20);
         BoxGeneric<String> gBox3 = new BoxGeneric<>("Hello ");
         BoxGeneric<String> gBox4 = new BoxGeneric<>("world!");
-        System.out.println(gBox1.getItem()+gBox2.getItem());
-        System.out.println(gBox3.getItem()+gBox4.getItem());
+        System.out.println(gBox1.getItem() + gBox2.getItem());
+        System.out.println(gBox3.getItem() + gBox4.getItem());
 
         //------------------------------------------------------------------
         //3. Generic с массивом
-        BoxNumbers<Integer> boxI1 = new BoxNumbers<>(5,1,2,3,4);
-        BoxNumbers<Integer> boxI2 = new BoxNumbers<>(5,1,2,3,4);
-        BoxNumbers<Float> boxF1 = new BoxNumbers<>(5f,1f,2f,3f,4f);
+        BoxNumbers<Integer> boxI1 = new BoxNumbers<>(5, 1, 2, 3, 4);
+        BoxNumbers<Integer> boxI2 = new BoxNumbers<>(5, 1, 2, 3, 4);
+        BoxNumbers<Float> boxF1 = new BoxNumbers<>(5f, 1f, 2f, 3f, 4f);
         System.out.println(boxI1.sum());
         System.out.println(boxF1.sum());
         System.out.println(boxI1.equalsByAvg(boxI2));
         System.out.println(boxI1.equalsByAvg1(boxF1));
-        }
-
+    }
 
     //-------------------------------------------------------------------
     // Метод с Generic
