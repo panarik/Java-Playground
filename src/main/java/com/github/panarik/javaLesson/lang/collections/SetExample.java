@@ -5,7 +5,12 @@ import java.util.*;
 public class SetExample {
 
     public static void main(String[] args) {
+        setExample();
+        linkedSetExample();
+        treeSetExample();
+    }
 
+    private static void setExample() {
         //не хранит дубликаты
         //не хранит порядок добавления элементов
         Set<String> set = new HashSet<>();
@@ -25,14 +30,18 @@ public class SetExample {
         for (Box box : boxSet) {
             System.out.println(box);
         }
+
         System.out.println("\nПроходим с помощью Iterator");
         Iterator iterator = boxSet.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
         System.out.println("\nПроходим с метода");
         boxSet.forEach(System.out::println);
+    }
 
+    private static void linkedSetExample() {
         //не хранит дубликаты
         //хранит порядок добавления элементов
         Set<String> linkedSet = new LinkedHashSet<>();
@@ -41,7 +50,9 @@ public class SetExample {
         linkedSet.add("Three");
         linkedSet.add("Three");
         System.out.println("\nВыводим список linkedSet: " + linkedSet);
+    }
 
+    private static void treeSetExample() {
         //сразу сортирует элементы
         //не хранит дубликаты
         //не используется хеш
@@ -51,8 +62,6 @@ public class SetExample {
         threeSet.add(new BoxForTree(3, 3));
         threeSet.add(new BoxForTree(3, 3));
         System.out.println(threeSet);
-
-
     }
 
     private static class Box {
@@ -74,7 +83,6 @@ public class SetExample {
     }
 
     private static class BoxForTree implements Comparable<BoxForTree> {
-
         int width;
         int height;
 
@@ -96,6 +104,5 @@ public class SetExample {
                     '}';
         }
     }
-
 
 }

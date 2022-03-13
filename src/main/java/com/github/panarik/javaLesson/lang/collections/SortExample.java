@@ -8,7 +8,21 @@ import java.util.*;
 public class SortExample {
 
     public static void main(String[] args) {
+        defaultSort();
+        customSort();
+    }
 
+    private static void defaultSort() {
+        //Готовая сортировка
+        List<Integer> digits = new ArrayList<>();
+        digits.add(5);
+        digits.add(2);
+        digits.add(50);
+        Collections.sort(digits);
+        System.out.println(digits);
+    }
+
+    private static void customSort() {
         //Первый вариант (Comparator в классе)
         List<Box> boxes = new ArrayList<>(Arrays.asList(
                 new Box(15),
@@ -39,12 +53,6 @@ public class SortExample {
         });
         //после сортировки
         System.out.println(bags);
-
-
-
     }
-
-
-
 
 }

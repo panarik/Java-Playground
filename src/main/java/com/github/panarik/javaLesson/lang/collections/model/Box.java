@@ -1,12 +1,12 @@
 package com.github.panarik.javaLesson.lang.collections.model;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class Box implements Comparable<Box> {
 
     int value;
 
-    public Box(int value){
+    public Box(int value) {
         this.value = value;
     }
 
@@ -21,4 +21,5 @@ public class Box implements Comparable<Box> {
     public int compareTo(Box o) {
         return this.value - o.value;
     }
+
 }

@@ -38,9 +38,7 @@ public class ListExample {
                 new Box(35),
                 new Box(-5)
         );
-        System.out.println("Get boxes: "+boxes);
-
-
+        System.out.println("Get boxes: " + boxes);
 
 
         //сортируем по длине строки (по возрастанию)
@@ -69,19 +67,19 @@ public class ListExample {
         Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println("Удаляем элемент: " + iterator.next()); //какой элемент проходим
-            iterator.remove(); //удаляем этот елемент
+            iterator.remove(); //удаляем этот элемент
         }
         System.out.println("Список после удаления: " + list);
 
-        //проходим другим итератором
-//        list.add("first");
-//        ListIterator iterator1 = list.listIterator();
-//        while (iterator1.hasNext()) {
-//            iterator1.add("Добавили итератором");
-//            System.out.println("Есть ли предыдущий элемент: "+ iterator1.hasPrevious());
-//            System.out.println(list);
-//        }
-//        list.clear();
+        // Проходим другим итератором.
+        list.add("first");
+        ListIterator iterator1 = list.listIterator();
+        while (iterator1.hasNext()) {
+            iterator1.add("Добавили итератором");
+            System.out.println("Есть ли предыдущий элемент: " + iterator1.hasPrevious());
+            System.out.println(list);
+        }
+        list.clear();
 
         //проходим методом forEach()
         list.add("First");
@@ -89,16 +87,18 @@ public class ListExample {
         list.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
-                System.out.println("элемент: "+s);
+                System.out.println("элемент: " + s);
             }
         });
 
         //другой тип списка
-        List<String> linkedList = new LinkedList<>();
-
+        LinkedList<Box> linkedList = new LinkedList<>();
+        linkedList.addFirst(new Box(1));
+        linkedList.addFirst(new Box(10));
+        linkedList.addFirst(new Box(50));
+        System.out.println(linkedList.peekFirst());
 
     }
-
 
 
 }

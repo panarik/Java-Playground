@@ -37,7 +37,6 @@ public class MapExample {
             System.out.println("Ключ: "+entry.getKey());
             System.out.println("Значение: "+entry.getValue());
         }
-
     }
 
 }
