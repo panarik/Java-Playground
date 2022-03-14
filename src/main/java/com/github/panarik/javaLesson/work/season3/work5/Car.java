@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.season3.work5;
+package com.github.panarik.javaLesson.work.season3.work5;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
