@@ -9,6 +9,11 @@ public class ListExample {
 
     public static void main(String[] args) {
 
+        sort();
+        //another();
+    }
+
+    private static void another() {
         //список со строками
         List<String> list = new ArrayList<>();
 
@@ -17,7 +22,7 @@ public class ListExample {
         list.add("January");
         list.add("February");
         list.add("March");
-        list.add(2, "Добавили в index_2");
+        list.add(2, "Insert into index 2");
         //добавить другой список
         list.addAll(Arrays.asList("Первый", "Второй", "Третий"));
         //заменить элемент
@@ -39,25 +44,6 @@ public class ListExample {
                 new Box(-5)
         );
         System.out.println("Get boxes: " + boxes);
-
-
-        //сортируем по длине строки (по возрастанию)
-        list.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
-        System.out.println(list);
-
-        //сортируем по длине строки (по убыванию)
-        list.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o2.length() - o1.length();
-            }
-        });
-        System.out.println(list);
 
         //проходим по списку
         for (int i = 0; i < list.size(); i++) System.out.printf("Запись с индексом %s: %s\n", i, list.get(i));
@@ -97,7 +83,86 @@ public class ListExample {
         linkedList.addFirst(new Box(10));
         linkedList.addFirst(new Box(50));
         System.out.println(linkedList.peekFirst());
+    }
 
+    private static void sort() {
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("2");
+        list.add("1");
+        list.add("AA");
+        list.add("CC");
+        list.add("BB");
+        list.add("January");
+        list.add("January");
+        list.add("February");
+        list.add("March");
+        list.add(2, "Insert into index 2");
+
+        sortByLengthIncrese(list);
+        sortByLengthDecrese(list);
+        sortByABC(list);
+        sortByCBA(list);
+    }
+
+    private static void sortByCBA(ArrayList<String> list) {
+        // Сортируем по алфавиту руками.
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+
+                long long1;
+                StringBuilder builder1 = new StringBuilder();
+                long long2;
+                StringBuilder builder2 = new StringBuilder();
+
+                for (int i = 0; (i < o1.length() && i < 3); i++) {
+                    byte b = (byte) o1.charAt(i);
+                    builder1.append(b);
+                }
+                String string1 = builder1.toString();
+                long1 = Long.parseLong(string1);
+
+                for (int j = 0; (j < o2.length() && j < 3); j++) {
+                    byte b = (byte) o2.charAt(j);
+                    builder2.append(b);
+                }
+                String string2 = builder2.toString();
+                long2 = Long.parseLong(string2);
+                long resultLong = long2 - long1;
+                int result = (int) resultLong;
+                return result;
+            }
+        });
+        System.out.println(list);
+    }
+
+    private static void sortByABC(ArrayList<String> list) {
+        // Сортируем по алфавиту.
+        Collections.sort(list);
+        System.out.println(list);
+    }
+
+    private static void sortByLengthDecrese(ArrayList<String> list) {
+        //сортируем по длине строки (по убыванию)
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.length() - o1.length();
+            }
+        });
+        System.out.println(list);
+    }
+
+    private static void sortByLengthIncrese(ArrayList<String> list) {
+        //сортируем по длине строки (по возрастанию)
+        list.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+        System.out.println(list);
     }
 
 
