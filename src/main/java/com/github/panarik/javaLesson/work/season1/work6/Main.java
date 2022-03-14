@@ -1,9 +1,9 @@
-package com.github.panarik.javaLesson.work6;
+package com.github.panarik.javaLesson.work.season1.work6;
 
-import com.github.panarik.javaLesson.work6.animals.Cat;
-import com.github.panarik.javaLesson.work6.animals.Dog;
-import com.github.panarik.javaLesson.work6.items.Box;
-import com.github.panarik.javaLesson.work6.items.Cup;
+import com.github.panarik.javaLesson.work.season1.work6.animals.Cat;
+import com.github.panarik.javaLesson.work.season1.work6.animals.Dog;
+import com.github.panarik.javaLesson.work.season1.work6.items.Box;
+import com.github.panarik.javaLesson.work.season1.work6.items.Cup;
 
 public class Main {
 
