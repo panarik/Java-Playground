@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work.season2.work25;
+package com.github.panarik.javaLesson.work.season2.work5;
 
 import java.util.Arrays;
 

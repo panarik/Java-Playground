@@ -1,5 +1,6 @@
 package com.github.panarik.javaLesson.season3.work6;
 
+import com.github.panarik.javaLesson.work.season3.work6.Solution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work.season2.work21;
+package com.github.panarik.javaLesson.work.season2.work1;
 
 public class RunTable implements Running {
     private int distance;

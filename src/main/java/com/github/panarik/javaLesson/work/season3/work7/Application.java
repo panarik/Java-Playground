@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work.season3.work37;
+package com.github.panarik.javaLesson.work.season3.work7;
 
 public class Application {
 

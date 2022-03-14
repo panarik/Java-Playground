@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work.season2.work21;
+package com.github.panarik.javaLesson.work.season2.work1;
 
 public class Human implements Jumping,Running {
 
