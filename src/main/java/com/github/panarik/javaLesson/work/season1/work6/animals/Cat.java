@@ -10,9 +10,10 @@ public class Cat extends Animal {
     }
 
     //создание домашних котов
-    public Cat(String name, int appetite) {
+    public Cat(String name, int appetite, boolean full) {
         this.name = name;
         this.appetite = appetite;
+        this.full = full;
     }
 
     //создание бойцовских котов

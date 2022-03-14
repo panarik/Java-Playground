@@ -1,17 +1,17 @@
-package com.github.panarik.javaLesson.work.season1.work6;
+package com.github.panarik.javaLesson.work6;
 
-import com.github.panarik.javaLesson.work.season1.work6.animals.Cat;
-import com.github.panarik.javaLesson.work.season1.work6.animals.Dog;
-import com.github.panarik.javaLesson.work.season1.work6.items.Box;
-import com.github.panarik.javaLesson.work.season1.work6.items.Cup;
+import com.github.panarik.javaLesson.work6.animals.Cat;
+import com.github.panarik.javaLesson.work6.animals.Dog;
+import com.github.panarik.javaLesson.work6.items.Box;
+import com.github.panarik.javaLesson.work6.items.Cup;
 
 public class Main {
 
     public static void main(String[] agrs) {
 
-        testAnimals();
+        //testAnimals();
         feedAnimals();
-        heatAnimals();
+        //heatAnimals();
 
     }
 
@@ -38,14 +38,23 @@ public class Main {
         System.out.println("\nАКТ №2: Животные едят.");
         Cup cup = new Cup();
         Box box = new Box();
-        System.out.println("Приходит первый кот");
-        Cat cat1 = new Cat("Барсик", 10);
+
+        Cat[] cats = new Cat[3];
+        cats[0] = new Cat("Барсик", 10, false);
+        cats[1] = new Cat("Тузик", 10, false);
+        cats[2] = new Cat("Эрик", 10,false);
+
         cup.putInto(15);
-        //cat1.eat(cup);
-        System.out.println("\nПриходит второй кот");
-        Cat cat2 = new Cat("Тузик", 10);
         box.putInto(30);
-        cat2.eat(box);
+
+        for (int i = 0; i < cats.length; i++) {
+            System.out.printf("\nПриходит %d-й кот %s\n", (i+1), cats[i].getName());
+            if(i%2==0) cats[i].eat(cup);
+            else cats[i].eat(box);
+        }
+
+        cup.putInto(50);
+        System.out.printf("\nПо просьбе котов в чашку добавили еще %d еды. Теперь в чашке %d еды.\n", 50, cup.getAmount());
     }
 
     private static void testAnimals() {
