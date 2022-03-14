@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work21;
+package work21;
 
 public class Human implements Jumping,Running {
 

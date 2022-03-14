@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work23;
+package work23;
 
 import java.util.ArrayList;
 import java.util.HashSet;

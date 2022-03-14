@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.work21;
+package work21;
 
 public interface Jumping {
     void jump();
