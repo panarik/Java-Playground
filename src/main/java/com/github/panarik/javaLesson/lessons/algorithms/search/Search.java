@@ -19,7 +19,6 @@ public class Search {
     private static Person mary = new Person("Mary", new LinkedList<>(List.of(new String[]{"Kate"})), true, false);
     private static Person bob = new Person("Bob", new LinkedList<>(List.of(new String[]{"Kate", "Roman", "You"})), true, false);
 
-
     public static void main(String[] args) {
         createPersonGraph();
         searchEmployee();
@@ -31,7 +30,6 @@ public class Search {
         map.put("Mary", mary);
         map.put("Bob", bob);
     }
-
 
     private static void searchEmployee() {
 
@@ -53,14 +51,13 @@ public class Search {
             }
 
             // Add all his friend in queue if he is working now!
-            else {
+            else if (!person.checked) { // Only if we found a new friend in list
                 for (String friend : person.friends) {
+                    person.checked = true; // Mark this person checked.
                     list.addLast(friend);
                 }
             }
         }
-
     }
-
 
 }
