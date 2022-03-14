@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.algorithms.recursion;
+package com.github.panarik.javaLesson.lessons.algorithms.recursion;
 
 public class RecursionExapmle {
 

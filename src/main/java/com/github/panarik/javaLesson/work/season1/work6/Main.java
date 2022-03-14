@@ -16,7 +16,7 @@ public class Main {
     }
 
     private static void heatAnimals() {
-        System.out.println("\nАКТ №3: Животные деруться.");
+        System.out.println("\nАКТ №3: Животные дерутся.");
         Cat cat3 = new Cat("Борец", 100, 10);
         Cat cat4 = new Cat("Счастливчик", 150, 6);
         while (true) {

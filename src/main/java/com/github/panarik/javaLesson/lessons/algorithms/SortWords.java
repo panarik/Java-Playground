@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.algorithms;
+package com.github.panarik.javaLesson.lessons.algorithms;
 
 import java.util.ArrayList;
 

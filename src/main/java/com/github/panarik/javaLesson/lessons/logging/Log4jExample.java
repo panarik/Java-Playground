@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.logging.logging;
+package com.github.panarik.javaLesson.lessons.logging;
 
 import org.apache.logging.log4j.*;
 
