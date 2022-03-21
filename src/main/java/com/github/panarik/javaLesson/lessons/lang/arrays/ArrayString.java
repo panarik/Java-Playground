@@ -1,6 +1,6 @@
-package com.github.panarik.javaLesson.lessons.lang.massive;
+package com.github.panarik.javaLesson.lessons.lang.arrays;
 
-public class MassiveString {
+public class ArrayString {
 
 
     public static void main(String[] args) {

@@ -1,11 +1,8 @@
-package com.github.panarik.javaLesson.lessons.lang.massive;
+package com.github.panarik.javaLesson.lessons.lang.arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
-public class MassiveInt {
+public class ArrayInt {
 
 
     public static void main(String[] args) {

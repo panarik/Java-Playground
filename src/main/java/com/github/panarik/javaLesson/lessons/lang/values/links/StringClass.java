@@ -7,6 +7,12 @@ public class StringClass {
 
     public static void main(String[] args) {
 
+//        stringMethods();
+//        stringAppends();
+        immutableString();
+    }
+
+    private static void stringAppends() {
         System.out.println("hell" + "o!");
         String s1 = "hell";
         String s2 = "o!";
@@ -21,7 +27,9 @@ public class StringClass {
         int a = 1;
         System.out.println("String with int " + a);
         System.out.println("1" + (1 + 3));
+    }
 
+    private static void stringMethods() {
         //.compareTo
         String a1 = "Hello!";
         String a2 = "Buy!";
@@ -71,6 +79,19 @@ public class StringClass {
         System.out.println(s);
         System.out.println(s.substring(1, 5));
         System.out.println(s);
+    }
+
+    private static void immutableString() {
+
+        // Create two links to the same object.
+        String s1 = "John";
+        String s2 = "John";
+        System.out.println(s1==s2); //true
+
+        // Create two links with different objects.
+        String s3 = new String("John");
+        String s4 = new String("John");
+        System.out.println(s3==s4);
     }
 
     private static String letterUp(String target, String current) {
