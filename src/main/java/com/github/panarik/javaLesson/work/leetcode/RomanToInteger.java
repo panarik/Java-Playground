@@ -1,5 +1,6 @@
 package com.github.panarik.javaLesson.work.leetcode;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
