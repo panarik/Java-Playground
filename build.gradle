@@ -4,8 +4,8 @@ plugins {
     id 'application' //обработка тасок
 }
 
-//-----------------------------------------------------------------
-//Java конфиги
+// -----------------------------------------------------------------
+// Java configures.
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -51,7 +51,7 @@ tasks.withType(JavaCompile) {
 }
 
 //----------------------------------------------------------------------------
-//запуск консольных команд
+//run through console:
 //1. gradlew run
 application {
     mainClassName = "com.github.panarik.javaLesson.season3.work5.MainClass"
@@ -61,4 +61,3 @@ test {
     useJUnitPlatform()
     systemProperty "file.encoding", "utf-8" //опция
 }
-//-----------------------------------------------------------------------------
