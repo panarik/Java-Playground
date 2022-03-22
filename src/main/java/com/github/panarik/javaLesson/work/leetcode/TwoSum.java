@@ -11,10 +11,11 @@ import java.util.Arrays;
 public class TwoSum {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[]{0, 3, 0}, 0)));
+        TwoSum twoSum = new TwoSum();
+        System.out.println(Arrays.toString(twoSum.twoSum(new int[]{0, 3, 0}, 0)));
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         for (int first = 0; first < nums.length; first++) {
             for (int second = 0; second < nums.length; second++) {

@@ -24,7 +24,7 @@ public class TwoSumTest {
 
     @Test(dataProvider = "sums")
     void returnSumOne(TwoSumData data) {
-        int[] resultMethod = TwoSum.twoSum(data.nums, data.target);
+        int[] resultMethod = new TwoSum().twoSum(data.nums, data.target);
         boolean resultTest = twoSumEqual(resultMethod, data.result);
         System.out.println("Expected: " + Arrays.toString(data.result) + ", result: " + Arrays.toString(resultMethod));
         Assert.assertTrue(resultTest, "Expected: " + Arrays.toString(data.result) + ", but found: " + Arrays.toString(resultMethod));
