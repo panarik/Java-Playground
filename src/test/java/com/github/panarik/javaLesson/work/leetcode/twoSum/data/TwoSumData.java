@@ -1,11 +1,11 @@
 package com.github.panarik.javaLesson.work.leetcode.twoSum.data;
 
 public class TwoSumData {
-    public NumsData nums;
+    public int[] nums;
     public int target;
-    public ResultData result;
+    public int[] result;
 
-    public TwoSumData(NumsData nums, int target, ResultData result) {
+    public TwoSumData(int[] nums, int target, int[] result) {
         this.nums = nums;
         this.target = target;
         this.result = result;

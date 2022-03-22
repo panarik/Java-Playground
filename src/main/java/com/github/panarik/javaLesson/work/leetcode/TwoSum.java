@@ -1,6 +1,5 @@
 package com.github.panarik.javaLesson.work.leetcode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -12,20 +11,18 @@ import java.util.Arrays;
 public class TwoSum {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[]{4, 2, 78, 1, 56, 0, 9}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{0, 3, 0}, 0)));
     }
 
     public static int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
-        ArrayList<Integer> list = new ArrayList<>(); // List with actual nums.
-        for (int num : nums) if (num < target) list.add(num); // Skip all impossible numbers.
-        for (int first = 0; first < list.size(); first++) {
-            for (int second = 0; second < list.size(); second++) {
+        for (int first = 0; first < nums.length; first++) {
+            for (int second = 0; second < nums.length; second++) {
                 if (first == second) continue; //Don't sum digit itself.
-                else if (list.get(first)+ list.get(second)==target) {
+                else if (nums[first]+ nums[second]==target) {
                     result[0] = first;
                     result[1] = second;
-                    break;
+                    return result;
                 }
             }
         }
