@@ -1,5 +1,7 @@
 package com.github.panarik.javaLesson.work.leetcode;
 
+import jdk.jshell.execution.JdiDefaultExecutionControl;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,35 +13,52 @@ import java.util.TreeMap;
 public class RomanToInteger {
 
     public static void main(String[] args) {
-        System.out.println(new RomanToInteger().romanToInt("VI"));
+        System.out.println(new RomanToInteger().romanToInt("VII"));
     }
 
     public int romanToInt(String s) {
 
         //Create digit groups;
-        int digitTen = 0;
+        int digit = 0;
 
         // Create map.
         Map<Character, Integer> map = getMap();
 
-        //Parse Roman digit to groups
-        for (int i = s.length(); i > 0; i--) {
-            char ch = s.charAt(i - 1);
-            boolean isLast = (i == s.length()); // Last digit in line.
-            boolean isFirst = (i == 1); // First digit in line.
-            digitTen = digitTen + map.get(ch);
+        //add first digit
+        digit += map.get(s.charAt(s.length() - 1));
 
-            //Code block for parse tens
-            if (ch == 'V') { //Found five!
-                if (isLast & !isFirst) { // Before fire has more digits;
-                    while (i >1 && s.charAt(i-2) == 'I') {
-                        digitTen--;
-                        i--;
-                    }
-                }
+        // Parse Roman digits.
+        // Go backward. Starts with second digit.
+        for (int i = s.length() - 2; i >= 0; ) {
+            char chCurrent = s.charAt(i); // Current digit.
+            boolean isLast = (i == 0); // Last digit in line.
+
+            // Definite the next digit is less.
+            if (!isLast && map.get(s.charAt(i - 1)) < map.get(s.charAt(i))) { // Previous less
+                digit = digit + map.get(s.charAt(i));
+                digit = digit - map.get(s.charAt(i - 1));
+                i -= 2; // Skip previous. It's used.
+            } else  {
+                digit = digit + map.get(s.charAt(i));
+                i--;
             }
+
+//            digitTen = digitTen + map.get(ch);
+
+//            //Code block for parse tens
+//            if (ch == 'V') { //Found five!
+//                if (isLast & !isFirst) { // Before fire has more digits;
+//                    while (i >1 && s.charAt(i-2) == 'I') {
+//                        digitTen--;
+//                        i--;
+//                    }
+//                }
+//            }
+
+            //ToDo:Code block for parse fifty
+
         }
-        return digitTen;
+        return digit;
     }
 
     private Map<Character, Integer> getMap() {
