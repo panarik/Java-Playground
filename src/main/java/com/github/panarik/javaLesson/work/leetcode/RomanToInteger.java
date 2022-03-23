@@ -1,10 +1,7 @@
 package com.github.panarik.javaLesson.work.leetcode;
 
-import jdk.jshell.execution.JdiDefaultExecutionControl;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -13,23 +10,24 @@ import java.util.TreeMap;
 public class RomanToInteger {
 
     public static void main(String[] args) {
-        System.out.println(new RomanToInteger().romanToInt("VII"));
+        System.out.println(new RomanToInteger().romanToInt("IX"));
     }
 
     public int romanToInt(String s) {
+        Map<Character, Integer> map = new HashMap<>(); // Create a map with digits.
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
 
-        //Create digit groups;
-        int digit = 0;
-
-        // Create map.
-        Map<Character, Integer> map = getMap();
-
-        //add first digit
-        digit += map.get(s.charAt(s.length() - 1));
+        int digit = 0; // Create digit groups;
 
         // Parse Roman digits.
         // Go backward. Starts with second digit.
-        for (int i = s.length() - 2; i >= 0; ) {
+        for (int i = s.length() - 1; i >= 0; ) {
             char chCurrent = s.charAt(i); // Current digit.
             boolean isLast = (i == 0); // Last digit in line.
 
@@ -42,35 +40,8 @@ public class RomanToInteger {
                 digit = digit + map.get(s.charAt(i));
                 i--;
             }
-
-//            digitTen = digitTen + map.get(ch);
-
-//            //Code block for parse tens
-//            if (ch == 'V') { //Found five!
-//                if (isLast & !isFirst) { // Before fire has more digits;
-//                    while (i >1 && s.charAt(i-2) == 'I') {
-//                        digitTen--;
-//                        i--;
-//                    }
-//                }
-//            }
-
-            //ToDo:Code block for parse fifty
-
         }
         return digit;
-    }
-
-    private Map<Character, Integer> getMap() {
-        Map<Character, Integer> map = new TreeMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-        return map;
     }
 
 }
