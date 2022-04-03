@@ -40,14 +40,18 @@ public class ValidPalindromeII {
 
         // check string
         for (firstIndex = 0, lastIndex = s.length() - 1; firstIndex <= lastIndex; firstIndex++, lastIndex--) {
+            char skippedFirst = s.charAt(firstIndex);
+            char skippedLast = s.charAt(lastIndex);
 
-            // if one letter is ton equals, we should check all string.
-            if (s.charAt(firstIndex) != s.charAt(lastIndex)) {
+            // if anomaly found
+            if (skippedFirst != skippedLast) {
+                missingLetters++;
 
-                // try skipping some chars and check all string
-                if (s.charAt(firstIndex) != s.charAt(lastIndex - 1)) missingLetters++;
-                if (s.charAt(firstIndex + 1) != s.charAt(lastIndex)) missingLetters++;
-                if (missingLetters > 1) return false;
+                //try check two pairs without current letter
+                boolean firstPair = s.charAt(firstIndex) == s.charAt(lastIndex - 1);
+                boolean secondPair = s.charAt(firstIndex + 1) == s.charAt(lastIndex);
+                if (firstPair | secondPair) continue; // at least one pair works. Its palindrome without one letter.
+                else return false; // if both pairs wrong it is not palindrome.
             }
         }
 
