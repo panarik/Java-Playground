@@ -13,6 +13,8 @@ public class ValidPalindromeII {
         System.out.println("(slow with 'aba' )  must be true: " + new ValidPalindromeII().validPalindromeSlow("aba"));
         System.out.println("(fast with 'tcaac' )  must be true: " + new ValidPalindromeII().validPalindrome("tcaac"));
         System.out.println("(slow with 'tcaac' )  must be true: " + new ValidPalindromeII().validPalindromeSlow("tcaac"));
+        System.out.println("(fast with 'caact' )  must be true: " + new ValidPalindromeII().validPalindrome("caact"));
+        System.out.println("(slow with 'caact' )  must be true: " + new ValidPalindromeII().validPalindromeSlow("caact"));
         System.out.println("(fast with 'abca')  must be true: " + new ValidPalindromeII().validPalindrome("abca"));
         System.out.println("(slow with 'abca')  must be true: " + new ValidPalindromeII().validPalindromeSlow("abca"));
         System.out.println("(fast with 'abc' )  must be false: " + new ValidPalindromeII().validPalindrome("abc"));
@@ -33,29 +35,33 @@ public class ValidPalindromeII {
         System.out.println("(slow with longest) must be true: " + new ValidPalindromeII().validPalindromeSlow(longest));
     }
 
-
     public boolean validPalindrome(String s) {
         int firstIndex, lastIndex;
-        int missingLetters = 0; // Palindrome anomaly score.
+        int anomalyScore = 0; // Palindrome anomaly score.
 
-        // check string
+        // check all string from sides to center
         for (firstIndex = 0, lastIndex = s.length() - 1; firstIndex <= lastIndex; firstIndex++, lastIndex--) {
             char skippedFirst = s.charAt(firstIndex);
             char skippedLast = s.charAt(lastIndex);
 
             // if anomaly found
             if (skippedFirst != skippedLast) {
-                missingLetters++;
-
-                //try check two pairs without current letter
-                boolean firstPair = s.charAt(firstIndex) == s.charAt(lastIndex - 1);
-                boolean secondPair = s.charAt(firstIndex + 1) == s.charAt(lastIndex);
-                if (firstPair | secondPair) continue; // at least one pair works. Its palindrome without one letter.
-                else return false; // if both pairs wrong it is not palindrome.
+                return isPalindrome(s, firstIndex + 1, lastIndex) || isPalindrome(s, firstIndex, lastIndex - 1);
             }
+
         }
 
-        return missingLetters < 2;
+        return true;
+    }
+
+    private boolean isPalindrome(String s, int firstIndex, int lastIndex) {
+        while (firstIndex <= lastIndex) {
+            if (s.charAt(firstIndex) == s.charAt(lastIndex)) {
+                firstIndex++;
+                lastIndex--;
+            } else return false;
+        }
+        return true;
     }
 
 
