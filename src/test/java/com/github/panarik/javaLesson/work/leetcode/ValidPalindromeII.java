@@ -37,8 +37,7 @@ public class ValidPalindromeII {
             if (s.charAt(firstIndex) != s.charAt(lastIndex)) {
 
                 // try skipping some chars
-                if (s.charAt(firstIndex) != s.charAt(lastIndex - 1) || s.charAt(firstIndex + 1) != s.charAt(lastIndex))
-                    return false;
+                return s.charAt(firstIndex) == s.charAt(lastIndex - 1) | s.charAt(firstIndex + 1) == s.charAt(lastIndex);
             }
         }
         return true;
