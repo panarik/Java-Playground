@@ -2,8 +2,6 @@ package com.github.panarik.javaLesson.work.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -14,25 +12,21 @@ import java.util.TreeMap;
  */
 public class ValidParentheses {
 
+    Map<Character, Character> mapTypes = new HashMap<>();
+    Map<Character, Integer> map = new HashMap<>();
+
     public static void main(String[] args) {
         System.out.println("must be true:  " + new ValidParentheses().isValid("()"));
         System.out.println("must be true:  " + new ValidParentheses().isValid("()[]{}"));
         System.out.println("must be true:  " + new ValidParentheses().isValid("{[]}"));
         System.out.println("must be false: " + new ValidParentheses().isValid("(]"));
+        System.out.println("must be false: " + new ValidParentheses().isValid("]"));
+        System.out.println("must be false: " + new ValidParentheses().isValid("]["));
         System.out.println("must be false: " + new ValidParentheses().isValid("([)]"));
     }
 
     public boolean isValid(String s) {
-
-        SortedMap<Character, Integer> map = new TreeMap<>();
-        map.put('(', 0);
-        map.put('[', 0);
-        map.put('{', 0);
-
-        Map<Character, Character> mapTypes = new HashMap<>();
-        mapTypes.put(')', '(');
-        mapTypes.put(']', '[');
-        mapTypes.put('}', '{');
+        initMaps();
 
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
@@ -48,10 +42,32 @@ public class ValidParentheses {
             //Check wrong brackets order. (like '([)]')
             if (i > 0) {
 
+                // if previous bracket is open AND current bracket is not open.
+                if (isOpenBracket(s.charAt(i - 1)) && !isOpenBracket(ch)) {
+
+                    //all this brackets must be the same type.
+                    if (s.charAt(i-1) != mapTypes.get(ch)) return false;
+                }
             }
 
         }
+
+        // Check extra closed brackets. (like '(]')
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() != 0) return false;
+        }
+
         return true;
+    }
+
+    private void initMaps(){
+        map.put('(', 0);
+        map.put('[', 0);
+        map.put('{', 0);
+
+        mapTypes.put(')', '(');
+        mapTypes.put(']', '[');
+        mapTypes.put('}', '{');
     }
 
     private void putCharToMap(char ch, Map<Character, Integer> map) {
@@ -83,7 +99,10 @@ public class ValidParentheses {
         }
     }
 
-    private boolean correctClosed(Map<Character, Character> mapTypes, char current, char previous) {
+    private boolean isOpenBracket(char bracket) {
+        for (Map.Entry<Character, Character> entry : mapTypes.entrySet()) {
+            if (bracket == entry.getValue()) return true;
+        }
         return false;
     }
 }
