@@ -23,6 +23,7 @@ public class ValidParentheses {
         System.out.println("must be false: " + new ValidParentheses().isValid("]"));
         System.out.println("must be false: " + new ValidParentheses().isValid("]["));
         System.out.println("must be false: " + new ValidParentheses().isValid("([)]"));
+        System.out.println("must be false: " + new ValidParentheses().isValid("[([]])"));
     }
 
     public boolean isValid(String s) {
