@@ -1,6 +1,8 @@
 package com.github.panarik.javaLesson.lessons.lang.regular;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,11 +11,31 @@ public class ByPatternMatcher {
     public static void main(String[] args) {
 
         //Pattern class
-        returnIndex(); // Method '.start()' examples
-        matches(); //     Method '.matches(String regex, CharSequence input)' examples
-        pattern(); //     Method '.pattern()' examples
-        quote(); //       Method '.quote()' examples
-        split(); //       Method '.split(CharSequence input)' examples
+//        returnIndex(); // Method '.start()' examples
+//        matches(); //     Method '.matches(String regex, CharSequence input)' examples
+//        pattern(); //     Method '.pattern()' examples
+//        quote(); //       Method '.quote()' examples
+//        split(); //       Method '.split(CharSequence input)' examples
+//        flags(); //       Method '.flags()' examples
+
+        //Matcher class
+        returnMatches("[aeo]", "Java Tutorials");
+
+    }
+
+    private static List<String> returnMatches(String regex, String input) {
+        Pattern pattern = Pattern.compile(regex); // compile regex
+        Matcher matcher = pattern.matcher(input); // get matchers with current input
+        List<String> matches = new ArrayList<>();
+        while (matcher.find()) {
+            matches.add(matcher.group()); // add matchers to list
+        }
+        return matches;
+    }
+
+    private static void flags() {
+        Pattern p = Pattern.compile("the", Pattern.CASE_INSENSITIVE);
+        System.out.println("p.flags() = "+ p.flags());
     }
 
     private static void split() {
