@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 /**
  * {@link StringTokenizer} examples.
  */
-public class StringTokenizerExamples {
+public class ByStringTokenizer {
 
     public static void main(String[] args) {
 
