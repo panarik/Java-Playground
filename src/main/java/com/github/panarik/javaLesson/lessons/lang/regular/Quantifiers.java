@@ -1,30 +1,59 @@
 package com.github.panarik.javaLesson.lessons.lang.regular;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Quantifiers {
 
-    public static void main(String[] args) {
-        Quantifiers q = new Quantifiers();
+    private static String zeroOrOnce = "?"; // attempt to match the preceding token ZERO times or ONCE
+    private static String oneOrMore = "+"; //  attempt to match the preceding token ONE times or MANY. Try so many as can first.
+    private static String zeroOrMore = "*"; //  attempt to match the preceding token ZERO times or ONE or MANY. Try so many as can first.
 
-        //Предыдущий символ:
-        q.print("?", "a a a"); // либо входит в строку один раз либо вообще в неё не входит.
-        q.print("*", "aaa"); //        входит в строку любое число раз, в том числе и 0
-        q.print("+", "aaa"); //        входит в строку один и более число раз
-        q.print("{n}", "aaa"); //      входит в строку n раз
-        q.print("{n,}", "aaa"); //     входит в строку n и более количество раз
-        q.print("{n,m}", "aaa"); //    входит в строку от n до m раз
+    public static void main(String[] args) {
+
+        // '?'
+        returnMatches("colou?r", "colour or color");
+        returnMatches("Nov(ember)?", "November or Nov");
+        returnMatches(".?", "some string -123.50 US");
+        returnMatches("[-]?", "some string -123.50 US");
+        returnMatches("[-]?[0-9]?", "some string -123.50 US");
+
+        // '+'
+        returnMatches("\\d+", "Some string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches(".+", "Some string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+
+        // '*'
+        returnMatches("colou*r", "colour or color");
+
+
+//        returnMatches("*", "aaa"); //        входит в строку любое число раз, в том числе и 0
+//        returnMatches("{n}", "aaa"); //      входит в строку n раз
+//        returnMatches("{n,}", "aaa"); //     входит в строку n и более количество раз
+//        returnMatches("{n,m}", "aaa"); //    входит в строку от n до m раз
 
         // combine
     }
 
-    private void print(String regex, String inputLine) {
-        Scanner scanner = new Scanner(inputLine);
-        while (scanner.hasNext()) {
-            if (scanner.hasNext(regex)) {
-                System.out.println(scanner.next());
-            } else scanner.next();
+    private static List<String> returnMatches(String regex, String input) {
+        Pattern pattern = Pattern.compile(regex); // compile regex
+        Matcher matcher = pattern.matcher(input); // get matchers with current input
+        List<String> matches = new ArrayList<>();
+        while (matcher.find()) {
+            matches.add(matcher.group()); // add matchers to list
         }
+        System.out.println("Regex '" + regex + "' string '" + input + "': " + matches);
+        return matches;
+    }
+
+    private static String getFirstIndex(String regex, String input) {
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(input);
+        if (m.find()) {
+            System.out.println("Get first matches with '" + regex + "': '" + m.group(0) + "'.");
+            return m.group(0);
+        } else return "No match found";
     }
 
 }
