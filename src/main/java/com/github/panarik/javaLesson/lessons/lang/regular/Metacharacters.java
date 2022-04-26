@@ -19,27 +19,43 @@ public class Metacharacters {
     private static String first = "^"; // First characters in the line.
     private static String last = "$"; // Last characters in the line.
     private static String or = "|"; // the pipe using for 'or' expressions.
-    private static String combine = "(...)"; // Combine several expressions.
+    private static String parentheses = "(...)"; // Combine several expressions.
     private static String combineInsensitive = "(?i)()"; // Combine example: (?i)(the) - 'the' will be case insensitive.
 
     public static void main(String[] abc) {
 
-        // 1. Any '.'
-        returnMatches(".", "abc."); // using metacharacter '.'
-        returnMatches("53.254", "107.90.53.254"); // string literals
+        dotsExamples();
+        slashEx();
+        bracketEx();
+        lookahead();
+        parentheses();
 
-        // 2: ESCAPES '\'
-        // 2.1: Escape '.'
-        returnMatches("\\.", "abc."); // escaping metacharacter '.', will catch only dots.
-        returnMatches("\\.\\.\\.", "Blah blah ... blah blah");
-        returnMatches("...", "Blah blah ... blah blah"); // metacharacters grouping. Will grab 1-3 indexes, then next 3 indexes.
+        // First character '^'
+//        returnMatches("^", "Java Tutorials");
 
-        // 2.2: Escape '\'
-        returnMatches("\\\\java\\\\", "c:\\java\\"); // escaping '\java\'
+        // '|'
+        returnMatches("1|5", "1 2 3 4 5 6 7 8 9");
+    }
 
-        // 2.2: Escape expression
-        returnMatches("\\Q[41]\\E", "new int[41]"); // escaping '[41]' line
+    /**
+     * Parentheses for Grouping and Capturing.
+     */
+    private static void parentheses() {
+        // '()'
+        returnMatches("Set(Value)?", "Set SetValue Value");
+        returnMatches("Set(Value)??", "Set SetValue Value"); // Lazy
+        returnMatches("color=(red|green|blue)", "color=red color=green color=blue");
+        returnMatches("a(?<digit1>[0-5])|b(?<digit2>[4-7])", "a1 a2 a3 a4 a5 b1 b2 b3 b4 b5"); // Named
+    }
 
+    /**
+     * Positive and Negative Lookahead
+     */
+    private static void lookahead() {
+        returnMatches("q(?!u)", "Iraq uq qu");
+    }
+
+    private static void bracketEx() {
         // 3: Brackets '[]'
         // 3.1: Simple
         returnMatches("[aeou]", "Java Tutorials");
@@ -68,12 +84,27 @@ public class Metacharacters {
         returnMatches("[A-z&&[^aeiou]]", "Java Tutorials"); // Consonants only
         returnMatches("[A-z&&[^aeiou]]", "Java_[Tutorials]"); // Characters like '_' and '[' are exist inside A-z range!
         returnMatches("[a-z[A-Z]&&[^aeiou]]", "Java_[Tutorials]"); // Consonants only
+        returnMatches("q[^u]", "Iraq"); // need space after 'q' for matching
+    }
 
-        // 4. First character '^'
-//        returnMatches("^", "Java Tutorials");
+    private static void slashEx() {
+        // 2: ESCAPES '\'
+        // 2.1: Escape '.'
+        returnMatches("\\.", "abc."); // escaping metacharacter '.', will catch only dots.
+        returnMatches("\\.\\.\\.", "Blah blah ... blah blah");
+        returnMatches("...", "Blah blah ... blah blah"); // metacharacters grouping. Will grab 1-3 indexes, then next 3 indexes.
 
-        // '|'
-        returnMatches("1|5", "1 2 3 4 5 6 7 8 9");
+        // 2.2: Escape '\'
+        returnMatches("\\\\java\\\\", "c:\\java\\"); // escaping '\java\'
+
+        // 2.2: Escape expression
+        returnMatches("\\Q[41]\\E", "new int[41]"); // escaping '[41]' line
+    }
+
+    private static void dotsExamples() {
+        // 1. Any '.'
+        returnMatches(".", "abc."); // using metacharacter '.'
+        returnMatches("53.254", "107.90.53.254"); // string literals
     }
 
     private static List<String> returnMatches(String regex, String input) {

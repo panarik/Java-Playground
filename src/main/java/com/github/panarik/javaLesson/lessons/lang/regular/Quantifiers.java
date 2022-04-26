@@ -16,24 +16,24 @@ public class Quantifiers {
         // '?'
         returnMatches("colou?r", "colour or color");
         returnMatches("Nov(ember)?", "November or Nov");
+        returnMatches("Nov(ember)??", "November or Nov"); // Lazy.
         returnMatches(".?", "some string -123.50 US");
         returnMatches("[-]?", "some string -123.50 US");
         returnMatches("[-]?[0-9]?", "some string -123.50 US");
 
         // '+'
-        returnMatches("\\d+", "Some string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
-        returnMatches(".+", "Some string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches("\\d+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches(".+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches("[\\d.]+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches("[0-9]+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
+        returnMatches("([0-9])\\1+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // same numbers
 
         // '*'
         returnMatches("colou*r", "colour or color");
 
-
-//        returnMatches("*", "aaa"); //        входит в строку любое число раз, в том числе и 0
 //        returnMatches("{n}", "aaa"); //      входит в строку n раз
 //        returnMatches("{n,}", "aaa"); //     входит в строку n и более количество раз
 //        returnMatches("{n,m}", "aaa"); //    входит в строку от n до m раз
-
-        // combine
     }
 
     private static List<String> returnMatches(String regex, String input) {
