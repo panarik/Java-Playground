@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.regular;
+package com.github.panarik.javaLesson.lessons.lang.regex;
 
 import java.util.Scanner;
 

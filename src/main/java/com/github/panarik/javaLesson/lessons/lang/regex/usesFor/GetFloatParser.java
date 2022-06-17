@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.regular.usesFor;
+package com.github.panarik.javaLesson.lessons.lang.regex.usesFor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

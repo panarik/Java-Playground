@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.regular;
+package com.github.panarik.javaLesson.lessons.lang.regex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,18 +23,17 @@ public class Metacharacters {
     private static String combineInsensitive = "(?i)()"; // Combine example: (?i)(the) - 'the' will be case insensitive.
 
     public static void main(String[] abc) {
-
-        dotsExamples();
-        slashEx();
-        bracketEx();
-        lookahead();
+//        dotsExamples();
+//        slashEx();
+//        bracketEx();
+//        lookahead();
         parentheses();
 
         // First character '^'
 //        returnMatches("^", "Java Tutorials");
 
         // '|'
-        returnMatches("1|5", "1 2 3 4 5 6 7 8 9");
+//        returnMatches("1|5", "1 2 3 4 5 6 7 8 9");
     }
 
     /**
@@ -46,6 +45,7 @@ public class Metacharacters {
         returnMatches("Set(Value)??", "Set SetValue Value"); // Lazy
         returnMatches("color=(red|green|blue)", "color=red color=green color=blue");
         returnMatches("a(?<digit1>[0-5])|b(?<digit2>[4-7])", "a1 a2 a3 a4 a5 b1 b2 b3 b4 b5"); // Named
+        returnMatches("(\\d{1})(\\d{2})(\\d+)", "123456789");
     }
 
     /**
