@@ -1,11 +1,22 @@
-package com.github.panarik.javaLesson.lessons.lang.regex.usesFor;
+package com.github.panarik.javaLesson.lessons.lang.regex;
 
 /**
  * Class {@link String} method .replaceAll() examples.
+ * Class {@link String} method .matches() examples.
  */
-public class ByStringReplacement {
+public class ByString {
 
     public static void main(String[] args) {
+
+        // Replacement.
+        replacement();
+
+        // Matches
+        System.out.println("12345".matches("\\d+"));
+
+    }
+
+    private static void replacement() {
 
         // Replace with nothing.
         String input2 = "123 abc 123 abc";
