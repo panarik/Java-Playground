@@ -23,10 +23,11 @@ public class Metacharacters {
     private static String combineInsensitive = "(?i)()"; // Combine example: (?i)(the) - 'the' will be case insensitive.
 
     public static void main(String[] abc) {
-//        dotsExamples();
-//        slashEx();
-//        bracketEx();
-//        lookahead();
+        dotsExamples();
+        slashEx();
+        bracketEx();
+        lookahead();
+        lookBehind();
         parentheses();
 
         // First character '^'
@@ -45,14 +46,35 @@ public class Metacharacters {
         returnMatches("Set(Value)??", "Set SetValue Value"); // Lazy
         returnMatches("color=(red|green|blue)", "color=red color=green color=blue");
         returnMatches("a(?<digit1>[0-5])|b(?<digit2>[4-7])", "a1 a2 a3 a4 a5 b1 b2 b3 b4 b5"); // Named
-        returnMatches("(\\d{1})(\\d{2})(\\d+)", "123456789");
+        returnMatches("(\\d{1})-(\\d{2})-(\\d+)", "1-23-456789");
+        // '{}'
+        returnMatches(".{4}", "1234567890 abcd"); // [1234, 5678, 90 a] - returns groups with four characters.
     }
 
     /**
-     * Positive and Negative Lookahead
+     * If needed match something before character.
+     * Driver will check next character before checking current character.
      */
     private static void lookahead() {
+        System.out.println("\nLook ahead. (positive).");
+        returnMatches(".+?(?=;)", "Some string;");
+
+        System.out.println("\nLook ahead. (negative).");
         returnMatches("q(?!u)", "Iraq uq qu");
+    }
+
+    /**
+     * If needed match something after character.
+     * Driver will check previous character before checking current character.
+     */
+    private static void lookBehind() {
+
+        //positive
+        System.out.println("\nLook behind. (positive).");
+        returnMatches("(?<=;).+", "some ';string;"); // matches all after ';'.
+
+        // negative
+        System.out.println("\nLook behind. (negative)");
     }
 
     private static void bracketEx() {

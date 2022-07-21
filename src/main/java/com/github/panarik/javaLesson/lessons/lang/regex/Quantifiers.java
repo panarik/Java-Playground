@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Quantifiers {
 
-    private static String zeroOrOnce = "?"; // attempt to match the preceding token ZERO times or ONCE
+    private static String zeroOrOnce = "?"; // Make driver ungreedy. Trying to skip preceding token and check the next one.
     private static String oneOrMore = "+"; //  attempt to match the preceding token ONE times or MANY. Try so many as can first.
     private static String zeroOrMore = "*"; //  attempt to match the preceding token ZERO times or ONE or MANY. Try so many as can first.
 
@@ -15,8 +15,8 @@ public class Quantifiers {
 
         // '?'
         returnMatches("colou?r", "colour or color");
-        returnMatches("Nov(ember)?", "November or Nov");
-        returnMatches("Nov(ember)??", "November or Nov"); // Lazy.
+        returnMatches("Nov(ember)?", "November or Nov"); // [November, Nov]
+        returnMatches("Nov(ember)??", "November or Nov"); // Lazy: [Nov, Nov]
         returnMatches(".?", "some string -123.50 US");
         returnMatches("[-]?", "some string -123.50 US");
         returnMatches("[-]?[0-9]?", "some string -123.50 US");
@@ -29,11 +29,18 @@ public class Quantifiers {
         returnMatches("([0-9])\\1+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // same numbers
 
         // '*'
+        System.out.println("\n'*'");
         returnMatches("colou*r", "colour or color");
+        returnMatches("<abc>(.*?)<abc>", "<abc><abc>");
 
-//        returnMatches("{n}", "aaa"); //      входит в строку n раз
-//        returnMatches("{n,}", "aaa"); //     входит в строку n и более количество раз
-//        returnMatches("{n,m}", "aaa"); //    входит в строку от n до m раз
+        // '{}'
+        returnMatches("{1}", "aaa"); //      входит в строку n раз
+        returnMatches("{1,}", "aaa"); //     входит в строку n и более количество раз
+        returnMatches("{1,3}", "aaa"); //    входит в строку от n до m раз
+
+        // Combine
+        returnMatches("are (.+?),", "There are some string, is -123.50 US"); // un-greedy. Goes until ','
+
     }
 
     private static List<String> returnMatches(String regex, String input) {

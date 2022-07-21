@@ -11,12 +11,12 @@ public class ByPatternMatcher {
     public static void main(String[] args) {
 
         //Pattern class
-//        returnIndex(); // Method '.start()' examples
-//        matches(); //     Method '.matches(String regex, CharSequence input)' examples
-//        pattern(); //     Method '.pattern()' examples
-//        quote(); //       Method '.quote()' examples
-//        split(); //       Method '.split(CharSequence input)' examples
-//        flags(); //       Method '.flags()' examples
+        returnIndex(); // Method '.start()' examples
+        matches(); //     Method '.matches(String regex, CharSequence input)' examples
+        pattern(); //     Method '.pattern()' examples
+        quote(); //       Method '.quote()' examples
+        split(); //       Method '.split(CharSequence input)' examples
+        flags(); //       Method '.flags()' examples
 
         //Matcher class
         returnMatches("[aeo]", "Java Tutorials");
