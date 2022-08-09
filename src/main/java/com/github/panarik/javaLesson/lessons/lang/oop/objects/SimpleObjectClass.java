@@ -17,10 +17,9 @@ public class SimpleObjectClass {
         System.out.println("Мое имя - " + person.name);
     }
 
-
     public static class Person {
-
         String name;
         int age;
     }
+
 }

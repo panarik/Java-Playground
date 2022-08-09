@@ -3,7 +3,7 @@ package com.github.panarik.javaLesson.lessons.multithreading.threads;
 public class ThreadsCreate {
 
     public static void main(String[] args) {
-        System.out.printf("Hello from Main. Thread is [%s]\n", Thread.currentThread().getName());
+        System.out.printf("Hello from com.github.panarik.javaLesson.work.leetcode.Main. Thread is [%s]\n", Thread.currentThread().getName());
 
         //первый вариант
         Thread myThread = new MyThread();

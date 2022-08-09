@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.oop.enumExample;
+package com.github.panarik.javaLesson.lessons.lang.enumExample;
 
 public enum WeekDayNumber {
     MONDAY(1, "Понедельник"),

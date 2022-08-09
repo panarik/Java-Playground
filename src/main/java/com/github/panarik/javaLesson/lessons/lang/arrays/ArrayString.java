@@ -2,7 +2,6 @@ package com.github.panarik.javaLesson.lessons.lang.arrays;
 
 public class ArrayString {
 
-
     public static void main(String[] args) {
 
         String[] stringMassive = new String[5];
@@ -12,19 +11,12 @@ public class ArrayString {
         stringMassive[3] = "Alisa";
         stringMassive[4] = "Alla";
 
-        System.out.println("первая строка массива = " + stringMassive[0]);
-        System.out.println("длина массива = " + stringMassive.length);
+        System.out.println("First string in array = " + stringMassive[0]);
+        System.out.println("Array length = " + stringMassive.length);
 
         for (int i = 0; i < stringMassive.length; i++) {
-            System.out.println("элемент массива №"+(i+1)+" = "+stringMassive[i]);
+            System.out.println("Array element №" + (i + 1) + " = " + stringMassive[i]);
         }
-
-
-            String[] stringMassive2 = {"Anna", "Viktoria", "Vera", "Alisa", "Alla"};
-        System.out.println(stringMassive2[0]);
-
-
     }
-
 
 }

@@ -9,80 +9,89 @@ public class ListExample {
 
     public static void main(String[] args) {
 
+        addingEx();
+        iterateEx();
         sort();
-        //another();
+
     }
 
-    private static void another() {
-        //список со строками
+    private static void addingEx() {
+
+        // Create empty array list.
         List<String> list = new ArrayList<>();
 
-        //дополняем список данными
+        // Adding some elements to end position.
         list.add("January");
         list.add("January");
         list.add("February");
         list.add("March");
-        list.add(2, "Insert into index 2");
-        //добавить другой список
-        list.addAll(Arrays.asList("Первый", "Второй", "Третий"));
-        //заменить элемент
-        list.set(2, "Заменили в index_2");
-        //удалить элемент
-        list.remove("March");
-        //выводим
-        System.out.println("Выводим список: " + list);
-        System.out.println("Выводим первый элемент списка: " + list.get(0));
-        System.out.println("Выводим длину списка: " + list.size());
-        System.out.println("Ищем January: " + list.contains("January"));
-        System.out.println("Ищем индекс January: " + list.indexOf("January"));
-        System.out.println("Ищем последний индекс January: " + list.lastIndexOf("January"));
 
-        //второй вариант
+        // Add element to exact position. All bottom positions will be moved down.
+        list.add(2, "Insert into index 2");
+
+        // Add another ArrayList.
+        list.addAll(Arrays.asList("First", "Second", "Third"));
+
+        // Set element to exact position.
+        // This element will replace existing element at the same position.
+        list.set(2, "Set to index_2");
+
+        // Delete element.
+        list.remove("March");
+
+        // Print
+        System.out.println("Show whole list: " + list);
+        System.out.println("Show first element: " + list.get(0));
+        System.out.println("Show list length: " + list.size());
+        System.out.println("Looking 'January' exist on the list or not: " + list.contains("January"));
+        System.out.println("Looking index of 'January' if exist: " + list.indexOf("January"));
+        System.out.println("Looking last index of 'January' if exist: " + list.lastIndexOf("January"));
+
+        //List with objects.
         List<Box> boxes = List.of(
                 new Box(15),
                 new Box(35),
                 new Box(-5)
         );
         System.out.println("Get boxes: " + boxes);
+    }
 
-        //проходим по списку
-        for (int i = 0; i < list.size(); i++) System.out.printf("Запись с индексом %s: %s\n", i, list.get(i));
+    private static void iterateEx() {
+        List<String> list = new ArrayList<>();
+        list.add("January");
+        list.add("January");
+
+        // List loop.
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("Запись с индексом " + i + ": " + list.get(i) + ".");
+        }
         for (String s : list) System.out.println(s);
 
-        //проходим итератором
-        Iterator iterator = list.iterator();
+        // Iterate with deleting.
+        Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.println("Удаляем элемент: " + iterator.next()); //какой элемент проходим
-            iterator.remove(); //удаляем этот элемент
+            System.out.println("Will delete element: " + iterator.next());
+            iterator.remove(); // Delete element.
         }
-        System.out.println("Список после удаления: " + list);
+        System.out.println("Show result list: " + list);
 
-        // Проходим другим итератором.
+        // Iterate with adding.
         list.add("first");
-        ListIterator iterator1 = list.listIterator();
+        ListIterator<String> iterator1 = list.listIterator();
         while (iterator1.hasNext()) {
-            iterator1.add("Добавили итератором");
-            System.out.println("Есть ли предыдущий элемент: " + iterator1.hasPrevious());
-            System.out.println(list);
+            iterator1.add("Element adding by iterator"); // Adding this element with places before than place .hasNext() element.
+            System.out.println("Have any previous element: " + iterator1.hasPrevious());
+
+            // Adding before rich the list size.
+            if (list.size() > 5) break;
         }
+        System.out.println(list);
         list.clear();
 
-        //проходим методом forEach()
+        //Loop via forEach().
         list.add("First");
         list.add("Second");
-        list.forEach(new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                System.out.println("элемент: " + s);
-            }
-        });
-
-        //другой тип списка
-        LinkedList<Box> linkedList = new LinkedList<>();
-        linkedList.addFirst(new Box(1));
-        linkedList.addFirst(new Box(10));
-        linkedList.addFirst(new Box(50));
-        System.out.println(linkedList.peekFirst());
+        list.forEach(s -> System.out.println("элемент: " + s));
     }
 
     private static void sort() {
@@ -130,8 +139,7 @@ public class ListExample {
                 String string2 = builder2.toString();
                 long2 = Long.parseLong(string2);
                 long resultLong = long2 - long1;
-                int result = (int) resultLong;
-                return result;
+                return (int) resultLong;
             }
         });
         System.out.println(list);
@@ -145,23 +153,13 @@ public class ListExample {
 
     private static void sortByLengthDecrese(ArrayList<String> list) {
         //сортируем по длине строки (по убыванию)
-        list.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o2.length() - o1.length();
-            }
-        });
+        list.sort((o1, o2) -> o2.length() - o1.length());
         System.out.println(list);
     }
 
     private static void sortByLengthIncrese(ArrayList<String> list) {
         //сортируем по длине строки (по возрастанию)
-        list.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
+        list.sort(Comparator.comparingInt(String::length));
         System.out.println(list);
     }
 

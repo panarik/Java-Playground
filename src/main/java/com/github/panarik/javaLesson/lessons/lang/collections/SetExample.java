@@ -11,14 +11,15 @@ public class SetExample {
     }
 
     private static void setExample() {
-        //не хранит дубликаты
-        //не хранит порядок добавления элементов
+
+        // Create.
         Set<String> set = new HashSet<>();
+
         set.add("January");
         set.add("February");
         set.add("March");
-        set.add("March");
-        System.out.println("Выводим список set: " + set);
+        set.add("March"); // will replace existing value.
+        System.out.println("Show set: " + set);
 
         Set<Box> boxSet = new HashSet<>();
         boxSet.add(new Box(1, 1));

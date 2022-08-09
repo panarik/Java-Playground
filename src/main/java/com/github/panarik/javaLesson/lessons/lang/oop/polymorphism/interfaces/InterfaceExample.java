@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.lang.oop.interfaces;
+package com.github.panarik.javaLesson.lessons.lang.oop.polymorphism.interfaces;
 
 public class InterfaceExample {
 

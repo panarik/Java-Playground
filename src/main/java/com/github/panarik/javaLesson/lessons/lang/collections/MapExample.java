@@ -6,37 +6,37 @@ public class MapExample {
 
     public static void main(String[] args) {
 
-        //Список (ключ, значение)
-        //Ключ должен быть уникальным
-        //не хранит порядок добавления элементов
+        // Create map.
         Map<String, Integer> map = new HashMap<>();
         map.put("One", 111);
-        map.put("One", 111111); //перезаписывает
-        map.putIfAbsent("One", 222222); //перезаписывает если пусто
+        map.put("One", 111111); // Will replace value at the same key.
+        map.putIfAbsent("One", 222222); // Will replace only EMPTY value at the same key.
         map.put("Two", 222);
         map.put("Three", 333);
         map.put("Four", 333);
 
-        System.out.println("Вывести список: " + map);
-        System.out.println("Найти элемент: " + map.get("Two"));
-        System.out.println("Найти элемент или вывести default: " + map.getOrDefault("Two1", 0));
+        // Get map values.
+        System.out.println("How map: " + map);
+        System.out.println("Looking value from map using key 'Two': " + map.get("Two"));
+        System.out.println("Looking value from map using key 'Two1' or return default value: " + map.getOrDefault("Two1", 0));
 
-        //вывести ключи
+        // Get map keys set.
         Set<String> keys = map.keySet();
-        System.out.println("Вывести ключи: "+keys);
+        System.out.println("Get keys set: " + keys);
 
-        //вывести значения
+        // Get map values set.
         Collection<Integer> values = map.values();
-        System.out.println(values);
+        System.out.println("Get values set: " + values);
 
-        //проходим с помощью метода
+        // Map looping.
         map.forEach((k, v) -> System.out.println(k + " " + v));
 
-        //Проходим с помощью for
+        // Map looping 2.
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println("Ключ: "+entry.getKey());
-            System.out.println("Значение: "+entry.getValue());
+            System.out.println("key: " + entry.getKey());
+            System.out.println("value: " + entry.getValue());
         }
+
     }
 
 }
