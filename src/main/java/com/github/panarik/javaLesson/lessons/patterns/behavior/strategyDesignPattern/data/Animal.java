@@ -14,4 +14,5 @@ public class Animal {
     public void setFlyAbility(Flyable flyType) {
         this.flyType = flyType;
     }
+
 }
