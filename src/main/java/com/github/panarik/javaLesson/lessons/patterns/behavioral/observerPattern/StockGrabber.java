@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.patterns.behavior.observerPattern;
+package com.github.panarik.javaLesson.lessons.patterns.behavioral.observerPattern;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.patterns.behavior.observerPattern;
+package com.github.panarik.javaLesson.lessons.patterns.behavioral.observerPattern;
 
 /**
  * This class will grab stocks.

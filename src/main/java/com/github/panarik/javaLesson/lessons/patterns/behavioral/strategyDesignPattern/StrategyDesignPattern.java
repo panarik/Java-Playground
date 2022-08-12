@@ -1,10 +1,10 @@
-package com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern;
+package com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern;
 
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.Animal;
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.Bird;
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.Dog;
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.flyable.CantFly;
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.flyable.ItFlys;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.Animal;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.Bird;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.Dog;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable.CantFly;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable.ItFlys;
 
 public class StrategyDesignPattern {
 

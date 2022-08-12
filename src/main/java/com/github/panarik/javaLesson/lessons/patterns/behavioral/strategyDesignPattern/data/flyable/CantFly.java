@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.flyable;
+package com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable;
 
 /**
  * This class provides lack of ability to fly.

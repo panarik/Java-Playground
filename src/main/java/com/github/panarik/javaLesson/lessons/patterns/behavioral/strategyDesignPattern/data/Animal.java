@@ -1,6 +1,6 @@
-package com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data;
+package com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data;
 
-import com.github.panarik.javaLesson.lessons.patterns.behavior.strategyDesignPattern.data.flyable.Flyable;
+import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable.Flyable;
 
 public class Animal {
 
