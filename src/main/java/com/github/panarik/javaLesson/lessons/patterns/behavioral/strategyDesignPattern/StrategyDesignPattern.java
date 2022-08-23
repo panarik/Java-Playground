@@ -6,6 +6,9 @@ import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignP
 import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable.CantFly;
 import com.github.panarik.javaLesson.lessons.patterns.behavioral.strategyDesignPattern.data.flyable.ItFlys;
 
+/**
+ * Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+ */
 public class StrategyDesignPattern {
 
     public static void main(String[] args) {
