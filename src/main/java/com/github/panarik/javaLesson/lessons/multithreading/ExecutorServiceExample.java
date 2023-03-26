@@ -50,7 +50,7 @@ public class ExecutorServiceExample {
             service.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.printf("Task %d started. Thread name %s\n", current, Thread.currentThread());
+                    System.out.printf("Job %d started. Thread name %s\n", current, Thread.currentThread());
                     try {
                         Thread.sleep((long) (200 + 1500 * Math.random()));
                     } catch (InterruptedException e) {

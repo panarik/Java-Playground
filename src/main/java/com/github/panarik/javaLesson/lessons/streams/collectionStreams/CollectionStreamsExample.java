@@ -48,6 +48,12 @@ public class CollectionStreamsExample {
     }
 
 
+    /**
+     * Stream filter example.
+     * @param persons
+     * @param gender
+     * @return
+     */
     private static List<Person> filter(List<Person> persons, Gender gender) {
         return persons.stream() // Get stream API.
                 .filter((person -> person.getGender().equals(gender))) // Filter each Person from list.

@@ -29,8 +29,9 @@ public class RunTests {
                 //before
                 if (method.isAnnotationPresent(BeforeMySuite.class)) {
                     method.setAccessible(true);
-                    method.invoke(object, null);
+                    method.invoke(object, (Object) null);
                 }
+
                 //tests
                 //ToDo: do tests
 
