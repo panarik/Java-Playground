@@ -1,6 +1,6 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices.AbstractDevice;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices.AbstractDevice;
 
 /**
  * Defines TV remote control button with action 'Mute TV'.

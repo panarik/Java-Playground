@@ -1,8 +1,8 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.songComponents.Song;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.songComponents.SongComponent;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.songComponents.SongGroup;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne.songComponents.Song;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne.songComponents.SongComponent;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne.songComponents.SongGroup;
 
 public class CompositePatternExample {
 

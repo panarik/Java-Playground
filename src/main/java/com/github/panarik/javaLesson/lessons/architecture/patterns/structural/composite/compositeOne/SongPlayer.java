@@ -1,6 +1,6 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.songComponents.SongComponent;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne.songComponents.SongComponent;
 
 /**
  * Defines song player which use list of {@link SongComponent}.

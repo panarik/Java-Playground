@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices;
 
 
 /**

@@ -1,11 +1,11 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices.DVDDevice;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices.TVDevice;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers.AbstractRemoteController;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers.DVDRemote;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers.TVRemoteMute;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers.TVRemotePause;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices.DVDDevice;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices.TVDevice;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers.AbstractRemoteController;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers.DVDRemote;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers.TVRemoteMute;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers.TVRemotePause;
 
 /**
  * This class defines control system for any types of devices from any types of controllers.

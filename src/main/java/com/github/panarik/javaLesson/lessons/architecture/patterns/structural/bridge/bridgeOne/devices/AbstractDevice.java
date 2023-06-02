@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices;
 
 /**
  * Abstract device represents some TV or video player or media player or radio player e.t.c.

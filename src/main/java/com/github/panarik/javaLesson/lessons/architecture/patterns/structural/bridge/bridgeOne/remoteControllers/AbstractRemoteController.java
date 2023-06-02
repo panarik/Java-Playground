@@ -1,13 +1,16 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.remoteControllers;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.remoteControllers;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.devices.AbstractDevice;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.bridge.bridgeOne.devices.AbstractDevice;
 
 /**
  * Abstract device represents remote controller for any device.
  */
 public abstract class AbstractRemoteController {
 
-    AbstractDevice device; // Any device.
+    /**
+     * This is a bridge. This field provides any device to any controller.
+     */
+    AbstractDevice device;
 
     public AbstractRemoteController(AbstractDevice device) {
         this.device = device;

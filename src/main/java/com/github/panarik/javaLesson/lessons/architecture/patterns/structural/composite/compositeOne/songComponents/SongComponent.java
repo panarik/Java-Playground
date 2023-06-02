@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.songComponents;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.composite.compositeOne.songComponents;
 
 /**
  * Defines specific types of objects.

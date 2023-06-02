@@ -12,8 +12,7 @@ import com.github.panarik.javaLesson.lessons.architecture.patterns.creational.bu
 public class BuilderPatternExample {
 
     public static void main(String[] args) {
-        RobotBuilder builder = new OldRobotBuilder();
-        RobotEngineer engineer = new RobotEngineer(builder);
+        RobotEngineer engineer = new RobotEngineer(new OldRobotBuilder());
 
         engineer.installRobot();
         Robot robot = engineer.getRobot();
