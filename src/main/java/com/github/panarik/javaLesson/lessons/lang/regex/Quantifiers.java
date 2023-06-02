@@ -7,43 +7,48 @@ import java.util.regex.Pattern;
 
 public class Quantifiers {
 
-    private static String zeroOrOnce = "?"; // Make driver ungreedy. Trying to skip preceding token and check the next one.
+    private static String zeroOrOnce = "?"; // Zero or One. Make driver ungreedy. Trying to skip preceding token and check the next one.
     private static String oneOrMore = "+"; //  attempt to match the preceding token ONE times or MANY. Try so many as can first.
     private static String zeroOrMore = "*"; //  attempt to match the preceding token ZERO times or ONE or MANY. Try so many as can first.
 
     public static void main(String[] args) {
 
         // '?'
-        returnMatches("colou?r", "colour or color");
-        returnMatches("Nov(ember)?", "November or Nov"); // [November, Nov]
-        returnMatches("Nov(ember)??", "November or Nov"); // Lazy: [Nov, Nov]
-        returnMatches(".?", "some string -123.50 US");
-        returnMatches("[-]?", "some string -123.50 US");
-        returnMatches("[-]?[0-9]?", "some string -123.50 US");
+        matches("colou?r", "colour or color"); // [colour, color]
+        matches("Nov(ember)?", "November or Nov"); // [November, Nov]
+        matches("Nov(ember)??", "November or Nov"); // Lazy: [Nov, Nov]
+        matches(".?", "some string -123.50 US"); // [s, o, m, e,  , s, t, r, i, n, g,  , -, 1, 2, 3, ., 5, 0,  , U, S, ]
+        matches("[-]?", "some string -123.50 US"); // [, , , , , , , , , , , , -, , , , , , , , , , ]
+        matches("[-]?[0-9]?", "some string -123.50 US"); // [, , , , , , , , , , , , -1, 2, 3, , 5, 0, , , , ]
+        matches("([-])?([0-9])+", "some string -123.50 US"); // [-123, 50] Group at least one '-' and many as possible numbers.
 
         // '+'
-        returnMatches("\\d+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
-        returnMatches(".+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
-        returnMatches("[\\d.]+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
-        returnMatches("[0-9]+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.");
-        returnMatches("([0-9])\\1+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // same numbers
+        System.out.println("\n'+'");
+        matches("\\d+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // [1, 500, 100, 000, 10, 4, 0, 90]
+        matches(".+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // [string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.]
+        matches("[\\d.]+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // [1, 500, 100, 000, 10.4, 0.90, .]
+        matches("[1-9]+", "string with 1 or 5500 or 01100 000 or 10.4 or 0.90 numbers."); // [1, 55, 11, 1, 4, 9]
+        matches("([0-9])\\1+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // same numbers [00, 00, 000]
 
         // '*'
         System.out.println("\n'*'");
-        returnMatches("colou*r", "colour or color");
-        returnMatches("<abc>(.*?)<abc>", "<abc><abc>");
+        matches("colou*r", "colour or color"); // [colour, color]
+        matches("<abc>(.*?)<abc>", "<abc><abc> <abc>some text<abc>"); // [<abc><abc>, <abc>some text<abc>]
 
         // '{}'
-        returnMatches("{1}", "aaa"); //      входит в строку n раз
-        returnMatches("{1,}", "aaa"); //     входит в строку n и более количество раз
-        returnMatches("{1,3}", "aaa"); //    входит в строку от n до m раз
+        System.out.println("\n'{}'");
+        matches("a{1}", "aaa"); //      входит в строку n раз
+        matches("a{2,}", "aaa"); //     входит в строку n и более количество раз
+        matches("a{1,3}", "aaa"); //    входит в строку от n до m раз
+        matches("\\d{1,2} rings", "20 rings, 5 rings, 100 rings"); //    входит в строку от 1 до 2 раз
 
         // Combine
-        returnMatches("are (.+?),", "There are some string, is -123.50 US"); // un-greedy. Goes until ','
+        System.out.println("\n'Combine'");
+        matches("are (.+?),", "There are some string, is -123.50 US"); // un-greedy. Goes until ','
 
     }
 
-    private static List<String> returnMatches(String regex, String input) {
+    private static List<String> matches(String regex, String input) {
         Pattern pattern = Pattern.compile(regex); // compile regex
         Matcher matcher = pattern.matcher(input); // get matchers with current input
         List<String> matches = new ArrayList<>();

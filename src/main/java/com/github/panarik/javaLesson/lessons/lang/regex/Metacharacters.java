@@ -30,11 +30,11 @@ public class Metacharacters {
         lookBehind();
         parentheses();
 
-        // First character '^'
-//        returnMatches("^", "Java Tutorials");
+        System.out.println("\n'^'");
+        returnMatches("^", "Java Tutorials");
 
-        // '|'
-//        returnMatches("1|5", "1 2 3 4 5 6 7 8 9");
+        System.out.println("\n'|'");
+        returnMatches("I said (yes|no|maybe)", "I said yes");
     }
 
     /**
@@ -129,15 +129,14 @@ public class Metacharacters {
         returnMatches("53.254", "107.90.53.254"); // string literals
     }
 
-    private static List<String> returnMatches(String regex, String input) {
+    private static void returnMatches(String regex, String input) {
         Pattern pattern = Pattern.compile(regex); // compile regex
         Matcher matcher = pattern.matcher(input); // get matchers with current input
         List<String> matches = new ArrayList<>();
         while (matcher.find()) {
             matches.add(matcher.group()); // add matchers to list
         }
-        System.out.println("Regex '" + regex + "' string '" + input + "': " + matches);
-        return matches;
+        System.out.println(String.format("Regex:'%s'. Input:'%s'. Matches:%s.", regex, input, matches));
     }
 
 }
