@@ -3,7 +3,7 @@ package com.github.panarik.javaLesson.lessons.architecture.patterns.creational.s
 public class Singleton {
 
     public final String field = "Here is singleton field!";
-    private static Singleton instance;
+    private static volatile Singleton instance;
 
     private Singleton() {
     }
