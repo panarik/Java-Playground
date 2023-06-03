@@ -13,7 +13,6 @@ public class Quantifiers {
 
     public static void main(String[] args) {
 
-        // '?'
         matches("colou?r", "colour or color"); // [colour, color]
         matches("Nov(ember)?", "November or Nov"); // [November, Nov]
         matches("Nov(ember)??", "November or Nov"); // Lazy: [Nov, Nov]
@@ -22,7 +21,6 @@ public class Quantifiers {
         matches("[-]?[0-9]?", "some string -123.50 US"); // [, , , , , , , , , , , , -1, 2, 3, , 5, 0, , , , ]
         matches("([-])?([0-9])+", "some string -123.50 US"); // [-123, 50] Group at least one '-' and many as possible numbers.
 
-        // '+'
         System.out.println("\n'+'");
         matches("\\d+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // [1, 500, 100, 000, 10, 4, 0, 90]
         matches(".+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // [string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers.]
@@ -30,13 +28,12 @@ public class Quantifiers {
         matches("[1-9]+", "string with 1 or 5500 or 01100 000 or 10.4 or 0.90 numbers."); // [1, 55, 11, 1, 4, 9]
         matches("([0-9])\\1+", "string with 1 or 500 or 100 000 or 10.4 or 0.90 numbers."); // same numbers [00, 00, 000]
 
-        // '*'
         System.out.println("\n'*'");
         matches("colou*r", "colour or color"); // [colour, color]
         matches("<abc>(.*?)<abc>", "<abc><abc> <abc>some text<abc>"); // [<abc><abc>, <abc>some text<abc>]
 
-        // '{}'
         System.out.println("\n'{}'");
+        matches(".{4}", "1234567890 abcd"); // [1234, 5678, 90 a] - returns groups with four characters.
         matches("a{1}", "aaa"); //      входит в строку n раз
         matches("a{2,}", "aaa"); //     входит в строку n и более количество раз
         matches("a{1,3}", "aaa"); //    входит в строку от n до m раз

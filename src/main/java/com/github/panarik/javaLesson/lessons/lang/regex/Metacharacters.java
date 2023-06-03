@@ -31,24 +31,21 @@ public class Metacharacters {
         parentheses();
 
         System.out.println("\n'^'");
-        returnMatches("^", "Java Tutorials");
+        returnMatches(Pattern.compile("^"), "Java Tutorials");
 
         System.out.println("\n'|'");
-        returnMatches("I said (yes|no|maybe)", "I said yes");
+        returnMatches(Pattern.compile("I said (yes|no|maybe)"), "I said yes");
     }
 
     /**
-     * Parentheses for Grouping and Capturing.
+     * Parentheses '()' for Grouping and Capturing.
      */
     private static void parentheses() {
-        // '()'
-        returnMatches("Set(Value)?", "Set SetValue Value");
-        returnMatches("Set(Value)??", "Set SetValue Value"); // Lazy
-        returnMatches("color=(red|green|blue)", "color=red color=green color=blue");
-        returnMatches("a(?<digit1>[0-5])|b(?<digit2>[4-7])", "a1 a2 a3 a4 a5 b1 b2 b3 b4 b5"); // Named
-        returnMatches("(\\d{1})-(\\d{2})-(\\d+)", "1-23-456789");
-        // '{}'
-        returnMatches(".{4}", "1234567890 abcd"); // [1234, 5678, 90 a] - returns groups with four characters.
+        returnMatches(Pattern.compile("Set(Value)?"), "Set SetValue Value");
+        returnMatches(Pattern.compile("Set(Value)??"), "Set SetValue Value"); // Lazy
+        returnMatches(Pattern.compile("color=(red|green|blue)"), "color=red color=green color=blue");
+        returnMatches(Pattern.compile("a(?<digit1>[0-5])|b(?<digit2>[4-7])"), "a1 a2 a3 a4 a5 b1 b2 b3 b4 b5"); // Named
+        returnMatches(Pattern.compile("(\\d{1})-(\\d{2})-(\\d+)"), "1-23-456789");
     }
 
     /**
@@ -57,10 +54,10 @@ public class Metacharacters {
      */
     private static void lookahead() {
         System.out.println("\nLook ahead. (positive).");
-        returnMatches(".+?(?=;)", "Some string;");
+        returnMatches(Pattern.compile(".+?(?=;)"), "Some string;");
 
         System.out.println("\nLook ahead. (negative).");
-        returnMatches("q(?!u)", "Iraq uq qu");
+        returnMatches(Pattern.compile("q(?!u)"), "Iraq uq qu");
     }
 
     /**
@@ -71,7 +68,7 @@ public class Metacharacters {
 
         //positive
         System.out.println("\nLook behind. (positive).");
-        returnMatches("(?<=;).+", "some ';string;"); // matches all after ';'.
+        returnMatches(Pattern.compile("(?<=;).+"), "some ';string;"); // matches all after ';'.
 
         // negative
         System.out.println("\nLook behind. (negative)");
@@ -80,63 +77,62 @@ public class Metacharacters {
     private static void bracketEx() {
         // 3: Brackets '[]'
         // 3.1: Simple
-        returnMatches("[aeou]", "Java Tutorials");
-        returnMatches("f[oa]x", "fox animal or fax machine");
+        returnMatches(Pattern.compile("[aeou]"), "Java Tutorials");
+        returnMatches(Pattern.compile("f[oa]x"), "fox animal or fax machine");
 
         // 3.2: Negation
-        returnMatches("[^aoiu]", "Java Tutorials");
-        returnMatches("f[^ao]x", "fox animal or fax machine"); // none
+        returnMatches(Pattern.compile("[^aoiu]"), "Java Tutorials");
+        returnMatches(Pattern.compile("f[^ao]x"), "fox animal or fax machine"); // none
 
         // 3.3: Range
-        returnMatches("[a-d]", "Java Tutorials");
-        returnMatches("[1-5]", "1 times for 5$");
-        returnMatches("[^a-d]", "Java Tutorials");
+        returnMatches(Pattern.compile("[a-d]"), "Java Tutorials");
+        returnMatches(Pattern.compile("[1-5]"), "1 times for 5$");
+        returnMatches(Pattern.compile("[^a-d]"), "Java Tutorials");
 
         // 3.4: Unions OR
-        returnMatches("[aeou[0-9]]", "1 times for 5$");
-        returnMatches("[aeou0-9]", "1 times for 5$");
-        returnMatches("[a-z[A-z]]", "Java Tutorials");
-        returnMatches("[a-zA-z]", "Java Tutorials");
+        returnMatches(Pattern.compile("[aeou[0-9]]"), "1 times for 5$");
+        returnMatches(Pattern.compile("[aeou0-9]"), "1 times for 5$");
+        returnMatches(Pattern.compile("[a-z[A-z]]"), "Java Tutorials");
+        returnMatches(Pattern.compile("[a-zA-z]"), "Java Tutorials");
 
         // 3.5: Unions AND
-        returnMatches("[aeiou&&[ae]]", "Java Tutorials");
-        returnMatches("[0-9&&[4-6]]", "1 times for 5$");
+        returnMatches(Pattern.compile("[aeiou&&[ae]]"), "Java Tutorials");
+        returnMatches(Pattern.compile("[0-9&&[4-6]]"), "1 times for 5$");
 
         // 3.6: Unions SUBTRACTION
-        returnMatches("[A-z&&[^aeiou]]", "Java Tutorials"); // Consonants only
-        returnMatches("[A-z&&[^aeiou]]", "Java_[Tutorials]"); // Characters like '_' and '[' are exist inside A-z range!
-        returnMatches("[a-z[A-Z]&&[^aeiou]]", "Java_[Tutorials]"); // Consonants only
-        returnMatches("q[^u]", "Iraq"); // need space after 'q' for matching
+        returnMatches(Pattern.compile("[A-z&&[^aeiou]]"), "Java Tutorials"); // Consonants only
+        returnMatches(Pattern.compile("[A-z&&[^aeiou]]"), "Java_[Tutorials]"); // Characters like '_' and '[' are exist inside A-z range!
+        returnMatches(Pattern.compile("[a-z[A-Z]&&[^aeiou]]"), "Java_[Tutorials]"); // Consonants only
+        returnMatches(Pattern.compile("q[^u]"), "Iraq"); // need space after 'q' for matching
     }
 
     private static void slashEx() {
         // 2: ESCAPES '\'
         // 2.1: Escape '.'
-        returnMatches("\\.", "abc."); // escaping metacharacter '.', will catch only dots.
-        returnMatches("\\.\\.\\.", "Blah blah ... blah blah");
-        returnMatches("...", "Blah blah ... blah blah"); // metacharacters grouping. Will grab 1-3 indexes, then next 3 indexes.
+        returnMatches(Pattern.compile("\\."), "abc."); // escaping metacharacter '.', will catch only dots.
+        returnMatches(Pattern.compile("\\.\\.\\."), "Blah blah ... blah blah");
+        returnMatches(Pattern.compile("..."), "Blah blah ... blah blah"); // metacharacters grouping. Will grab 1-3 indexes, then next 3 indexes.
 
         // 2.2: Escape '\'
-        returnMatches("\\\\java\\\\", "c:\\java\\"); // escaping '\java\'
+        returnMatches(Pattern.compile("\\\\java\\\\"), "c:\\java\\"); // escaping '\java\'
 
         // 2.2: Escape expression
-        returnMatches("\\Q[41]\\E", "new int[41]"); // escaping '[41]' line
+        returnMatches(Pattern.compile("\\Q[41]\\E"), "new int[41]"); // escaping '[41]' line
     }
 
     private static void dotsExamples() {
         // 1. Any '.'
-        returnMatches(".", "abc."); // using metacharacter '.'
-        returnMatches("53.254", "107.90.53.254"); // string literals
+        returnMatches(Pattern.compile("."), "abc."); // using metacharacter '.'
+        returnMatches(Pattern.compile("53.254"), "107.90.53.254"); // string literals
     }
 
-    private static void returnMatches(String regex, String input) {
-        Pattern pattern = Pattern.compile(regex); // compile regex
+    private static void returnMatches(Pattern pattern, String input) {
         Matcher matcher = pattern.matcher(input); // get matchers with current input
         List<String> matches = new ArrayList<>();
         while (matcher.find()) {
             matches.add(matcher.group()); // add matchers to list
         }
-        System.out.println(String.format("Regex:'%s'. Input:'%s'. Matches:%s.", regex, input, matches));
+        System.out.println(String.format("Regex:'%s'. Input:'%s'. Matches:%s.", pattern.pattern(), input, matches));
     }
 
 }

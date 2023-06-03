@@ -25,21 +25,20 @@ public class Predefined {
     private static String endOfFile = "\\f"; // end of file
 
     public static void main(String[] args) {
-        returnMatches("\\d", "107.255.255.100");
-        returnMatches("\\D", "107.255.255.100");
+        matches("\\d", "107.255.255.100");
+        matches("\\D", "107.255.255.100");
 
-        returnMatches("\\s", "Java Tutorials\n");
-        returnMatches("\\S", "Java Tutorials\n");
+        matches("\\s", "Java Tutorials\n");
+        matches("\\S", "Java Tutorials\n");
 
-        returnMatches("\\w", "Page_no: 137");
-        returnMatches("\\W", "Page_no: 137");
+        matches("\\w", "Page_no: 137");
+        matches("\\W", "Page_no: 137");
+
+        matches("e\\b", "there some bit a code");
+        matches("e\\B", "there some bit a code");
     }
 
-    private static boolean matches(String line, String regex) {
-        return Pattern.matches(line, regex);
-    }
-
-    private static List<String> returnMatches(String regex, String input) {
+    private static void matches(String regex, String input) {
         Pattern pattern = Pattern.compile(regex); // compile regex
         Matcher matcher = pattern.matcher(input); // get matchers with current input
         List<String> matches = new ArrayList<>();
@@ -47,7 +46,6 @@ public class Predefined {
             matches.add(matcher.group()); // add matchers to list
         }
         System.out.println("Regex '" + regex + "' string '" + input + "': " + matches);
-        return matches;
     }
 
 }
