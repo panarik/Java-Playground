@@ -29,12 +29,16 @@ public class Metacharacters {
         lookahead();
         lookBehind();
         parentheses();
-
-        System.out.println("\n'^'");
-        returnMatches(Pattern.compile("^"), "Java Tutorials");
+        fromFirstToLastSymbol();
 
         System.out.println("\n'|'");
         returnMatches(Pattern.compile("I said (yes|no|maybe)"), "I said yes");
+    }
+
+    private static void fromFirstToLastSymbol() {
+        System.out.println("\n'^' and '$'");
+        returnMatches(Pattern.compile("^.+long.*$"), "I have symbols only before long"); // [I have symbols only before long]
+        returnMatches(Pattern.compile("^.+long.+$"), "I have symbols before long word and after."); // [I have symbols before long word and after.].
     }
 
     /**
