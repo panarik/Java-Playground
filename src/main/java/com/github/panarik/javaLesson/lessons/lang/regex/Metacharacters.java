@@ -37,8 +37,10 @@ public class Metacharacters {
 
     private static void fromFirstToLastSymbol() {
         System.out.println("\n'^' and '$'");
-        returnMatches(Pattern.compile("^.+long.*$"), "I have symbols only before long"); // [I have symbols only before long]
-        returnMatches(Pattern.compile("^.+long.+$"), "I have symbols before long word and after."); // [I have symbols before long word and after.].
+        returnMatches(Pattern.compile("^.+?secret.*$"), "I have symbols only before secret"); // [I have symbols only before long]
+        returnMatches(Pattern.compile(".+?secret.*"), "I have symbols only before secret"); // [I have symbols only before long]
+        returnMatches(Pattern.compile(".+?hidden.*"), "I have symbols only before long"); // []
+        returnMatches(Pattern.compile(".+?secret.+"), "I have symbols before secret word and after."); // [I have symbols before long word and after.].
     }
 
     /**
