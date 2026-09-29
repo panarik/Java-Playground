@@ -40,7 +40,4 @@ public class BoxNumbers<N extends Number> { //N либо Number, либо нас
         return Math.abs(this.avg() - another.avg()) < 0.0001;
     }
 
-    public boolean equalsByAvgSuper(BoxNumbers<? super Number> another) { //сравниваем с любыми данными класса Number или его РОДИТЕЛЕЙ
-        return Math.abs(this.avg() - another.avg()) < 0.0001;
-    }
 }

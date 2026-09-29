@@ -4,6 +4,7 @@ import com.github.panarik.javaLesson.lessons.lang.generic.model.Box;
 import com.github.panarik.javaLesson.lessons.lang.generic.model.BoxGeneric;
 import com.github.panarik.javaLesson.lessons.lang.generic.model.BoxNumbers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GenericExample {
@@ -37,12 +38,91 @@ public class GenericExample {
         System.out.println(boxF1.sum());
         System.out.println(boxI1.equalsByAvg(boxI2));
         System.out.println(boxI1.equalsByAvg1(boxF1));
+
+        //4. Неизвестный дженерик
+        printAll(List.of(1, 2, 3));
+        printAll(List.of("a", "b"));
+        printAll(List.of(1.5, 2.5));
+
+        // 5. Неизвестный наследник
+        // вызов — работает со всеми наследниками Number:
+        System.out.println(sum(List.of(1, 2, 3)));              // List<Integer>
+        System.out.println(sum(List.of(1.5, 2.5)));             // List<Double>
+        System.out.println(sum(List.of(1L, 2L, 3L)));           // List<Long>
+        System.out.println(sum(List.of(1f, 2f)));               // List<Float>
+
+        // 6. Неизвестный родитель
+        List<Number> numbers = new ArrayList<>();
+        fill(numbers); // ✅ Number — это super Integer
+
+        List<Object> objects = new ArrayList<>();
+        fill(objects); // ✅ Object — тоже super Integer
+
+        List<Integer> ints = new ArrayList<>();
+        fill(ints); // ✅ Integer — тривиально super себя
+    }
+
+    /**
+     * Метод реализующий неизвестный дженерик.
+     *
+     * @param list
+     */
+    public static void printAll(List<?> list) {
+        for (Object o : list) {
+            System.out.println(o);   // читать можно — но только как Object
+        }
+        // list.add("x");  // НЕЛЬЗЯ — компилятор не знает тип.
+        System.out.println(list.size()); //  Можно.
+    }
+
+    /**
+     * Метод реализующий неизвестного наследника от Number
+     *
+     * @param numbers
+     * @return
+     */
+    public static double sum(List<? extends Number> numbers) {
+        double total = 0;
+        for (Number n : numbers) {
+            total += n.doubleValue();   // ✅ читаем как Number
+        }
+        // numbers.add(5);       // ❌ НЕЛЬЗЯ
+        // numbers.add(5.0);     // ❌ НЕЛЬЗЯ
+        return total;
+    }
+
+    /**
+     * Неизвестный родитель Integer.
+     *
+     * @param list
+     */
+    public static void fill(List<? super Integer> list) {
+        list.add(1);            // ✅ писать можно (Integer — подходит под "super Integer")
+        list.add(2);
+        list.add(3);
+        // Integer x = list.get(0);  // ❌ читать как Integer нельзя — там может быть Object/Number
+        Object o = list.get(0);      // ✅ только как Object
     }
 
     //-------------------------------------------------------------------
-    // Метод с Generic
+
+    /**
+     * Метод с Generic
+     * <Z> - компилятор читает как параметр. Без него компилятор будет искать класс Z.
+     *
+     * @param list
+     * @param <Z>
+     * @return
+     */
     private static <Z> Z getFirstObject(List<Z> list) {
         return list.get(0);
     }
 
+    /**
+     * Так нельзя тк <> вообще не является допустимым синтаксисом.
+     * @param list
+     * @return
+     * @param <>
+     */
+    // private static <> Z getFirstObject(List<Z> list) { return list.get(0); }
 }
