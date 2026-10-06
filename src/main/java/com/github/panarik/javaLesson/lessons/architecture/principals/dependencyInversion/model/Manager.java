@@ -9,6 +9,16 @@ import com.github.panarik.javaLesson.lessons.architecture.principals.dependencyI
 import com.github.panarik.javaLesson.lessons.architecture.principals.dependencyInversion.model.task.Job;
 import com.github.panarik.javaLesson.lessons.architecture.principals.dependencyInversion.model.task.Task;
 
+/**
+ * Фабрика (composition root): единственное место в примере, где упоминаются конкретные классы.
+ * <p>
+ * Что показываем: DIP не означает, что оператор {@code new} запрещён совсем.
+ * Он означает, что создание конкретных реализаций должно быть собрано в одном месте,
+ * а бизнес-логика ({@code Job}) — зависеть только от абстракций.
+ * <p>
+ * Для чего нужно: весь «граф зависимостей» собирается здесь. Хотим OracleDB вместо SQLDB
+ * или SMS вместо Email — меняем ровно одну строку в этом классе, остальной код не трогаем.
+ */
 public class Manager {
 
     public static Person createPerson() {
@@ -17,7 +27,8 @@ public class Manager {
 
     public static Task createJob() {
         Messenger messenger = createMessenger();
-        DataBaseProvider dataBase =createDataBase();
+        DataBaseProvider dataBase = createDataBase();
+        // Job получает реализации снаружи и не знает, что это именно SQLDB и Email.
         return new Job(dataBase, messenger);
     }
 
@@ -28,6 +39,5 @@ public class Manager {
     private static DataBaseProvider createDataBase() {
         return new SQLDB();
     }
-
 
 }
