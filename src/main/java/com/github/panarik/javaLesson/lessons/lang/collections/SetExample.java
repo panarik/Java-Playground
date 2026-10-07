@@ -18,6 +18,7 @@ public class SetExample {
         set.add("January");
         set.add("February");
         set.add("March");
+        set.add("March");
         set.add("March"); // will replace existing value.
         System.out.println("Show set: " + set);
 
@@ -62,6 +63,8 @@ public class SetExample {
         threeSet.add(new BoxForTree(1, 1));
         threeSet.add(new BoxForTree(3, 3));
         threeSet.add(new BoxForTree(3, 3));
+        threeSet.add(new BoxForTree(3, 3));
+        System.out.println("TreeSet вывод на экран:");
         System.out.println(threeSet);
     }
 

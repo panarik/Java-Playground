@@ -1,4 +1,4 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.behindOperations;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.bank.behindOperations;
 
 /**
  * This class represents some behind operations with account.

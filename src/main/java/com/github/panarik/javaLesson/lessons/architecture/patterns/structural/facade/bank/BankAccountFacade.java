@@ -1,8 +1,8 @@
-package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade;
+package com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.bank;
 
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.behindOperations.AccountCheck;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.behindOperations.FundsCheck;
-import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.behindOperations.PasswordCheck;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.bank.behindOperations.AccountCheck;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.bank.behindOperations.FundsCheck;
+import com.github.panarik.javaLesson.lessons.architecture.patterns.structural.facade.bank.behindOperations.PasswordCheck;
 
 public class BankAccountFacade {
 
