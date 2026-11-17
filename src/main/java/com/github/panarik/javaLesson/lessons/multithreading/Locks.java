@@ -6,24 +6,28 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Locks {
 
+    String description = "empty";
+
     public static void main(String[] args) {
 
-//        simpleLock();
-//        tryLock();
-//        reentrantReadWriteLock();
+        //simpleLock();
+        //tryLock();
+        new Locks().reentrantReadWriteLock();
+
 
 
 
     }
 
-    private static void reentrantReadWriteLock() {
+    private void reentrantReadWriteLock() {
+
         ReentrantReadWriteLock rrwl = new ReentrantReadWriteLock();
 
         //1ый поток - читает
         new Thread(()-> {
             try {
                 rrwl.readLock().lock();
-                System.out.println("Start READ 1");
+                System.out.println("Start READ 1. Value is = "+ description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -37,7 +41,7 @@ public class Locks {
         new Thread(()-> {
             try {
                 rrwl.readLock().lock();
-                System.out.println("Start READ 2");
+                System.out.println("Start READ 2. Value is = "+description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -51,7 +55,7 @@ public class Locks {
         new Thread(()-> {
             try {
                 rrwl.readLock().lock();
-                System.out.println("Start READ 3");
+                System.out.println("Start READ 3. Value is = "+description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -65,7 +69,8 @@ public class Locks {
         new Thread(()-> {
             try {
                 rrwl.writeLock().lock();
-                System.out.println("Start WRITE 4");
+                description = "со второго потока";
+                System.out.println("Start WRITE 4. Value changed. Value is"+description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -79,7 +84,7 @@ public class Locks {
         new Thread(()-> {
             try {
                 rrwl.readLock().lock();
-                System.out.println("Start READ 5");
+                System.out.println("Start READ 5. Value is = "+description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -93,7 +98,8 @@ public class Locks {
         new Thread(()-> {
             try {
                 rrwl.writeLock().lock();
-                System.out.println("Start WRITE 6");
+                description = "из шестого потока";
+                System.out.println("Start WRITE 6. Value is = "+description);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -123,19 +129,19 @@ public class Locks {
 
         //2ой поток пытается занять
         new Thread(() -> {
-            System.out.println("Before lock 1");
+            System.out.println("Before lock 2");
             //проверяем свободен ли замок
             if (lock.tryLock()) {
                 try {
-                    System.out.println("Lock 1 got");
+                    System.out.println("Lock 2 got");
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     lock.unlock();
-                    System.out.println("Lock 1 released");
+                    System.out.println("Lock 2 released");
                 }
-            } else System.out.println("Lock 1 is busy. Do something else");
+            } else System.out.println("From 2 lock: Lock 1 is busy. Do something else");
         }).start();
     }
 
@@ -147,6 +153,7 @@ public class Locks {
             System.out.println("Before lock 1");
             try {
                 lock.lock();
+                ///
                 System.out.println("Lock 1 got");
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -156,11 +163,13 @@ public class Locks {
                 System.out.println("Lock 1 released");
             }
         }).start();
+
         //2ой поток
         new Thread(() -> {
             System.out.println("Before lock 2");
             try {
                 lock.lock();
+                ///
                 System.out.println("Lock 2 got");
                 Thread.sleep(3000);
             } catch (InterruptedException e) {

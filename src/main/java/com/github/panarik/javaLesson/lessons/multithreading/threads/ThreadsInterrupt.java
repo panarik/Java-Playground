@@ -4,8 +4,9 @@ public class ThreadsInterrupt {
 
     public static void main(String[] args) throws InterruptedException {
 
-        //первый вариант
-        //daemon1();
+        // первый вариант. Поток - демон.
+        // Этот поток фоновый, его не жалко.
+        daemon1();
 
         //второй вариант
         //daemon2();
