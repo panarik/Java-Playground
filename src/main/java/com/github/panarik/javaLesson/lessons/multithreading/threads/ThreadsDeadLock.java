@@ -2,6 +2,7 @@ package com.github.panarik.javaLesson.lessons.multithreading.threads;
 
 public class ThreadsDeadLock {
 
+    static String commonData = "common";
 
     private static Object mon1 = new Object();
     private static Object mon2 = new Object();
@@ -16,9 +17,10 @@ public class ThreadsDeadLock {
     private static void doA() {
         try {
             synchronized (mon1) {
-                System.out.println("Do AAA");
+                System.out.println("Do AAA..");
                 Thread.sleep(2000);
                 doB();
+                System.out.println("Используем данные: " + commonData);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -28,9 +30,10 @@ public class ThreadsDeadLock {
     private static void doB() {
         try {
             synchronized (mon2) {
-                System.out.println("Do BBB");
+                System.out.println("Do BBB..");
                 Thread.sleep(2000);
                 doA();
+                System.out.println("Используем данные: " + commonData);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

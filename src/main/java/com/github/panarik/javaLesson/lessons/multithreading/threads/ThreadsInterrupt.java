@@ -4,15 +4,24 @@ public class ThreadsInterrupt {
 
     public static void main(String[] args) throws InterruptedException {
 
-        //первый вариант
-        //daemon1();
+        // первый вариант. Поток - демон.
+        // Этот поток фоновый, его не жалко.
+        // поток-демон. Его никто не останавливает, он умирает вместе с JVM.
+        // Почему программа завершается:
+        // - Правило JVM: программа живёт, пока жив хотя бы один обычный (не демон) поток. Демоны не в счёт.
+        // - Когда main закончился, обычных потоков не осталось, и JVM завершается:
+        //     - убивает демона на полуслове.
+        //     - Ни catch, ни finally у него не выполнятся.
+        daemon();
 
-        //второй вариант
-        //daemon2();
+        // Второй вариант
+        // Обычный поток, останавливаем через interrupt().
+        // Поток сам проверяет флаг прерывания и корректно выходит из цикла.
+        // regularThread();
 
     }
 
-    private static void daemon2() throws InterruptedException {
+    private static void regularThread() {
 
         Thread t = new Thread(() -> {
             try {
@@ -28,12 +37,16 @@ public class ThreadsInterrupt {
 
         });
         t.start();
-        Thread.sleep(5000);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            System.out.println("всё ок");
+        }
         t.interrupt();
         System.out.println("Finished");
     }
 
-    private static void daemon1() throws InterruptedException {
+    private static void daemon() throws InterruptedException {
 
         Thread t = new Thread(() -> {
             while (true) {
@@ -47,11 +60,10 @@ public class ThreadsInterrupt {
                 }
             }
         });
-        t.setDaemon(true);
+        t.setDaemon(true); // можно попробовать убрать и посмотреть что будет.
         t.start();
         Thread.sleep(5000);
         System.out.println("Finished");
-
     }
 
 }
